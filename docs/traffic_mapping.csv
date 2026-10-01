@@ -1,0 +1,3 @@
+pcap_file,traffic_type,device_id,device_type,mqtt_topic,source_ip,destination_ip,destination_port
+normal_temperature_motion_001.pcapng,Normal,temp_01,temperature_sensor,iot/temperature,::1,::1,1883
+normal_temperature_motion_001.pcapng,Normal,motion_01,motion_sensor,iot/motion,::1,::1,1883
