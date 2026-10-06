@@ -1,0 +1,8 @@
+scenario_id,device_id,state_or_transition,event,behavior,expected_traffic,attack_status
+S01,temp_01,INIT_to_CONNECTED,connect,MQTT connection established,MQTT CONNECT,Normal
+S02,temp_01,CONNECTED_to_GENERATE_DATA,timer_expired,Publishing interval reached,None,Normal
+S03,temp_01,GENERATE_DATA_to_PUBLISH_DATA,data_generated,Temperature value generated,MQTT PUBLISH to iot/temperature,Normal
+S04,temp_01,PUBLISH_DATA_to_WAIT_TIMER,publish_success,Temperature message published,MQTT PUBLISH,Normal
+S05,temp_01,WAIT_TIMER_to_GENERATE_DATA,timer_expired,Next publishing interval reached,None,Normal
+S06,temp_01,PUBLISH_DATA_to_ANOMALOUS,unexpected_message,Unexpected communication observed,Abnormal MQTT traffic,Abnormal
+S07,temp_01,ANY_to_DISCONNECTED,disconnect,Device disconnects,MQTT DISCONNECT,Normal
