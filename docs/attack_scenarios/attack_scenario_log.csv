@@ -1,2 +1,3 @@
 scenario_id,attack_label,simulation_type,device_id,device_type,mqtt_topic,client_id,expected_behavior,observed_behavior,capture_file,status
 ATK-REPLAY-001,Replay,Application-level replay-like simulation,temp_01,temperature_sensor,iot/temperature,replay_attack_client,Previously recorded payload published repeatedly,Five identical temperature payloads published and observed in MQTT subscriber,replay_temperature_001.pcapng,Verified
+ATK-FALSIFY-001,Data Falsification,Controlled altered-payload simulation,temp_01,temperature_sensor,iot/temperature,data_falsification_client,Deliberately altered temperature values published,Five altered temperature values published and received by MQTT subscriber,data_falsification_temperature_001.pcapng,Verified
