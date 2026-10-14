@@ -188,8 +188,7 @@ sensor model:
 | Replay-like | Repeated identical payloads | repeated_payload_detected |
 | Data falsification | Altered temperature values | invalid_or_unexpected_value |
 | Controlled message manipulation | Original and modified values differ | message_value_changed |excessive_publish_rate |
-| Battery-draining-like | Publishing rate exceeds the normal interval | 
-
+| Battery-draining-like | Publishing rate exceeds the normal interval |
 These mappings describe intended abnormal behaviors. The current
 EFSM implementation does not yet automatically detect all four
 conditions. Detection logic and transition validation must be implemented
