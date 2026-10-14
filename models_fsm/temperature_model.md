@@ -177,3 +177,25 @@ generation stage.
                 ┌──────────────┐
                 │ DISCONNECTED │
                 └──────────────┘
+
+## 13. Attack Scenario Mapping
+
+The following controlled simulations are associated with the temperature
+sensor model:
+
+| Scenario | Observable behavior | Model event |
+|---|---|---|
+| Replay-like | Repeated identical payloads | repeated_payload_detected |
+| Data falsification | Altered temperature values | invalid_or_unexpected_value |
+| Controlled message manipulation | Original and modified values differ | message_value_changed |excessive_publish_rate |
+| Battery-draining-like | Publishing rate exceeds the normal interval | 
+
+These mappings describe intended abnormal behaviors. The current
+EFSM implementation does not yet automatically detect all four
+conditions. Detection logic and transition validation must be implemented
+and tested separately.
+
+The message-manipulation simulation is an application-level controlled
+experiment, not a verified network-path man-in-the-middle attack.
+The high-frequency publishing simulation measures communication activity,
+not physical battery depletion.
