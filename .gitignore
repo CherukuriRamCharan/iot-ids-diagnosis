@@ -45,3 +45,5 @@ data/base_paper/all_packet_features_iat.csv
 
 # Salesforce CLI local files
 .sf/
+data/base_paper/iot-network-intrusion-dataset_190919.zip
+data/base_paper/sample_features.csv
