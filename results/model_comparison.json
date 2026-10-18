@@ -1,0 +1,193 @@
+{
+  "note": "Accuracy scores from different models are not directly comparable. Binary RF uses a 2-class task; 5-class models use a 5-class task. Test splits differ in size and composition.",
+  "models": [
+    {
+      "model": "RF_binary",
+      "task": "binary packet classification: benign vs attack",
+      "n_features": 9,
+      "accuracy": 0.9608,
+      "macro_f1": 0.7784,
+      "macro_precision": 0.7043,
+      "macro_recall": 0.9701,
+      "weighted_f1": 0.9685,
+      "split_method": "attack captures held out by capture; benign split within the sole benign capture",
+      "best_val_loss": null,
+      "best_val_acc": null,
+      "per_class": {
+        "benign": {
+          "precision": 0.40913835092195294,
+          "recall": 0.98,
+          "f1": 0.5772723553955658,
+          "support": 3600.0
+        },
+        "attack": {
+          "precision": 0.9994161010145245,
+          "recall": 0.9602982888133903,
+          "f1": 0.9794667800557143,
+          "support": 128332.0
+        }
+      },
+      "limitations": [
+        "Only one benign capture is available; benign testing is a same-capture temporal proxy.",
+        "Labels are inferred from capture filenames and apply to every packet in each capture.",
+        "Packet-level features do not establish physical IoT device localization.",
+        "Results are a baseline and require validation on additional benign and attack captures."
+      ]
+    },
+    {
+      "model": "RF_5class",
+      "task": "5-class packet classification: benign / dos / mirai / mitm / scan",
+      "n_features": 11,
+      "accuracy": 0.9341,
+      "macro_f1": 0.8959,
+      "macro_precision": 0.8746,
+      "macro_recall": 0.9376,
+      "weighted_f1": 0.9345,
+      "split_method": "attack captures held out by capture (GroupShuffleSplit 75/25); benign split chronologically within the sole benign capture (70/30)",
+      "best_val_loss": null,
+      "best_val_acc": null,
+      "per_class": {
+        "benign": {
+          "precision": 0.5919933623729516,
+          "recall": 0.9513333333333334,
+          "f1": 0.7298299450198185,
+          "support": 3000.0
+        },
+        "dos": {
+          "precision": 0.931996930750048,
+          "recall": 0.9717,
+          "f1": 0.9514344462939391,
+          "support": 10000.0
+        },
+        "mirai": {
+          "precision": 0.987999001996008,
+          "recall": 0.989975,
+          "f1": 0.9889860139860139,
+          "support": 40000.0
+        },
+        "mitm": {
+          "precision": 0.8961886583338464,
+          "recall": 0.9703333333333334,
+          "f1": 0.9317883550462533,
+          "support": 30000.0
+        },
+        "scan": {
+          "precision": 0.9648963033489257,
+          "recall": 0.8047020644894014,
+          "f1": 0.8775483312312934,
+          "support": 28966.0
+        }
+      },
+      "limitations": [
+        "Only one benign capture; benign test set is a same-capture temporal proxy.",
+        "Labels inferred from filename; all packets per capture share the label.",
+        "Packet-level features do not establish physical device localization.",
+        "5-class model conflates sub-types (e.g. mirai-ackflooding vs mirai-hostbruteforce).",
+        "IAT features included."
+      ]
+    },
+    {
+      "model": "LSTM",
+      "task": "5-class sequence-level classification",
+      "n_features": 7,
+      "accuracy": 0.6562,
+      "macro_f1": 0.4131,
+      "macro_precision": 0.4414,
+      "macro_recall": 0.3912,
+      "weighted_f1": 0.6854,
+      "split_method": "",
+      "best_val_loss": null,
+      "best_val_acc": null,
+      "per_class": {
+        "benign": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0.0
+        },
+        "dos": {
+          "precision": 0.9003280586646083,
+          "recall": 0.780053502758736,
+          "f1": 0.8358864104631372,
+          "support": 11962.0
+        },
+        "mirai": {
+          "precision": 0.6547566371681416,
+          "recall": 0.4948169202474503,
+          "f1": 0.5636606037520236,
+          "support": 11962.0
+        },
+        "mitm": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0.0
+        },
+        "scan": {
+          "precision": 0.6517542924176176,
+          "recall": 0.6812127291980159,
+          "f1": 0.6661579965664768,
+          "support": 17943.0
+        }
+      },
+      "limitations": [
+        "Only one benign capture; benign class is underrepresented.",
+        "Window label is assigned by majority vote within N_STEPS packets.",
+        "With 42 captures, capture-level generalisation cannot be strongly claimed.",
+        "IAT features included.",
+        "Simulation attacks (replay, falsification) not in this dataset."
+      ]
+    },
+    {
+      "model": "Transformer",
+      "task": "5-class sequence-level classification",
+      "n_features": 7,
+      "accuracy": 0.6443,
+      "macro_f1": 0.3697,
+      "macro_precision": 0.4229,
+      "macro_recall": 0.383,
+      "weighted_f1": 0.6384,
+      "split_method": "",
+      "best_val_loss": null,
+      "best_val_acc": null,
+      "per_class": {
+        "benign": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0.0
+        },
+        "dos": {
+          "precision": 0.6544962812711291,
+          "recall": 0.24276876776458786,
+          "f1": 0.35416793706933347,
+          "support": 11962.0
+        },
+        "mirai": {
+          "precision": 0.5687299228076904,
+          "recall": 0.9916401939475005,
+          "f1": 0.722873944970901,
+          "support": 11962.0
+        },
+        "mitm": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0.0
+        },
+        "scan": {
+          "precision": 0.8912900635175586,
+          "recall": 0.680376748592766,
+          "f1": 0.7716814159292036,
+          "support": 17943.0
+        }
+      },
+      "limitations": [
+        "Only one benign capture; class imbalance may inflate attack-class metrics.",
+        "Transformer may overfit on 42 captures compared to LSTM.",
+        "Window label assigned by majority vote within window.",
+        "IAT features included."
+      ]
+    }
+  ]
+}

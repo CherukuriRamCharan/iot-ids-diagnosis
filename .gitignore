@@ -30,6 +30,13 @@ dist/
 *.pcap
 *.pcapng
 
+# Large generated feature CSVs (>100 MB)
+data/base_paper/all_packet_features.csv
+data/base_paper/all_packet_features_iat.csv
+
+# Diagnostic backups of generated reports
+/results/diagnostic_backups/
+
 # Trained models
 *.h5
 *.keras

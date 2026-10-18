@@ -1,0 +1,1490 @@
+{
+  "repository_root": "C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization",
+  "started_at_epoch": 1792195807.5558214,
+  "python": {
+    "executable": "C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\.venv\\Scripts\\python.exe",
+    "version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "prefix": "C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\.venv"
+  },
+  "checks": [
+    {
+      "name": "required file README.md",
+      "status": "pass",
+      "detail": "present",
+      "critical": false
+    },
+    {
+      "name": "required file diagnosis_config.py",
+      "status": "pass",
+      "detail": "present",
+      "critical": false
+    },
+    {
+      "name": "required file features/extract_mqtt_traffic.py",
+      "status": "pass",
+      "detail": "present",
+      "critical": false
+    },
+    {
+      "name": "required file features/extract_mqtt_payloads.py",
+      "status": "pass",
+      "detail": "present",
+      "critical": false
+    },
+    {
+      "name": "required file ids/diagnosis_rules.py",
+      "status": "pass",
+      "detail": "present",
+      "critical": false
+    },
+    {
+      "name": "required file ids/evaluate_packet_rates.py",
+      "status": "pass",
+      "detail": "present",
+      "critical": false
+    },
+    {
+      "name": "required file ids/evaluate_rules_on_captures.py",
+      "status": "pass",
+      "detail": "present",
+      "critical": false
+    },
+    {
+      "name": "required file ids/create_combined_diagnosis.py",
+      "status": "pass",
+      "detail": "present",
+      "critical": false
+    },
+    {
+      "name": "required file tests/test_diagnosis_rules.py",
+      "status": "pass",
+      "detail": "present",
+      "critical": false
+    },
+    {
+      "name": "Python package pandas",
+      "status": "pass",
+      "detail": "importable",
+      "critical": true
+    },
+    {
+      "name": "Python package paho.mqtt.client",
+      "status": "pass",
+      "detail": "importable",
+      "critical": true
+    },
+    {
+      "name": "Python interpreter",
+      "status": "pass",
+      "detail": "3.11.9 at C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\.venv\\Scripts\\python.exe",
+      "critical": false
+    },
+    {
+      "name": "PCAPNG inventory",
+      "status": "pass",
+      "detail": "5 capture(s) found; original captures are read-only.",
+      "critical": false
+    },
+    {
+      "name": "normal capture inventory",
+      "status": "pass",
+      "detail": "1 file(s)",
+      "critical": false
+    },
+    {
+      "name": "attack capture inventory",
+      "status": "pass",
+      "detail": "4 file(s)",
+      "critical": false
+    },
+    {
+      "name": "existing CSV features/mqtt_traffic_features.csv",
+      "status": "pass",
+      "detail": "386 row(s); 16 column(s); read before any pipeline regeneration.",
+      "critical": false
+    },
+    {
+      "name": "existing CSV features/mqtt_payload_features.csv",
+      "status": "pass",
+      "detail": "234 row(s); 12 column(s); read before any pipeline regeneration.",
+      "critical": false
+    },
+    {
+      "name": "existing CSV results/mqtt_traffic_summary.csv",
+      "status": "pass",
+      "detail": "5 row(s); 8 column(s); read before any pipeline regeneration.",
+      "critical": false
+    },
+    {
+      "name": "existing CSV results/packet_rate_report.csv",
+      "status": "pass",
+      "detail": "5 row(s); 8 column(s); read before any pipeline regeneration.",
+      "critical": false
+    },
+    {
+      "name": "existing CSV results/rule_detection_report.csv",
+      "status": "pass",
+      "detail": "234 row(s); 20 column(s); read before any pipeline regeneration.",
+      "critical": false
+    },
+    {
+      "name": "existing CSV results/combined_diagnosis_report.csv",
+      "status": "pass",
+      "detail": "5 row(s); 32 column(s); read before any pipeline regeneration.",
+      "critical": false
+    },
+    {
+      "name": "TShark availability",
+      "status": "pass",
+      "detail": "C:\\Program Files\\Wireshark\\tshark.EXE",
+      "critical": false
+    },
+    {
+      "name": "preserving existing generated CSV outputs",
+      "status": "pass",
+      "detail": "7 existing output file(s) backed up before regeneration. Backup directory: results\\diagnostic_backups\\20261017T001007567816Z",
+      "critical": false
+    },
+    {
+      "name": "pipeline features/extract_mqtt_traffic.py",
+      "status": "pass",
+      "detail": "normal_temperature_motion_001.pcapng: 103 MQTT packets, 103 PUBLISH packets\nbattery_draining_temperature_001.pcapng: 203 MQTT packets, 100 PUBLISH packets\ndata_falsification_temperature_001.pcapng: 13 MQTT packets, 5 PUBLISH packets\nmitm_simulation.pcapng: 50 MQTT packets, 20 PUBLISH packets\nreplay_temperature_001.pcapng: 17 MQTT packets, 6 PUBLISH packets\n\nExtracted records: 386\nFeatures saved: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\features\\mqtt_traffic_features.csv\nSummary saved: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\results\\mqtt_traffic_summary.csv\n",
+      "critical": false
+    },
+    {
+      "name": "pipeline features/extract_mqtt_payloads.py",
+      "status": "pass",
+      "detail": "normal_temperature_motion_001.pcapng: extracted 103 PUBLISH payloads\nbattery_draining_temperature_001.pcapng: extracted 100 PUBLISH payloads\ndata_falsification_temperature_001.pcapng: extracted 5 PUBLISH payloads\nmitm_simulation.pcapng: extracted 20 PUBLISH payloads\nreplay_temperature_001.pcapng: extracted 6 PUBLISH payloads\n\nTotal payload records: 234\nOutput saved to: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\features\\mqtt_payload_features.csv\n",
+      "critical": false
+    },
+    {
+      "name": "pipeline ids/evaluate_packet_rates.py",
+      "status": "pass",
+      "detail": "\nPacket-level rate evaluation:\n                                             capture_file  publish_packets  duration_seconds  average_rate_per_second  window_seconds  rate_threshold_publishes_per_window  max_publishes_in_10_seconds  rate_flagged_packets\n     captures\\normal\\normal_temperature_motion_001.pcapng              103            50.738                    2.030            10.0                                   20                           20                     0\n  captures\\attack\\battery_draining_temperature_001.pcapng              100             5.045                   19.822            10.0                                   20                          100                    80\ncaptures\\attack\\data_falsification_temperature_001.pcapng                5             4.005                    1.248            10.0                                   20                            5                     0\n                   captures\\attack\\mitm_simulation.pcapng               20             4.013                    4.984            10.0                                   20                           20                     0\n            captures\\attack\\replay_temperature_001.pcapng                6            70.201                    0.085            10.0                                   20                            5                     0\n\nReport saved to: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\results\\packet_rate_report.csv\n\nRate definition: trailing interval (t-window, t], counting MQTT PUBLISH packets only. Threshold is provisional (20 per 10 seconds), based on one normal capture; flags are not proof of attack.\n",
+      "critical": false
+    },
+    {
+      "name": "pipeline ids/evaluate_rules_on_captures.py",
+      "status": "pass",
+      "detail": "Payload rule summary (rate is evaluated separately):\n                                    payload_rows  decoded_json  temperature_range_flags  repeated_payload_evidence  manipulation_flags\nexpected_scenario                                                                                                                     \ndata_falsification_simulation                  5             5                        4                          0                   0\nexcessive_communication_simulation           100           100                        0                          0                   0\nmessage_manipulation_simulation               20            20                        0                         10                   5\nnormal                                       103           103                        0                         75                   0\nreplay_like_simulation                         6             5                        0                          4                   0\nDetailed report saved: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\results\\rule_detection_report.csv\n",
+      "critical": false
+    },
+    {
+      "name": "pipeline ids/create_combined_diagnosis.py",
+      "status": "pass",
+      "detail": "Combined per-capture diagnosis report:\n                                             capture_file traffic_label                 simulated_scenario  mqtt_packets  mqtt_publish_packets  payload_count  decoded_payload_count  malformed_payload_count  temperature_min  temperature_max  motion_zero_rows  motion_one_rows        device_ids                                                       topics  capture_duration_seconds  publish_duration_seconds  publish_packets_per_second  average_rate_per_second  window_seconds  rate_threshold_publishes_per_window  max_publishes_in_10_seconds  rate_flagged_packets  temperature_range_violation_rows  repeated_payload_evidence_rows  manipulation_mismatch_rows  manipulation_unmatched_rows manipulation_pairing_methods                      detection_signals                              diagnosis  attack_confirmed                                                                                                                                                        supporting_evidence                                                                                                                                                                                                                            uncertainty_and_limitations\n  captures\\attack\\battery_draining_temperature_001.pcapng        attack excessive_communication_simulation           203                   100            100                    100                        0            27.50            27.50                 0                0           temp_01                                              iot/temperature                     7.070                     5.045                      19.822                   19.822            10.0                                   20                          100                    80                                 0                               0                           0                            0                          nan                 excessive_publish_rate                 excessive_publish_rate             False                                                                                               80 PUBLISH packet(s) exceeded the provisional trailing-10-second limit of 20 Scenario name is simulation metadata, not an independently verified attack; rate threshold (20 per 10 seconds) is provisional from one normal capture; repeated values alone are not treated as attacks; no physical source localization is supported.\ncaptures\\attack\\data_falsification_temperature_001.pcapng        attack      data_falsification_simulation            13                     5              5                      5                        0           -20.00            95.00                 0                0           temp_01                                              iot/temperature                     6.015                     4.005                       1.248                    1.248            10.0                                   20                            5                     0                                 4                               0                           0                            0                          nan            temperature_range_violation            temperature_range_violation             False                                                                                                         4 temperature value(s) outside illustrative limits [-10.0, 60.0] C Scenario name is simulation metadata, not an independently verified attack; rate threshold (20 per 10 seconds) is provisional from one normal capture; repeated values alone are not treated as attacks; no physical source localization is supported.\n                   captures\\attack\\mitm_simulation.pcapng        attack    message_manipulation_simulation            50                    20             20                     20                        0            26.50            43.10                 0                0           temp_01 iot/test/temperature/forwarded;iot/test/temperature/original                    11.063                     4.013                       4.984                    4.984            10.0                                   20                           20                     0                                 0                              10                           5                           10                 nan;sequence paired_original_forwarded_value_change paired_original_forwarded_value_change             False 5 paired original/forwarded payload(s) differed; 10 original/forwarded payload row(s) could not be paired; 10 exact payload repeat(s); evidence only, not an attack signal Scenario name is simulation metadata, not an independently verified attack; rate threshold (20 per 10 seconds) is provisional from one normal capture; repeated values alone are not treated as attacks; no physical source localization is supported.\n            captures\\attack\\replay_temperature_001.pcapng        attack             replay_like_simulation            17                     6              6                      5                        1            27.57            27.57                 0                0           temp_01                                     iot/temperature;iot/test                    71.218                    70.201                       0.085                    0.085            10.0                                   20                            5                     0                                 0                               4                           0                            0                          nan                                   none                         no_rule_signal             False                                                                                                             4 exact payload repeat(s); evidence only, not an attack signal Scenario name is simulation metadata, not an independently verified attack; rate threshold (20 per 10 seconds) is provisional from one normal capture; repeated values alone are not treated as attacks; no physical source localization is supported.\n     captures\\normal\\normal_temperature_motion_001.pcapng        normal                             normal           103                   103            103                    103                        0            24.64            30.00                32               19 motion_01;temp_01                                   iot/motion;iot/temperature                    50.738                    50.738                       2.030                    2.030            10.0                                   20                           20                     0                                 0                              75                           0                            0                          nan                                   none                         no_rule_signal             False                                                                                                            75 exact payload repeat(s); evidence only, not an attack signal Scenario name is simulation metadata, not an independently verified attack; rate threshold (20 per 10 seconds) is provisional from one normal capture; repeated values alone are not treated as attacks; no physical source localization is supported.\nSaved report: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\results\\combined_diagnosis_report.csv\n",
+      "critical": false
+    },
+    {
+      "name": "synthetic unit tests",
+      "status": "pass",
+      "detail": "test_capture_pair_needs_tcp_sequence_evidence (test_diagnosis_rules.DiagnosisRuleTests.test_capture_pair_needs_tcp_sequence_evidence) ... ok\ntest_combined_diagnosis_preserves_all_applicable_signals (test_diagnosis_rules.DiagnosisRuleTests.test_combined_diagnosis_preserves_all_applicable_signals) ... ok\ntest_malformed_and_missing_payload_data_is_safe (test_diagnosis_rules.DiagnosisRuleTests.test_malformed_and_missing_payload_data_is_safe) ... ok\ntest_order_pairing_requires_equal_message_counts (test_diagnosis_rules.DiagnosisRuleTests.test_order_pairing_requires_equal_message_counts) ... ok\ntest_original_forwarded_pairing_prefers_sequence (test_diagnosis_rules.DiagnosisRuleTests.test_original_forwarded_pairing_prefers_sequence) ... ok\ntest_out_of_range_temperature_uses_inclusive_configured_limits (test_diagnosis_rules.DiagnosisRuleTests.test_out_of_range_temperature_uses_inclusive_configured_limits) ... ok\ntest_repeated_normal_sensor_reading_is_not_an_attack_signal (test_diagnosis_rules.DiagnosisRuleTests.test_repeated_normal_sensor_reading_is_not_an_attack_signal) ... ok\ntest_trailing_window_counts_and_detects_excess_rate (test_diagnosis_rules.DiagnosisRuleTests.test_trailing_window_counts_and_detects_excess_rate) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.001s\n\nOK",
+      "critical": false
+    },
+    {
+      "name": "CSV results\\mqtt_traffic_summary.csv",
+      "status": "pass",
+      "detail": "5 rows; required schema present; capture_file populated.",
+      "critical": false
+    },
+    {
+      "name": "CSV features\\mqtt_payload_features.csv",
+      "status": "pass",
+      "detail": "234 rows; required schema present; capture_file populated.",
+      "critical": false
+    },
+    {
+      "name": "CSV results\\packet_rate_report.csv",
+      "status": "pass",
+      "detail": "5 rows; required schema present; capture_file populated.",
+      "critical": false
+    },
+    {
+      "name": "CSV results\\rule_detection_report.csv",
+      "status": "pass",
+      "detail": "234 rows; required schema present; capture_file populated.",
+      "critical": false
+    },
+    {
+      "name": "CSV results\\combined_diagnosis_report.csv",
+      "status": "pass",
+      "detail": "5 rows; required schema present; capture_file populated.",
+      "critical": false
+    },
+    {
+      "name": "required values features/mqtt_payload_features.csv",
+      "status": "pass",
+      "detail": "All 234 rows have required values.",
+      "critical": false
+    },
+    {
+      "name": "required values results/combined_diagnosis_report.csv",
+      "status": "pass",
+      "detail": "All 5 rows have required values.",
+      "critical": false
+    },
+    {
+      "name": "capture/report count consistency",
+      "status": "pass",
+      "detail": "captures=5; report capture counts={\"traffic summary\": 5, \"rate report\": 5, \"payload rule report\": 5, \"combined report\": 5}; duplicate rows={}",
+      "critical": false
+    },
+    {
+      "name": "PUBLISH/payload row consistency",
+      "status": "pass",
+      "detail": "Payload extraction row count equals PUBLISH packet count per capture.",
+      "critical": false
+    },
+    {
+      "name": "packet/rate report consistency",
+      "status": "pass",
+      "detail": "Timestamped PUBLISH count is no greater than extracted PUBLISH count.",
+      "critical": false
+    },
+    {
+      "name": "numeric count fields",
+      "status": "pass",
+      "detail": "All packet-count and threshold fields are non-negative integers.",
+      "critical": false
+    },
+    {
+      "name": "normal-capture false-positive overlap",
+      "status": "pass",
+      "detail": "normal PUBLISH rate flags=0; invalid rate counts=0; normal payload rule flags=0; repeated payload evidence is intentionally excluded from attack flags; attack captures with packet-rate signals=1/4.",
+      "critical": false
+    },
+    {
+      "name": "duplicate publication capture probe",
+      "status": "pass",
+      "detail": "103 PUBLISH frames inspected; 51 near-identical payload pairs. See capture_probe for TCP/QoS/DUP evidence.",
+      "critical": false
+    },
+    {
+      "name": "bounded live MQTT delivery test",
+      "status": "pass",
+      "detail": "{'requested_messages': 20, 'delivery_count': 20, 'unique_sequences_received': 20, 'missing_sequences': [], 'duplicate_sequences': {}, 'passed': True, 'topic': 'diagnostics/53f8993c2e3f493ab8f5de45e7d5300a'}",
+      "critical": false
+    },
+    {
+      "name": "git status",
+      "status": "pass",
+      "detail": "M .gitignore\n M README.md\n?? diagnosis_config.py\n?? features/extract_mqtt_payloads.py\n?? features/extract_mqtt_traffic.py\n?? features/mqtt_payload_features.csv\n?? features/mqtt_traffic_features.csv\n?? ids/create_combined_diagnosis.py\n?? ids/diagnosis_rules.py\n?? ids/evaluate_packet_rates.py\n?? ids/evaluate_rules_on_captures.py\n?? results/combined_diagnosis_report.csv\n?? results/mqtt_traffic_summary.csv\n?? results/packet_rate_report.csv\n?? results/project_diagnostics.json\n?? results/rule_detection_report.csv\n?? tests/\n?? tools/",
+      "critical": false
+    }
+  ],
+  "subprocesses": [
+    {
+      "returncode": 0,
+      "stdout": "normal_temperature_motion_001.pcapng: 103 MQTT packets, 103 PUBLISH packets\nbattery_draining_temperature_001.pcapng: 203 MQTT packets, 100 PUBLISH packets\ndata_falsification_temperature_001.pcapng: 13 MQTT packets, 5 PUBLISH packets\nmitm_simulation.pcapng: 50 MQTT packets, 20 PUBLISH packets\nreplay_temperature_001.pcapng: 17 MQTT packets, 6 PUBLISH packets\n\nExtracted records: 386\nFeatures saved: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\features\\mqtt_traffic_features.csv\nSummary saved: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\results\\mqtt_traffic_summary.csv\n",
+      "stderr": "",
+      "duration_seconds": 1.234,
+      "timed_out": false,
+      "script": "features/extract_mqtt_traffic.py",
+      "status": "pass"
+    },
+    {
+      "returncode": 0,
+      "stdout": "normal_temperature_motion_001.pcapng: extracted 103 PUBLISH payloads\nbattery_draining_temperature_001.pcapng: extracted 100 PUBLISH payloads\ndata_falsification_temperature_001.pcapng: extracted 5 PUBLISH payloads\nmitm_simulation.pcapng: extracted 20 PUBLISH payloads\nreplay_temperature_001.pcapng: extracted 6 PUBLISH payloads\n\nTotal payload records: 234\nOutput saved to: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\features\\mqtt_payload_features.csv\n",
+      "stderr": "",
+      "duration_seconds": 1.313,
+      "timed_out": false,
+      "script": "features/extract_mqtt_payloads.py",
+      "status": "pass"
+    },
+    {
+      "returncode": 0,
+      "stdout": "\nPacket-level rate evaluation:\n                                             capture_file  publish_packets  duration_seconds  average_rate_per_second  window_seconds  rate_threshold_publishes_per_window  max_publishes_in_10_seconds  rate_flagged_packets\n     captures\\normal\\normal_temperature_motion_001.pcapng              103            50.738                    2.030            10.0                                   20                           20                     0\n  captures\\attack\\battery_draining_temperature_001.pcapng              100             5.045                   19.822            10.0                                   20                          100                    80\ncaptures\\attack\\data_falsification_temperature_001.pcapng                5             4.005                    1.248            10.0                                   20                            5                     0\n                   captures\\attack\\mitm_simulation.pcapng               20             4.013                    4.984            10.0                                   20                           20                     0\n            captures\\attack\\replay_temperature_001.pcapng                6            70.201                    0.085            10.0                                   20                            5                     0\n\nReport saved to: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\results\\packet_rate_report.csv\n\nRate definition: trailing interval (t-window, t], counting MQTT PUBLISH packets only. Threshold is provisional (20 per 10 seconds), based on one normal capture; flags are not proof of attack.\n",
+      "stderr": "",
+      "duration_seconds": 0.984,
+      "timed_out": false,
+      "script": "ids/evaluate_packet_rates.py",
+      "status": "pass"
+    },
+    {
+      "returncode": 0,
+      "stdout": "Payload rule summary (rate is evaluated separately):\n                                    payload_rows  decoded_json  temperature_range_flags  repeated_payload_evidence  manipulation_flags\nexpected_scenario                                                                                                                     \ndata_falsification_simulation                  5             5                        4                          0                   0\nexcessive_communication_simulation           100           100                        0                          0                   0\nmessage_manipulation_simulation               20            20                        0                         10                   5\nnormal                                       103           103                        0                         75                   0\nreplay_like_simulation                         6             5                        0                          4                   0\nDetailed report saved: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\results\\rule_detection_report.csv\n",
+      "stderr": "",
+      "duration_seconds": 0.938,
+      "timed_out": false,
+      "script": "ids/evaluate_rules_on_captures.py",
+      "status": "pass"
+    },
+    {
+      "returncode": 0,
+      "stdout": "Combined per-capture diagnosis report:\n                                             capture_file traffic_label                 simulated_scenario  mqtt_packets  mqtt_publish_packets  payload_count  decoded_payload_count  malformed_payload_count  temperature_min  temperature_max  motion_zero_rows  motion_one_rows        device_ids                                                       topics  capture_duration_seconds  publish_duration_seconds  publish_packets_per_second  average_rate_per_second  window_seconds  rate_threshold_publishes_per_window  max_publishes_in_10_seconds  rate_flagged_packets  temperature_range_violation_rows  repeated_payload_evidence_rows  manipulation_mismatch_rows  manipulation_unmatched_rows manipulation_pairing_methods                      detection_signals                              diagnosis  attack_confirmed                                                                                                                                                        supporting_evidence                                                                                                                                                                                                                            uncertainty_and_limitations\n  captures\\attack\\battery_draining_temperature_001.pcapng        attack excessive_communication_simulation           203                   100            100                    100                        0            27.50            27.50                 0                0           temp_01                                              iot/temperature                     7.070                     5.045                      19.822                   19.822            10.0                                   20                          100                    80                                 0                               0                           0                            0                          nan                 excessive_publish_rate                 excessive_publish_rate             False                                                                                               80 PUBLISH packet(s) exceeded the provisional trailing-10-second limit of 20 Scenario name is simulation metadata, not an independently verified attack; rate threshold (20 per 10 seconds) is provisional from one normal capture; repeated values alone are not treated as attacks; no physical source localization is supported.\ncaptures\\attack\\data_falsification_temperature_001.pcapng        attack      data_falsification_simulation            13                     5              5                      5                        0           -20.00            95.00                 0                0           temp_01                                              iot/temperature                     6.015                     4.005                       1.248                    1.248            10.0                                   20                            5                     0                                 4                               0                           0                            0                          nan            temperature_range_violation            temperature_range_violation             False                                                                                                         4 temperature value(s) outside illustrative limits [-10.0, 60.0] C Scenario name is simulation metadata, not an independently verified attack; rate threshold (20 per 10 seconds) is provisional from one normal capture; repeated values alone are not treated as attacks; no physical source localization is supported.\n                   captures\\attack\\mitm_simulation.pcapng        attack    message_manipulation_simulation            50                    20             20                     20                        0            26.50            43.10                 0                0           temp_01 iot/test/temperature/forwarded;iot/test/temperature/original                    11.063                     4.013                       4.984                    4.984            10.0                                   20                           20                     0                                 0                              10                           5                           10                 nan;sequence paired_original_forwarded_value_change paired_original_forwarded_value_change             False 5 paired original/forwarded payload(s) differed; 10 original/forwarded payload row(s) could not be paired; 10 exact payload repeat(s); evidence only, not an attack signal Scenario name is simulation metadata, not an independently verified attack; rate threshold (20 per 10 seconds) is provisional from one normal capture; repeated values alone are not treated as attacks; no physical source localization is supported.\n            captures\\attack\\replay_temperature_001.pcapng        attack             replay_like_simulation            17                     6              6                      5                        1            27.57            27.57                 0                0           temp_01                                     iot/temperature;iot/test                    71.218                    70.201                       0.085                    0.085            10.0                                   20                            5                     0                                 0                               4                           0                            0                          nan                                   none                         no_rule_signal             False                                                                                                             4 exact payload repeat(s); evidence only, not an attack signal Scenario name is simulation metadata, not an independently verified attack; rate threshold (20 per 10 seconds) is provisional from one normal capture; repeated values alone are not treated as attacks; no physical source localization is supported.\n     captures\\normal\\normal_temperature_motion_001.pcapng        normal                             normal           103                   103            103                    103                        0            24.64            30.00                32               19 motion_01;temp_01                                   iot/motion;iot/temperature                    50.738                    50.738                       2.030                    2.030            10.0                                   20                           20                     0                                 0                              75                           0                            0                          nan                                   none                         no_rule_signal             False                                                                                                            75 exact payload repeat(s); evidence only, not an attack signal Scenario name is simulation metadata, not an independently verified attack; rate threshold (20 per 10 seconds) is provisional from one normal capture; repeated values alone are not treated as attacks; no physical source localization is supported.\nSaved report: C:\\Users\\cheru\\IoT-Attack-Diagnosis-Localization\\results\\combined_diagnosis_report.csv\n",
+      "stderr": "",
+      "duration_seconds": 0.843,
+      "timed_out": false,
+      "script": "ids/create_combined_diagnosis.py",
+      "status": "pass"
+    },
+    {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_capture_pair_needs_tcp_sequence_evidence (test_diagnosis_rules.DiagnosisRuleTests.test_capture_pair_needs_tcp_sequence_evidence) ... ok\ntest_combined_diagnosis_preserves_all_applicable_signals (test_diagnosis_rules.DiagnosisRuleTests.test_combined_diagnosis_preserves_all_applicable_signals) ... ok\ntest_malformed_and_missing_payload_data_is_safe (test_diagnosis_rules.DiagnosisRuleTests.test_malformed_and_missing_payload_data_is_safe) ... ok\ntest_order_pairing_requires_equal_message_counts (test_diagnosis_rules.DiagnosisRuleTests.test_order_pairing_requires_equal_message_counts) ... ok\ntest_original_forwarded_pairing_prefers_sequence (test_diagnosis_rules.DiagnosisRuleTests.test_original_forwarded_pairing_prefers_sequence) ... ok\ntest_out_of_range_temperature_uses_inclusive_configured_limits (test_diagnosis_rules.DiagnosisRuleTests.test_out_of_range_temperature_uses_inclusive_configured_limits) ... ok\ntest_repeated_normal_sensor_reading_is_not_an_attack_signal (test_diagnosis_rules.DiagnosisRuleTests.test_repeated_normal_sensor_reading_is_not_an_attack_signal) ... ok\ntest_trailing_window_counts_and_detects_excess_rate (test_diagnosis_rules.DiagnosisRuleTests.test_trailing_window_counts_and_detects_excess_rate) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.001s\n\nOK\n",
+      "duration_seconds": 0.172,
+      "timed_out": false,
+      "script": "synthetic unit tests",
+      "status": "pass"
+    },
+    {
+      "returncode": 0,
+      "stdout": "{\"requested_messages\": 20, \"delivery_count\": 20, \"unique_sequences_received\": 20, \"missing_sequences\": [], \"duplicate_sequences\": {}, \"passed\": true, \"topic\": \"diagnostics/53f8993c2e3f493ab8f5de45e7d5300a\"}\n",
+      "stderr": "",
+      "duration_seconds": 0.438,
+      "timed_out": false,
+      "script": "optional live MQTT delivery worker",
+      "status": "pass"
+    }
+  ],
+  "capture_probe": {
+    "capture": "captures\\normal\\normal_temperature_motion_001.pcapng",
+    "tshark_returncode": 0,
+    "tshark_duration_seconds": 0.281,
+    "publish_rows": 103,
+    "near_simultaneous_identical_payload_pairs": [
+      {
+        "frames": [
+          "1",
+          "3"
+        ],
+        "delta_seconds": 0.0003917217254638672,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1",
+          "1"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "5",
+          "7"
+        ],
+        "delta_seconds": 0.00042724609375,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1",
+          "1"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "9",
+          "11"
+        ],
+        "delta_seconds": 0.0002281665802001953,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "103",
+          "103"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "13",
+          "15"
+        ],
+        "delta_seconds": 0.0002827644348144531,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "86",
+          "86"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "17",
+          "19"
+        ],
+        "delta_seconds": 0.0002346038818359375,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "205",
+          "205"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "21",
+          "23"
+        ],
+        "delta_seconds": 0.0005078315734863281,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "171",
+          "171"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "25",
+          "27"
+        ],
+        "delta_seconds": 0.00032019615173339844,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "307",
+          "307"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "29",
+          "31"
+        ],
+        "delta_seconds": 0.0002815723419189453,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "256",
+          "256"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "33",
+          "35"
+        ],
+        "delta_seconds": 0.0003662109375,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "409",
+          "409"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "37",
+          "39"
+        ],
+        "delta_seconds": 0.0001857280731201172,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "341",
+          "341"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "41",
+          "43"
+        ],
+        "delta_seconds": 0.00023937225341796875,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "511",
+          "511"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "45",
+          "47"
+        ],
+        "delta_seconds": 0.000240325927734375,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "426",
+          "426"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "49",
+          "51"
+        ],
+        "delta_seconds": 0.00029540061950683594,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "613",
+          "613"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "53",
+          "55"
+        ],
+        "delta_seconds": 0.00032806396484375,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "511",
+          "511"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "57",
+          "59"
+        ],
+        "delta_seconds": 0.00030422210693359375,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "715",
+          "715"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "61",
+          "63"
+        ],
+        "delta_seconds": 0.00017118453979492188,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "596",
+          "596"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "65",
+          "67"
+        ],
+        "delta_seconds": 0.00031495094299316406,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "817",
+          "817"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "69",
+          "71"
+        ],
+        "delta_seconds": 0.00017905235290527344,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "681",
+          "681"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "73",
+          "75"
+        ],
+        "delta_seconds": 0.0002903938293457031,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "919",
+          "919"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "77",
+          "79"
+        ],
+        "delta_seconds": 0.0003705024719238281,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "766",
+          "766"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "81",
+          "83"
+        ],
+        "delta_seconds": 0.0003800392150878906,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1021",
+          "1021"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "85",
+          "87"
+        ],
+        "delta_seconds": 0.00018668174743652344,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "851",
+          "851"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "89",
+          "91"
+        ],
+        "delta_seconds": 0.0004527568817138672,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1123",
+          "1123"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "93",
+          "95"
+        ],
+        "delta_seconds": 0.00015425682067871094,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "936",
+          "936"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "97",
+          "99"
+        ],
+        "delta_seconds": 0.0003724098205566406,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1225",
+          "1225"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "101",
+          "103"
+        ],
+        "delta_seconds": 0.00020956993103027344,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1021",
+          "1021"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "105",
+          "107"
+        ],
+        "delta_seconds": 0.0002732276916503906,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1327",
+          "1327"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "109",
+          "111"
+        ],
+        "delta_seconds": 0.00020074844360351562,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1106",
+          "1106"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "113",
+          "115"
+        ],
+        "delta_seconds": 0.00038051605224609375,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1429",
+          "1429"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "117",
+          "119"
+        ],
+        "delta_seconds": 0.00021886825561523438,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1191",
+          "1191"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "121",
+          "123"
+        ],
+        "delta_seconds": 0.0003039836883544922,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1531",
+          "1531"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "125",
+          "127"
+        ],
+        "delta_seconds": 0.00024771690368652344,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1276",
+          "1276"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "129",
+          "131"
+        ],
+        "delta_seconds": 0.0004899501800537109,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1633",
+          "1633"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "133",
+          "135"
+        ],
+        "delta_seconds": 0.0001819133758544922,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1361",
+          "1361"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "138",
+          "140"
+        ],
+        "delta_seconds": 0.0003190040588378906,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1735",
+          "1735"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "142",
+          "144"
+        ],
+        "delta_seconds": 0.00015687942504882812,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1446",
+          "1446"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "146",
+          "148"
+        ],
+        "delta_seconds": 0.00025177001953125,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1836",
+          "1836"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "150",
+          "152"
+        ],
+        "delta_seconds": 0.0005815029144287109,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1531",
+          "1531"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "154",
+          "156"
+        ],
+        "delta_seconds": 0.0002732276916503906,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1938",
+          "1938"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "158",
+          "160"
+        ],
+        "delta_seconds": 0.0002796649932861328,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1616",
+          "1616"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "162",
+          "164"
+        ],
+        "delta_seconds": 0.0006430149078369141,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "2040",
+          "2040"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "166",
+          "168"
+        ],
+        "delta_seconds": 0.0003247261047363281,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1701",
+          "1701"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "170",
+          "172"
+        ],
+        "delta_seconds": 0.00022673606872558594,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "2142",
+          "2142"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "174",
+          "176"
+        ],
+        "delta_seconds": 0.0004343986511230469,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1786",
+          "1786"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "178",
+          "180"
+        ],
+        "delta_seconds": 0.0002372264862060547,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "2244",
+          "2244"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "182",
+          "184"
+        ],
+        "delta_seconds": 0.0002777576446533203,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1871",
+          "1871"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "187",
+          "189"
+        ],
+        "delta_seconds": 0.0003712177276611328,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "2346",
+          "2346"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "191",
+          "193"
+        ],
+        "delta_seconds": 0.0007824897766113281,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "1956",
+          "1956"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "195",
+          "197"
+        ],
+        "delta_seconds": 0.00019311904907226562,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "2448",
+          "2448"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "199",
+          "201"
+        ],
+        "delta_seconds": 0.0001842975616455078,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "2041",
+          "2041"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      },
+      {
+        "frames": [
+          "203",
+          "205"
+        ],
+        "delta_seconds": 0.0005431175231933594,
+        "same_tcp_stream": false,
+        "same_direction_ports": false,
+        "dup_flags": [
+          "False",
+          "False"
+        ],
+        "tcp_sequences": [
+          "2550",
+          "2550"
+        ],
+        "interpretation": "different_tcp_streams; likely distinct flows"
+      }
+    ],
+    "same_stream_same_sequence_observation_groups": [],
+    "interpretation": "TShark field evidence is summarized, not treated as proof by itself. Same stream/direction and identical TCP sequence plus length/payload supports retransmission or duplicate capture observation; different TCP sequence numbers support distinct MQTT publications. Inspect QoS/DUP and raw frames before a final attribution.",
+    "tshark_stderr": ""
+  },
+  "live_mqtt_test": {
+    "requested_messages": 20,
+    "delivery_count": 20,
+    "unique_sequences_received": 20,
+    "missing_sequences": [],
+    "duplicate_sequences": {},
+    "passed": true,
+    "topic": "diagnostics/53f8993c2e3f493ab8f5de45e7d5300a"
+  },
+  "backups": {
+    "directory": "results\\diagnostic_backups\\20261017T001007567816Z",
+    "files": [
+      {
+        "source": "features\\mqtt_traffic_features.csv",
+        "backup": "results\\diagnostic_backups\\20261017T001007567816Z\\features\\mqtt_traffic_features.csv",
+        "size_bytes": 52462
+      },
+      {
+        "source": "features\\mqtt_payload_features.csv",
+        "backup": "results\\diagnostic_backups\\20261017T001007567816Z\\features\\mqtt_payload_features.csv",
+        "size_bytes": 68293
+      },
+      {
+        "source": "results\\mqtt_traffic_summary.csv",
+        "backup": "results\\diagnostic_backups\\20261017T001007567816Z\\results\\mqtt_traffic_summary.csv",
+        "size_bytes": 724
+      },
+      {
+        "source": "results\\packet_rate_report.csv",
+        "backup": "results\\diagnostic_backups\\20261017T001007567816Z\\results\\packet_rate_report.csv",
+        "size_bytes": 570
+      },
+      {
+        "source": "results\\rule_detection_report.csv",
+        "backup": "results\\diagnostic_backups\\20261017T001007567816Z\\results\\rule_detection_report.csv",
+        "size_bytes": 84464
+      },
+      {
+        "source": "results\\combined_diagnosis_report.csv",
+        "backup": "results\\diagnostic_backups\\20261017T001007567816Z\\results\\combined_diagnosis_report.csv",
+        "size_bytes": 3634
+      },
+      {
+        "source": "results\\project_diagnostics.json",
+        "backup": "results\\diagnostic_backups\\20261017T001007567816Z\\results\\project_diagnostics.json",
+        "size_bytes": 65636
+      }
+    ]
+  },
+  "existing_csv_inventory": [
+    {
+      "path": "features/mqtt_traffic_features.csv",
+      "row_count": 386,
+      "columns": [
+        "capture_file",
+        "traffic_label",
+        "frame_number",
+        "timestamp_epoch",
+        "mqtt_message_type",
+        "mqtt_topic",
+        "source_address",
+        "destination_address",
+        "frame_length_bytes",
+        "tcp_stream",
+        "tcp_source_port",
+        "tcp_destination_port",
+        "tcp_sequence_number",
+        "tcp_payload_length_bytes",
+        "mqtt_qos",
+        "mqtt_duplicate_flag"
+      ],
+      "size_bytes": 52462
+    },
+    {
+      "path": "features/mqtt_payload_features.csv",
+      "row_count": 234,
+      "columns": [
+        "capture_file",
+        "traffic_label",
+        "timestamp_epoch",
+        "mqtt_topic",
+        "device_id",
+        "device_type",
+        "temperature",
+        "motion",
+        "sequence",
+        "range_rule_result",
+        "payload_text",
+        "decode_status"
+      ],
+      "size_bytes": 68293
+    },
+    {
+      "path": "results/mqtt_traffic_summary.csv",
+      "row_count": 5,
+      "columns": [
+        "capture_file",
+        "traffic_label",
+        "mqtt_packets",
+        "mqtt_publish_packets",
+        "unique_publish_topics",
+        "capture_duration_seconds",
+        "publish_duration_seconds",
+        "publish_packets_per_second"
+      ],
+      "size_bytes": 724
+    },
+    {
+      "path": "results/packet_rate_report.csv",
+      "row_count": 5,
+      "columns": [
+        "capture_file",
+        "publish_packets",
+        "duration_seconds",
+        "average_rate_per_second",
+        "window_seconds",
+        "rate_threshold_publishes_per_window",
+        "max_publishes_in_10_seconds",
+        "rate_flagged_packets"
+      ],
+      "size_bytes": 570
+    },
+    {
+      "path": "results/rule_detection_report.csv",
+      "row_count": 234,
+      "columns": [
+        "capture_file",
+        "traffic_label",
+        "timestamp_epoch",
+        "mqtt_topic",
+        "device_id",
+        "device_type",
+        "temperature",
+        "motion",
+        "sequence",
+        "range_rule_result",
+        "payload_text",
+        "decode_status",
+        "range_flag",
+        "repeated_payload_evidence",
+        "manipulation_flag",
+        "manipulation_pairing_method",
+        "manipulation_changed_fields",
+        "manipulation_unmatched_rows",
+        "expected_scenario",
+        "rule_signals"
+      ],
+      "size_bytes": 84464
+    },
+    {
+      "path": "results/combined_diagnosis_report.csv",
+      "row_count": 5,
+      "columns": [
+        "capture_file",
+        "traffic_label",
+        "simulated_scenario",
+        "mqtt_packets",
+        "mqtt_publish_packets",
+        "payload_count",
+        "decoded_payload_count",
+        "malformed_payload_count",
+        "temperature_min",
+        "temperature_max",
+        "motion_zero_rows",
+        "motion_one_rows",
+        "device_ids",
+        "topics",
+        "capture_duration_seconds",
+        "publish_duration_seconds",
+        "publish_packets_per_second",
+        "average_rate_per_second",
+        "window_seconds",
+        "rate_threshold_publishes_per_window",
+        "max_publishes_in_10_seconds",
+        "rate_flagged_packets",
+        "temperature_range_violation_rows",
+        "repeated_payload_evidence_rows",
+        "manipulation_mismatch_rows",
+        "manipulation_unmatched_rows",
+        "manipulation_pairing_methods",
+        "detection_signals",
+        "diagnosis",
+        "attack_confirmed",
+        "supporting_evidence",
+        "uncertainty_and_limitations"
+      ],
+      "size_bytes": 3634
+    }
+  ],
+  "captures": [
+    {
+      "path": "captures\\attack\\battery_draining_temperature_001.pcapng",
+      "size_bytes": 73696
+    },
+    {
+      "path": "captures\\attack\\data_falsification_temperature_001.pcapng",
+      "size_bytes": 664048
+    },
+    {
+      "path": "captures\\attack\\mitm_simulation.pcapng",
+      "size_bytes": 19040
+    },
+    {
+      "path": "captures\\attack\\replay_temperature_001.pcapng",
+      "size_bytes": 10484
+    },
+    {
+      "path": "captures\\normal\\normal_temperature_motion_001.pcapng",
+      "size_bytes": 30244
+    }
+  ],
+  "git_status": {
+    "returncode": 0,
+    "stdout": " M .gitignore\n M README.md\n?? diagnosis_config.py\n?? features/extract_mqtt_payloads.py\n?? features/extract_mqtt_traffic.py\n?? features/mqtt_payload_features.csv\n?? features/mqtt_traffic_features.csv\n?? ids/create_combined_diagnosis.py\n?? ids/diagnosis_rules.py\n?? ids/evaluate_packet_rates.py\n?? ids/evaluate_rules_on_captures.py\n?? results/combined_diagnosis_report.csv\n?? results/mqtt_traffic_summary.csv\n?? results/packet_rate_report.csv\n?? results/project_diagnostics.json\n?? results/rule_detection_report.csv\n?? tests/\n?? tools/\n",
+    "stderr": "",
+    "duration_seconds": 0.047,
+    "timed_out": false
+  },
+  "finished_at_epoch": 1792195813.900682,
+  "critical_failures": [],
+  "overall_status": "pass"
+}

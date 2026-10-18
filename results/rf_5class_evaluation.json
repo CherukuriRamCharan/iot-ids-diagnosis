@@ -1,0 +1,138 @@
+{
+  "task": "5-class packet classification: benign / dos / mirai / mitm / scan",
+  "features_used": [
+    "packet_length",
+    "tcp_src_port",
+    "tcp_dst_port",
+    "udp_src_port",
+    "udp_dst_port",
+    "tcp_syn",
+    "tcp_ack",
+    "tcp_reset",
+    "udp_length",
+    "iat_seconds",
+    "rolling_10s_pkt_rate"
+  ],
+  "iat_features_included": true,
+  "dataset_rows": 2985994,
+  "capture_count": 42,
+  "sampled_rows": 401401,
+  "split_method": "attack captures held out by capture (GroupShuffleSplit 75/25); benign split chronologically within the sole benign capture (70/30)",
+  "training_label_counts": {
+    "mirai": 130000,
+    "scan": 72435,
+    "dos": 50000,
+    "mitm": 30000,
+    "benign": 7000
+  },
+  "testing_label_counts": {
+    "mirai": 40000,
+    "mitm": 30000,
+    "scan": 28966,
+    "dos": 10000,
+    "benign": 3000
+  },
+  "classes": [
+    "benign",
+    "dos",
+    "mirai",
+    "mitm",
+    "scan"
+  ],
+  "classification_report": {
+    "benign": {
+      "precision": 0.5919933623729516,
+      "recall": 0.9513333333333334,
+      "f1-score": 0.7298299450198185,
+      "support": 3000.0
+    },
+    "dos": {
+      "precision": 0.931996930750048,
+      "recall": 0.9717,
+      "f1-score": 0.9514344462939391,
+      "support": 10000.0
+    },
+    "mirai": {
+      "precision": 0.987999001996008,
+      "recall": 0.989975,
+      "f1-score": 0.9889860139860139,
+      "support": 40000.0
+    },
+    "mitm": {
+      "precision": 0.8961886583338464,
+      "recall": 0.9703333333333334,
+      "f1-score": 0.9317883550462533,
+      "support": 30000.0
+    },
+    "scan": {
+      "precision": 0.9648963033489257,
+      "recall": 0.8047020644894014,
+      "f1-score": 0.8775483312312934,
+      "support": 28966.0
+    },
+    "accuracy": 0.9341139274422593,
+    "macro avg": {
+      "precision": 0.874614851360356,
+      "recall": 0.9376087462312137,
+      "f1-score": 0.8959174183154636,
+      "support": 111966.0
+    },
+    "weighted avg": {
+      "precision": 0.941810509862637,
+      "recall": 0.9341139274422593,
+      "f1-score": 0.9345336126259101,
+      "support": 111966.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "benign",
+    "dos",
+    "mirai",
+    "mitm",
+    "scan"
+  ],
+  "confusion_matrix": [
+    [
+      2854,
+      32,
+      16,
+      54,
+      44
+    ],
+    [
+      1,
+      9717,
+      6,
+      185,
+      91
+    ],
+    [
+      32,
+      112,
+      39599,
+      153,
+      104
+    ],
+    [
+      29,
+      130,
+      122,
+      29110,
+      609
+    ],
+    [
+      1905,
+      435,
+      337,
+      2980,
+      23309
+    ]
+  ],
+  "limitations": [
+    "Only one benign capture; benign test set is a same-capture temporal proxy.",
+    "Labels inferred from filename; all packets per capture share the label.",
+    "Packet-level features do not establish physical device localization.",
+    "5-class model conflates sub-types (e.g. mirai-ackflooding vs mirai-hostbruteforce).",
+    "IAT features included."
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "task": "binary packet classification: benign vs attack",
+  "dataset_rows": 2985994,
+  "capture_count": 42,
+  "sampled_rows": 473328,
+  "split_method": "attack captures held out by capture; benign split within the sole benign capture",
+  "training_label_counts": {
+    "attack": 332996,
+    "benign": 8400
+  },
+  "testing_label_counts": {
+    "attack": 128332,
+    "benign": 3600
+  },
+  "classification_report": {
+    "benign": {
+      "precision": 0.40913835092195294,
+      "recall": 0.98,
+      "f1-score": 0.5772723553955658,
+      "support": 3600.0
+    },
+    "attack": {
+      "precision": 0.9994161010145245,
+      "recall": 0.9602982888133903,
+      "f1-score": 0.9794667800557143,
+      "support": 128332.0
+    },
+    "accuracy": 0.9608358851529576,
+    "macro avg": {
+      "precision": 0.7042772259682387,
+      "recall": 0.9701491444066952,
+      "f1-score": 0.77836956772564,
+      "support": 131932.0
+    },
+    "weighted avg": {
+      "precision": 0.9833093194881832,
+      "recall": 0.9608358851529576,
+      "f1-score": 0.9684921876234269,
+      "support": 131932.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "benign",
+    "attack"
+  ],
+  "confusion_matrix": [
+    [
+      3528,
+      72
+    ],
+    [
+      5095,
+      123237
+    ]
+  ],
+  "features": [
+    "packet_length",
+    "tcp_src_port",
+    "tcp_dst_port",
+    "udp_src_port",
+    "udp_dst_port",
+    "tcp_syn",
+    "tcp_ack",
+    "tcp_reset",
+    "udp_length"
+  ],
+  "limitations": [
+    "Only one benign capture is available; benign testing is a same-capture temporal proxy.",
+    "Labels are inferred from capture filenames and apply to every packet in each capture.",
+    "Packet-level features do not establish physical IoT device localization.",
+    "Results are a baseline and require validation on additional benign and attack captures."
+  ]
+}
