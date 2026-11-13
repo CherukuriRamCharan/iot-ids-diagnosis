@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "task_id": "mqtt_uad_full_multiclass",
+    "model_family": "GRU",
+    "seed": 45,
+    "fast_mode": false,
+    "feature_names": [
+      "frame.time_delta",
+      "frame.time_delta_displayed",
+      "frame.cap_len",
+      "frame.len",
+      "has_ip",
+      "has_tcp",
+      "is_mqtt_port",
+      "has_mqtt",
+      "has_mqtt_topic",
+      "has_mqtt_msg",
+      "mqtt.msgtype",
+      "mqtt.len",
+      "mqtt.qos",
+      "mqtt.dupflag",
+      "mqtt.retain",
+      "mqtt.kalive",
+      "mqtt.ver",
+      "mqtt.proto_len",
+      "mqtt.clientid_len",
+      "mqtt.topic_len",
+      "mqtt.msgid",
+      "mqtt.sub.qos",
+      "mqtt.suback.qos",
+      "mqtt.conack.val",
+      "mqtt.conack.flags.reserved",
+      "mqtt.conack.flags.sp",
+      "mqtt.conflag.cleansess",
+      "mqtt.conflag.passwd",
+      "mqtt.conflag.qos",
+      "mqtt.conflag.reserved",
+      "mqtt.conflag.retain",
+      "mqtt.conflag.uname",
+      "mqtt.conflag.willflag"
+    ],
+    "class_names": [
+      "normal",
+      "DoS",
+      "mitm",
+      "intrusion"
+    ],
+    "split_sizes": [
+      200284,
+      42881,
+      42886
+    ]
+  },
+  "metrics": {
+    "accuracy": 0.9874084782912839,
+    "macro_precision": 0.6940404026329737,
+    "macro_recall": 0.8604271444097329,
+    "macro_f1": 0.7499645299576121,
+    "weighted_precision": 0.9920155595309428,
+    "weighted_recall": 0.9874084782912839,
+    "weighted_f1": 0.9893403447596198,
+    "per_class": {
+      "normal": {
+        "precision": 0.9958499289752946,
+        "recall": 0.9893193137797455,
+        "f1": 0.9925738794886387,
+        "support": 36140
+      },
+      "DoS": {
+        "precision": 0.9971953879713307,
+        "recall": 0.9888751545117429,
+        "f1": 0.9930178432893716,
+        "support": 6472
+      },
+      "mitm": {
+        "precision": 0.24010554089709762,
+        "recall": 0.5617283950617284,
+        "f1": 0.3364140480591497,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.543010752688172,
+        "recall": 0.9017857142857143,
+        "f1": 0.6778523489932886,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35754,
+        15,
+        288,
+        83
+      ],
+      [
+        71,
+        6400,
+        0,
+        1
+      ],
+      [
+        69,
+        1,
+        91,
+        1
+      ],
+      [
+        9,
+        2,
+        0,
+        101
+      ]
+    ],
+    "balanced_accuracy": 0.8604271444097329,
+    "train_time_s": 1099.8938023000082,
+    "inference_time_s": 3.1400514999986626,
+    "inference_ms_per_1k": 73.21856783096261,
+    "best_val_macro_f1": 0.8340751417927937,
+    "selected_config": {
+      "model_name": "GRU",
+      "hidden_size": 64,
+      "num_layers": 2,
+      "dropout": 0.2,
+      "lr": 0.001
+    },
+    "task_id": "mqtt_uad_full_multiclass",
+    "model": "GRU",
+    "seed": 45
+  },
+  "threshold_info": null
+}

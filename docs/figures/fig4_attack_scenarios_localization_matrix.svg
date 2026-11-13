@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="100%" height="100%" style="background:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <!-- Header -->
+  <rect x="0" y="0" width="900" height="60" fill="#0f172a"/>
+  <text x="30" y="38" fill="#f8fafc" font-size="20" font-weight="700">Figure 4: Attack Scenario Diagnosis &amp; Root-Cause Fault Localization Matrix</text>
+
+  <!-- Table Header -->
+  <rect x="30" y="80" width="840" height="35" rx="4" fill="#334155"/>
+  <text x="45" y="103" fill="#f8fafc" font-size="12" font-weight="700">Attack Scenario</text>
+  <text x="180" y="103" fill="#f8fafc" font-size="12" font-weight="700">Target Sensor</text>
+  <text x="310" y="103" fill="#f8fafc" font-size="12" font-weight="700">Observable Physical / Network Evidence</text>
+  <text x="610" y="103" fill="#f8fafc" font-size="12" font-weight="700">Candidate Mutant Hypotheses</text>
+  <text x="810" y="103" fill="#f8fafc" font-size="12" font-weight="700">Outcome</text>
+
+  <!-- Row 1: DoS -->
+  <rect x="30" y="125" width="840" height="42" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="45" y="151" fill="#dc2626" font-size="12" font-weight="700">1. DoS Flood</text>
+  <text x="180" y="151" fill="#334155" font-size="12">Ultrasonic / Motion</text>
+  <text x="310" y="151" fill="#475569" font-size="11">Surge rate Δt &lt; 0.08s; massive burst on fresh seq</text>
+  <text x="610" y="151" fill="#0369a1" font-size="11" font-family="monospace">dos_queue_exhaustion</text>
+  <text x="810" y="151" fill="#16a34a" font-size="11" font-weight="700">CONSENSUS</text>
+
+  <!-- Row 2: Replay -->
+  <rect x="30" y="175" width="840" height="42" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="45" y="201" fill="#ea580c" font-size="12" font-weight="700">2. Replay Attack</text>
+  <text x="180" y="201" fill="#334155" font-size="12">Motion Sensor</text>
+  <text x="310" y="201" fill="#475569" font-size="11">Duplicate sequence numbers already transmitted</text>
+  <text x="610" y="201" fill="#0369a1" font-size="11" font-family="monospace">replayed_stale_sequence, RA_s10</text>
+  <text x="810" y="201" fill="#16a34a" font-size="11" font-weight="700">CONSENSUS</text>
+
+  <!-- Row 3: MITM -->
+  <rect x="30" y="225" width="840" height="42" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="45" y="251" fill="#9333ea" font-size="12" font-weight="700">3. MITM Tampering</text>
+  <text x="180" y="251" fill="#334155" font-size="12">Temperature Sensor</text>
+  <text x="310" y="251" fill="#475569" font-size="11">Semantic conflict: payload reading vs alert flag</text>
+  <text x="610" y="251" fill="#0369a1" font-size="11" font-family="monospace">mitm_intercept_tamper</text>
+  <text x="810" y="251" fill="#16a34a" font-size="11" font-weight="700">CONSENSUS</text>
+
+  <!-- Row 4: Data Falsification -->
+  <rect x="30" y="275" width="840" height="42" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="45" y="301" fill="#2563eb" font-size="12" font-weight="700">4. Data Falsification</text>
+  <text x="180" y="301" fill="#334155" font-size="12">Ultrasonic / Temp</text>
+  <text x="310" y="301" fill="#475569" font-size="11">Physical domain bound violation (e.g., d &lt; 2.0 cm)</text>
+  <text x="610" y="301" fill="#0369a1" font-size="11" font-family="monospace">dfa_sensor_falsification, DFA_s4</text>
+  <text x="810" y="301" fill="#16a34a" font-size="11" font-weight="700">CONSENSUS</text>
+
+  <!-- Row 5: Message Delay -->
+  <rect x="30" y="325" width="840" height="42" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="45" y="351" fill="#0891b2" font-size="12" font-weight="700">5. Message Delay</text>
+  <text x="180" y="351" fill="#334155" font-size="12">Temperature Sensor</text>
+  <text x="310" y="351" fill="#475569" font-size="11">Inter-arrival interval exceeds keepalive timeout (&gt;2.0s)</text>
+  <text x="610" y="351" fill="#0369a1" font-size="11" font-family="monospace">delay_timeout_exceeded, BD_s8</text>
+  <text x="810" y="351" fill="#16a34a" font-size="11" font-weight="700">CONSENSUS</text>
+
+  <!-- Row 6: Identity Spoofing -->
+  <rect x="30" y="375" width="840" height="42" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="45" y="401" fill="#d97706" font-size="12" font-weight="700">6. Identity Spoofing</text>
+  <text x="180" y="401" fill="#334155" font-size="12">RFID Access Reader</text>
+  <text x="310" y="401" fill="#475569" font-size="11">Unrecognized card UID credential attempted</text>
+  <text x="610" y="401" fill="#0369a1" font-size="11" font-family="monospace">rfid_uid_spoofing_t23</text>
+  <text x="810" y="401" fill="#16a34a" font-size="11" font-weight="700">CONSENSUS</text>
+</svg>

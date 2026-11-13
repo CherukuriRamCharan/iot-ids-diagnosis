@@ -1,49 +1,45 @@
-# Python
+# Byte-compiled / cache files
 __pycache__/
 *.py[cod]
+*$py.class
+.pytest_cache/
 
-# Virtual environment
-.venv/
+# Virtual Environments
+.venv*/
 venv/
 env/
+ENV/
+env.bak/
+venv.bak/
 
-# Jupyter
-.ipynb_checkpoints/
+# Downloaded / Raw / Processed Datasets (keep generated four_sensors dataset)
+datasets/raw/
+datasets/processed/
 
-# VS Code
-.vscode/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Build files
-*.egg-info/
-build/
-dist/
-
-# Logs
-*.log
-*.tmp
-
-# Large packet captures
-*.pcap
-*.pcapng
-
-# Large generated feature CSVs (>100 MB)
-data/base_paper/all_packet_features.csv
-data/base_paper/all_packet_features_iat.csv
-
-# Diagnostic backups of generated reports
-/results/diagnostic_backups/
-
-# Trained models
-*.h5
-*.keras
+# Model Checkpoints & Large Binaries
 *.pt
 *.pth
+*.bin
+*.onnx
+results/model_seed0.pt
 
-# Salesforce CLI local files
-.sf/
-data/base_paper/iot-network-intrusion-dataset_190919.zip
-data/base_paper/sample_features.csv
+# Secrets & Environment Variables
+.env
+.env.*
+*.pem
+*.key
+*.token
+
+# OS & Editor Artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary Files & Scratch
+scratch/
+*.tmp
+*.logmodels/*.joblib
+*.joblib

@@ -1,0 +1,26 @@
+{
+  "class_names": [
+    "normal",
+    "attack"
+  ],
+  "confusion_matrix_sum": [
+    [
+      3049,
+      81
+    ],
+    [
+      170,
+      28065
+    ]
+  ],
+  "confusion_matrix_mean": [
+    [
+      609.8,
+      16.2
+    ],
+    [
+      34.0,
+      5613.0
+    ]
+  ]
+}

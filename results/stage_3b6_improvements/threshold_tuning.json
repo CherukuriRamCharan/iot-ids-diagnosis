@@ -1,0 +1,266 @@
+{
+  "mqtt_uad_full_binary__RF_tuned": {
+    "task_label": "MQTT-UAD (Full Stream, Binary)",
+    "model": "RF_tuned",
+    "tau_mean": 0.65,
+    "default_f1_mean": 0.9818167093918462,
+    "tuned_f1_mean": 0.9803627541800098,
+    "default_p_mean": 0.9737044340233938,
+    "default_r_mean": 0.9650051767490015,
+    "default_0.5_attack_f1": 0.9693350467586237,
+    "default_0.5_confusion_matrix": [
+      [
+        179969,
+        881
+      ],
+      [
+        1183,
+        32622
+      ]
+    ],
+    "tuned_p_mean": 0.9866652661182348,
+    "tuned_r_mean": 0.9477000443721343,
+    "tuned_attack_f1": 0.966788231958773,
+    "tuned_confusion_matrix": [
+      [
+        180417,
+        433
+      ],
+      [
+        1768,
+        32037
+      ]
+    ]
+  },
+  "mqtt_uad_full_binary__ExtraTrees_tuned": {
+    "task_label": "MQTT-UAD (Full Stream, Binary)",
+    "model": "ExtraTrees_tuned",
+    "tau_mean": 0.56,
+    "default_f1_mean": 0.9824343164003011,
+    "tuned_f1_mean": 0.9821796571870334,
+    "default_p_mean": 0.9734813874171987,
+    "default_r_mean": 0.9673125277325839,
+    "default_0.5_attack_f1": 0.9703837508392507,
+    "default_0.5_confusion_matrix": [
+      [
+        179959,
+        891
+      ],
+      [
+        1105,
+        32700
+      ]
+    ],
+    "tuned_p_mean": 0.976497769899144,
+    "tuned_r_mean": 0.9634669427599467,
+    "tuned_attack_f1": 0.9699342474342437,
+    "tuned_confusion_matrix": [
+      [
+        180066,
+        784
+      ],
+      [
+        1235,
+        32570
+      ]
+    ]
+  },
+  "mqtt_uad_full_binary__HistGB_tuned": {
+    "task_label": "MQTT-UAD (Full Stream, Binary)",
+    "model": "HistGB_tuned",
+    "tau_mean": 0.65,
+    "default_f1_mean": 0.9833039959318157,
+    "tuned_f1_mean": 0.9820286715296401,
+    "default_p_mean": 0.9757000254839007,
+    "default_r_mean": 0.9680224818813785,
+    "default_0.5_attack_f1": 0.9718460532550278,
+    "default_0.5_confusion_matrix": [
+      [
+        180035,
+        815
+      ],
+      [
+        1081,
+        32724
+      ]
+    ],
+    "tuned_p_mean": 0.985291037977013,
+    "tuned_r_mean": 0.9544741902085491,
+    "tuned_attack_f1": 0.9696284149817933,
+    "tuned_confusion_matrix": [
+      [
+        180368,
+        482
+      ],
+      [
+        1539,
+        32266
+      ]
+    ]
+  },
+  "mqtt_uad_full_binary__RF_train_oversampled": {
+    "task_label": "MQTT-UAD (Full Stream, Binary)",
+    "model": "RF_train_oversampled",
+    "tau_mean": 0.65,
+    "default_f1_mean": 0.9817822759985233,
+    "tuned_f1_mean": 0.9805934493184969,
+    "default_p_mean": 0.973023841098074,
+    "default_r_mean": 0.965567223783464,
+    "default_0.5_attack_f1": 0.9692806816086605,
+    "default_0.5_confusion_matrix": [
+      [
+        179945,
+        905
+      ],
+      [
+        1164,
+        32641
+      ]
+    ],
+    "tuned_p_mean": 0.9866150412363929,
+    "tuned_r_mean": 0.9484987427895281,
+    "tuned_attack_f1": 0.9671812840834411,
+    "tuned_confusion_matrix": [
+      [
+        180415,
+        435
+      ],
+      [
+        1741,
+        32064
+      ]
+    ]
+  },
+  "mqtt_uad_mqtt_only_binary__RF_tuned": {
+    "task_label": "MQTT-UAD (MQTT-Only, Binary)",
+    "model": "RF_tuned",
+    "tau_mean": 0.6300000000000001,
+    "default_f1_mean": 0.9783040883783286,
+    "tuned_f1_mean": 0.978175424454004,
+    "default_p_mean": 0.997865438563456,
+    "default_r_mean": 0.9933061802727112,
+    "default_0.5_attack_f1": 0.9955804655698725,
+    "default_0.5_confusion_matrix": [
+      [
+        3070,
+        60
+      ],
+      [
+        189,
+        28046
+      ]
+    ],
+    "tuned_p_mean": 0.9985753753340392,
+    "tuned_r_mean": 0.9924915884540464,
+    "tuned_attack_f1": 0.9955237178852041,
+    "tuned_confusion_matrix": [
+      [
+        3090,
+        40
+      ],
+      [
+        212,
+        28023
+      ]
+    ]
+  },
+  "mqtt_uad_mqtt_only_binary__ExtraTrees_tuned": {
+    "task_label": "MQTT-UAD (MQTT-Only, Binary)",
+    "model": "ExtraTrees_tuned",
+    "tau_mean": 0.8400000000000001,
+    "default_f1_mean": 0.9780070021104343,
+    "tuned_f1_mean": 0.9751568007314646,
+    "default_p_mean": 0.997122166417878,
+    "default_r_mean": 0.9939791039489995,
+    "default_0.5_attack_f1": 0.9955481500365513,
+    "default_0.5_confusion_matrix": [
+      [
+        3049,
+        81
+      ],
+      [
+        170,
+        28065
+      ]
+    ],
+    "tuned_p_mean": 0.9980045472969381,
+    "tuned_r_mean": 0.9918186647777582,
+    "tuned_attack_f1": 0.9949016874974115,
+    "tuned_confusion_matrix": [
+      [
+        3074,
+        56
+      ],
+      [
+        231,
+        28004
+      ]
+    ]
+  },
+  "mqtt_uad_mqtt_only_binary__HistGB_tuned": {
+    "task_label": "MQTT-UAD (MQTT-Only, Binary)",
+    "model": "HistGB_tuned",
+    "tau_mean": 0.67,
+    "default_f1_mean": 0.9779585228233266,
+    "tuned_f1_mean": 0.9775257564573014,
+    "default_p_mean": 0.9987878847815408,
+    "default_r_mean": 0.9921728351336994,
+    "default_0.5_attack_f1": 0.9954693086012014,
+    "default_0.5_confusion_matrix": [
+      [
+        3096,
+        34
+      ],
+      [
+        221,
+        28014
+      ]
+    ],
+    "tuned_p_mean": 0.9991791704609133,
+    "tuned_r_mean": 0.9915707455285994,
+    "tuned_attack_f1": 0.9953604123785768,
+    "tuned_confusion_matrix": [
+      [
+        3107,
+        23
+      ],
+      [
+        238,
+        27997
+      ]
+    ]
+  },
+  "mqtt_uad_mqtt_only_binary__RF_train_oversampled": {
+    "task_label": "MQTT-UAD (MQTT-Only, Binary)",
+    "model": "RF_train_oversampled",
+    "tau_mean": 0.6700000000000002,
+    "default_f1_mean": 0.9763061365877934,
+    "tuned_f1_mean": 0.978773274736389,
+    "default_p_mean": 0.9961682289796734,
+    "default_r_mean": 0.9942978572693466,
+    "default_0.5_attack_f1": 0.995232043598568,
+    "default_0.5_confusion_matrix": [
+      [
+        3022,
+        108
+      ],
+      [
+        161,
+        28074
+      ]
+    ],
+    "tuned_p_mean": 0.9976532763444161,
+    "tuned_r_mean": 0.9937311846998407,
+    "tuned_attack_f1": 0.9956883574823963,
+    "tuned_confusion_matrix": [
+      [
+        3064,
+        66
+      ],
+      [
+        177,
+        28058
+      ]
+    ]
+  }
+}

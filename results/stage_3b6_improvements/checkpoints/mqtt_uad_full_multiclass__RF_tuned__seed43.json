@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "task_id": "mqtt_uad_full_multiclass",
+    "model_family": "RF_tuned",
+    "seed": 43,
+    "fast_mode": false,
+    "dataset_name": "mqtt_uad",
+    "feature_names": [
+      "frame.time_delta",
+      "frame.time_delta_displayed",
+      "frame.cap_len",
+      "frame.len",
+      "has_ip",
+      "has_tcp",
+      "is_mqtt_port",
+      "has_mqtt",
+      "has_mqtt_topic",
+      "has_mqtt_msg",
+      "mqtt.msgtype",
+      "mqtt.len",
+      "mqtt.qos",
+      "mqtt.dupflag",
+      "mqtt.retain",
+      "mqtt.kalive",
+      "mqtt.ver",
+      "mqtt.proto_len",
+      "mqtt.clientid_len",
+      "mqtt.topic_len",
+      "mqtt.msgid",
+      "mqtt.sub.qos",
+      "mqtt.suback.qos",
+      "mqtt.conack.val",
+      "mqtt.conack.flags.reserved",
+      "mqtt.conack.flags.sp",
+      "mqtt.conflag.cleansess",
+      "mqtt.conflag.passwd",
+      "mqtt.conflag.qos",
+      "mqtt.conflag.reserved",
+      "mqtt.conflag.retain",
+      "mqtt.conflag.uname",
+      "mqtt.conflag.willflag"
+    ],
+    "class_names": [
+      "normal",
+      "DoS",
+      "mitm",
+      "intrusion"
+    ],
+    "split_sizes": [
+      200329,
+      42926,
+      42931
+    ]
+  },
+  "metrics": {
+    "accuracy": 0.9872586243041159,
+    "macro_precision": 0.7134976885144437,
+    "macro_recall": 0.6982532153350219,
+    "macro_f1": 0.6916121459454766,
+    "weighted_precision": 0.9874316137468571,
+    "weighted_recall": 0.9872586243041159,
+    "weighted_f1": 0.9871434280773608,
+    "per_class": {
+      "normal": {
+        "precision": 0.9925587035607981,
+        "recall": 0.9956870334531379,
+        "f1": 0.9941204074309217,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9811971168912567,
+        "recall": 0.9653152458763681,
+        "f1": 0.9731913901624057,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.5393258426966292,
+        "recall": 0.2962962962962963,
+        "f1": 0.38247011952191234,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.3409090909090909,
+        "recall": 0.5357142857142857,
+        "f1": 0.4166666666666667,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        36014,
+        89,
+        40,
+        27
+      ],
+      [
+        135,
+        6262,
+        1,
+        89
+      ],
+      [
+        105,
+        9,
+        48,
+        0
+      ],
+      [
+        30,
+        22,
+        0,
+        60
+      ]
+    ],
+    "balanced_accuracy": 0.6982532153350219,
+    "train_time_s": 309.42190900002606,
+    "inference_time_s": 0.3101059000182431,
+    "inference_ms_per_1k": 7.223356083441875,
+    "best_val_macro_f1": 0.8460226248175736,
+    "selected_config": {
+      "class_weight": "None",
+      "max_depth": 16,
+      "min_samples_leaf": 3
+    },
+    "task_id": "mqtt_uad_full_multiclass",
+    "task_label": "MQTT-UAD (Full Stream, 4-Class)",
+    "model": "RF_tuned",
+    "seed": 43
+  },
+  "threshold_info": null
+}

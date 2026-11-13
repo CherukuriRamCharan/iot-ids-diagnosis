@@ -1,0 +1,26 @@
+{
+  "class_names": [
+    "Normal",
+    "Anomaly"
+  ],
+  "confusion_matrix_sum": [
+    [
+      15410,
+      0
+    ],
+    [
+      0,
+      73035
+    ]
+  ],
+  "confusion_matrix_mean": [
+    [
+      3082.0,
+      0.0
+    ],
+    [
+      0.0,
+      14607.0
+    ]
+  ]
+}

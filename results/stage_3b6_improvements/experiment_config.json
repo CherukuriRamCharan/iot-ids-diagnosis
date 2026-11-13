@@ -1,0 +1,40 @@
+{
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "expected_tasks": [
+    "mqtt_uad_full_multiclass",
+    "mqtt_uad_full_binary",
+    "mqtt_uad_mqtt_only_multiclass",
+    "mqtt_uad_mqtt_only_binary"
+  ],
+  "expected_families": [
+    "RF_tuned",
+    "ExtraTrees_tuned",
+    "HistGB_tuned",
+    "RF_train_oversampled"
+  ],
+  "requested_tasks": [
+    "mqtt_uad_full_multiclass",
+    "mqtt_uad_full_binary",
+    "mqtt_uad_mqtt_only_multiclass",
+    "mqtt_uad_mqtt_only_binary"
+  ],
+  "requested_families": [
+    "RF_tuned",
+    "ExtraTrees_tuned",
+    "HistGB_tuned",
+    "RF_train_oversampled"
+  ],
+  "n_jobs": 14,
+  "fast_mode": false,
+  "resume": false,
+  "complete": true,
+  "incomplete_experiments": [],
+  "selection_criterion": "validation_macro_f1",
+  "baseline_reference": "C:\\Users\\cheru\\Downloads\\iot-ids-diagnosis\\iot-ids-diagnosis\\results\\stage_3b_baselines\\model_comparison.csv"
+}

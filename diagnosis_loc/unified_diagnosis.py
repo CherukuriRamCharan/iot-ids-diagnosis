@@ -1,379 +1,554 @@
+"""Formal FSM-Based Diagnosis and Fault Localization Engine.
+
+Connects the sensor-specific Timed Finite State Machine (TFSM) models to an online
+stream monitor to perform:
+1. Formal FSM Conformance Monitoring: verifies transitions, state sequence, and outputs.
+2. Traffic & Stream Anomaly Detection: inspects sensor-isolated timing constraints, sequence progression, and physical bounds.
+3. Candidate Attack Classification: identifies which scenario (DoS, Replay, MITM, DFA, Delay, Spoofing) explains the symptoms.
+4. Fault Localization: pinpoints the affected sensor, violated transition, suspected state, and candidate mutants.
+
+Sensor Isolation & Anti-Leakage Guarantee:
+- Each sensor maintains its own independent timing baseline, sequence tracking, and FSM runtime.
+- Operates STRICTLY on observable event features. Ground-truth labels (is_attack, attack_type,
+  fault_location, original_payload) are NEVER accessed or used during inference.
 """
-Unified Attack Diagnosis Engine
-================================
-Combines evidence from three independent sources into a single
-structured diagnosis record per capture/scenario:
-
-  1. ML prediction    — from Random Forest / LSTM / Transformer output
-  2. EFSM violations  — from temperature_efsm / motion_efsm detectors
-  3. Traffic rules    — payload range, message manipulation, publish rate
-
-Localization levels supported (Section 4 of master requirements):
-  Level 1 — Attack detection  (binary: benign vs attack)
-  Level 2 — Attack-type classification  (5 classes or scenario name)
-  Level 3 — Network endpoint  (observed source/destination IP:port)
-  Level 4 — Physical device   ❌ NOT supported (insufficient evidence)
-  Level 5 — Attacker identity ❌ NOT supported (IP ≠ identity)
-
-Outputs:
-  results/unified_diagnosis_records.json
-  results/unified_diagnosis_records.csv
-
-Usage:
-  .venv\\Scripts\\python.exe diagnosis_loc\\unified_diagnosis.py
-"""
-
 from __future__ import annotations
 
-import json
+import copy
 from dataclasses import asdict, dataclass, field
-from pathlib import Path
-from typing import Optional
-import sys
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
 
-import pandas as pd
-
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT))
-
-# Input files — use what already exists; missing files are skipped gracefully.
-PACKET_PRED      = ROOT / "results" / "packet_attack_predictions.csv"
-COMBINED_DIAG    = ROOT / "results" / "combined_attack_diagnosis.csv"
-MQTT_RULE        = ROOT / "results" / "combined_diagnosis_report.csv"
-RATE_REPORT      = ROOT / "results" / "packet_rate_report.csv"
-LSTM_EVAL        = ROOT / "results" / "lstm_evaluation.json"
-TRANSFORMER_EVAL = ROOT / "results" / "transformer_evaluation.json"
-RF5_EVAL         = ROOT / "results" / "rf_5class_evaluation.json"
-
-OUT_JSON = ROOT / "results" / "unified_diagnosis_records.json"
-OUT_CSV  = ROOT / "results" / "unified_diagnosis_records.csv"
+from models_fsm import motion_sensor, rfid_sensor, temperature_sensor, ultrasonic_sensor
+from models_fsm.tfsm import TFSM, Transition
 
 
-# ─────────────────────────────────────────────────────────────
-# Data structures
-# ─────────────────────────────────────────────────────────────
-
-@dataclass
-class DiagnosisRecord:
-    """One diagnosis record per capture/scenario."""
-
-    # Identity
-    capture_id:       str = ""
-    dataset_source:   str = ""   # "external_dataset" | "local_mqtt"
-    dataset_label:    str = ""   # filename-derived class label
-    simulated_scenario: str = "" # scenario metadata (local only)
-
-    # Detection (Level 1)
-    binary_prediction:      str   = ""     # "attack" | "benign"
-    ml_attack_percent:      float = 0.0   # % of packets predicted attack (RF)
-    detection_level:        str   = "Level 1 — attack detected" if True else ""
-
-    # Classification (Level 2)
-    attack_type_predicted:  str   = ""   # dataset label or rule signal
-    ml_confidence:          str   = ""   # qualitative (no calibrated proba)
-    rule_signals:           list  = field(default_factory=list)
-    efsm_signals:           list  = field(default_factory=list)
-
-    # Evidence
-    total_packets:          int   = 0
-    tcp_syn_percent:        float = 0.0
-    average_pps:            Optional[float] = None
-    rule_evidence_text:     str   = ""
-    supporting_evidence:    str   = ""
-    efsm_relevant_states:   list  = field(default_factory=list)
-
-    # Localization (Level 3 — endpoint only)
-    top_source_ip:          Optional[str] = None
-    top_destination_ip:     Optional[str] = None
-    localization_level:     str = "Level 3 — observed network endpoint only"
-    localization_note:      str = (
-        "Observed IP/port does not identify a physical IoT device or attacker. "
-        "Physical localization (Level 4) and attacker attribution (Level 5) "
-        "require additional infrastructure and are not supported by this dataset."
-    )
-
-    # Uncertainty
-    uncertainty_and_limitations: str = ""
-    timestamp_range:        str = ""
-
-
-# ─────────────────────────────────────────────────────────────
-# Loaders
-# ─────────────────────────────────────────────────────────────
-
-def _load_csv(path: Path, name: str) -> Optional[pd.DataFrame]:
-    if not path.exists():
-        print(f"  [SKIP] {name}: {path.name} not found")
-        return None
-    df = pd.read_csv(path)
-    print(f"  [OK]   {name}: {len(df)} rows, columns: {list(df.columns[:5])} …")
-    return df
-
-
-def _load_json(path: Path, name: str) -> Optional[dict]:
-    if not path.exists():
-        print(f"  [SKIP] {name}: {path.name} not found")
-        return None
-    data = json.loads(path.read_text(encoding="utf-8"))
-    print(f"  [OK]   {name}")
-    return data
-
-
-# ─────────────────────────────────────────────────────────────
-# EFSM signal mapping  (capture filename → expected EFSM signals)
-# ─────────────────────────────────────────────────────────────
-
-EFSM_MAP = {
-    "replay":           {
-        "states": ["PUBLISH_DATA → ANOMALOUS"],
-        "signals": ["repeated_payload_detected"],
-        "note": "Replay-like: repeated identical payload observed"
-    },
-    "data_falsification": {
-        "states": ["PUBLISH_DATA → ANOMALOUS"],
-        "signals": ["data_falsification_temperature_out_of_range"],
-        "note": "Data falsification: temperature outside [-10, 60] °C"
-    },
-    "mitm_simulation":  {
-        "states": ["PUBLISH_DATA → ANOMALOUS"],
-        "signals": ["message_manipulation_payload_changed"],
-        "note": "Message manipulation: forwarded payload differs from original"
-    },
-    "battery_draining": {
-        "states": ["WAIT_TIMER → ANOMALOUS"],
-        "signals": ["excessive_communication_rate_exceeded"],
-        "note": "Excessive communication: publish rate > threshold"
-    },
-    "normal":           {
-        "states": [],
-        "signals": [],
-        "note": "No EFSM violation expected in normal operation"
-    },
+# ----------------------------------------------------------------------
+# Physical Domain Bounds (legitimately known specification constraints)
+# ----------------------------------------------------------------------
+PHYSICAL_BOUNDS = {
+    "temperature": {"min": -20.0, "max": 70.0, "unit": "Celsius"},
+    "ultrasonic": {"min": 2.0, "max": 450.0, "unit": "cm"},
+    "motion": {"min_conf": 0.0, "max_conf": 1.0},
 }
 
-def _efsm_info(capture_name: str) -> dict:
-    name = capture_name.lower()
-    for key, info in EFSM_MAP.items():
-        if key in name:
-            return info
-    return {"states": [], "signals": [], "note": "No EFSM mapping available"}
+# Sensor-specific timing baselines and keepalive timeout thresholds
+TIMEOUT_THRESHOLDS = {
+    "motion": 2.2,
+    "temperature": 2.3,
+    "ultrasonic": 2.05,
+    "rfid": 2.8,
+}
+
+NOMINAL_PERIODS = {
+    "motion": 1.0,
+    "temperature": 1.5,
+    "ultrasonic": 0.8,
+    "rfid": 2.5,
+}
 
 
-# ─────────────────────────────────────────────────────────────
-# Build diagnosis records
-# ─────────────────────────────────────────────────────────────
+# ----------------------------------------------------------------------
+# Structured Output Data Classes
+# ----------------------------------------------------------------------
+@dataclass
+class EventDiagnosis:
+    """Diagnostic assessment for a single observable event."""
 
-def build_records() -> list[DiagnosisRecord]:
-    print("\nLoading input files …")
-
-    ml_pred   = _load_csv(PACKET_PRED,   "RF binary predictions")
-    comb_diag = _load_csv(COMBINED_DIAG, "Combined ML+rule diagnosis")
-    mqtt_rule = _load_csv(MQTT_RULE,     "MQTT rule report")
-    rate_rep  = _load_csv(RATE_REPORT,   "Rate report")
-
-    records: list[DiagnosisRecord] = []
-
-    # ── External dataset captures (from combined_attack_diagnosis.csv) ──
-    if comb_diag is not None:
-        for _, row in comb_diag.iterrows():
-            cap   = str(row.get("capture_file", ""))
-            label = str(row.get("dataset_label", "unknown")).lower()
-            atk_pct = float(row.get("ml_attack_percent", 0))
-            total   = int(row.get("total_packets", 0))
-            syn_pct = float(row.get("tcp_syn_percent", 0))
-            pps     = row.get("average_packets_per_second")
-            src_ip  = row.get("top_source_ip_observed")
-            dst_ip  = row.get("top_destination_ip_observed")
-            rule_ev = str(row.get("rule_evidence", ""))
-
-            binary_pred = "attack" if atk_pct >= 50 else "benign"
-
-            # Qualitative confidence
-            if atk_pct >= 95:
-                confidence = "high (≥95% packets predicted attack)"
-            elif atk_pct >= 50:
-                confidence = "moderate (50–95% packets predicted attack)"
-            elif atk_pct <= 5:
-                confidence = "high (≤5% packets predicted attack, classified benign)"
-            else:
-                confidence = "low (5–50% packet predictions mixed)"
-
-            efsm = _efsm_info(cap)
-
-            # Build rule signals list
-            rule_signals = []
-            if syn_pct >= 20:
-                rule_signals.append("high_tcp_syn_proportion")
-            if pps is not None and float(pps) > 100:
-                rule_signals.append("high_average_packet_rate")
-            if atk_pct >= 50:
-                rule_signals.append("ml_majority_attack")
-
-            limitations = (
-                f"Label '{label}' inferred from capture filename. "
-                "Benign test uses temporal split of one capture (not independent). "
-                "IP address identifies network endpoint only, not physical device or attacker."
-            )
-
-            rec = DiagnosisRecord(
-                capture_id            = cap,
-                dataset_source        = "external_dataset",
-                dataset_label         = label,
-                simulated_scenario    = "",
-                binary_prediction     = binary_pred,
-                ml_attack_percent     = round(atk_pct, 2),
-                detection_level       = (
-                    "Level 1 — attack detected"
-                    if binary_pred == "attack"
-                    else "Level 1 — classified benign"
-                ),
-                attack_type_predicted = label,
-                ml_confidence         = confidence,
-                rule_signals          = rule_signals,
-                efsm_signals          = efsm["signals"],
-                total_packets         = total,
-                tcp_syn_percent       = round(syn_pct, 2),
-                average_pps           = float(pps) if pps is not None else None,
-                rule_evidence_text    = rule_ev,
-                supporting_evidence   = rule_ev,
-                efsm_relevant_states  = efsm["states"],
-                top_source_ip         = str(src_ip) if pd.notna(src_ip) else None,
-                top_destination_ip    = str(dst_ip) if pd.notna(dst_ip) else None,
-                localization_level    = "Level 3 — observed network endpoint only",
-                localization_note     = (
-                    f"Source IP {src_ip} and destination IP {dst_ip} observed. "
-                    "These are network-layer addresses; physical device and attacker "
-                    "identity cannot be determined from IP alone."
-                    if pd.notna(src_ip)
-                    else "No IP address columns available in extracted features."
-                ),
-                uncertainty_and_limitations = limitations,
-                timestamp_range       = "",
-            )
-            records.append(rec)
-
-    # ── Local MQTT captures (from MQTT rule report) ──
-    if mqtt_rule is not None:
-        for _, row in mqtt_rule.iterrows():
-            cap      = str(row.get("capture_file", ""))
-            scenario = str(row.get("simulated_scenario", "unknown"))
-            label    = str(row.get("traffic_label", "unknown"))
-            signals  = str(row.get("detection_signals", "none"))
-            evidence = str(row.get("supporting_evidence", ""))
-            diagnosis = str(row.get("diagnosis", ""))
-            limits   = str(row.get("uncertainty_and_limitations", ""))
-
-            efsm = _efsm_info(cap)
-
-            binary_pred = (
-                "benign"
-                if signals == "none" or scenario == "normal"
-                else "attack"
-            )
-
-            rate_flagged = int(row.get("rate_flagged_packets", 0))
-            range_flags  = int(row.get("temperature_range_violation_rows", 0))
-            manip_flags  = int(row.get("manipulation_mismatch_rows", 0))
-
-            rule_signals = [s for s in signals.split(";") if s and s != "none"]
-
-            rec = DiagnosisRecord(
-                capture_id            = cap,
-                dataset_source        = "local_mqtt",
-                dataset_label         = label,
-                simulated_scenario    = scenario,
-                binary_prediction     = binary_pred,
-                ml_attack_percent     = 0.0,   # ML not run on local captures
-                detection_level       = (
-                    "Level 1 — attack detected (rule-based)"
-                    if binary_pred == "attack"
-                    else "Level 1 — no attack signal"
-                ),
-                attack_type_predicted = (
-                    scenario.replace("_simulation", "").replace("_", " ")
-                    if binary_pred == "attack"
-                    else "normal"
-                ),
-                ml_confidence         = "N/A — rule-based detection only (no ML run on local captures)",
-                rule_signals          = rule_signals,
-                efsm_signals          = efsm["signals"],
-                total_packets         = int(row.get("mqtt_packets", 0)),
-                tcp_syn_percent       = 0.0,
-                average_pps           = float(row.get("publish_packets_per_second", 0)),
-                rule_evidence_text    = evidence,
-                supporting_evidence   = evidence,
-                efsm_relevant_states  = efsm["states"],
-                top_source_ip         = None,
-                top_destination_ip    = None,
-                localization_level    = (
-                    "Level 3 — network endpoint: localhost (::1)"
-                    if "normal" not in cap.lower()
-                    else "Level 1 — normal traffic, no localization needed"
-                ),
-                localization_note     = (
-                    "All local captures use loopback (::1); source ≡ destination. "
-                    "No meaningful network endpoint localization is possible."
-                ),
-                uncertainty_and_limitations = limits,
-                timestamp_range       = "",
-            )
-            records.append(rec)
-
-    return records
+    timestamp: float
+    sensor_id: str
+    event_type: str
+    sequence_number: int
+    is_anomaly: bool
+    fsm_conformance: bool
+    deviation_type: str                   # 'NONE' | 'OUTPUT_MISMATCH' | 'TIMING_VIOLATION' | 'SEQUENCE_REGRESSION' | 'REPLAY_DUPLICATE' | 'BURST_FLOOD' | 'PHYSICAL_BOUNDS' | 'TAMPERING' | 'SPOOFING'
+    suspected_state: Optional[str] = None
+    suspected_transition: Optional[str] = None
+    expected_output: Optional[str] = None
+    observed_output: Optional[str] = None
+    candidate_faults: List[str] = field(default_factory=list)
+    evidence: List[str] = field(default_factory=list)
+    diagnosis_confidence: float = 1.0
 
 
-# ─────────────────────────────────────────────────────────────
-# Main
-# ─────────────────────────────────────────────────────────────
+@dataclass
+class SensorDiagnosisReport:
+    """Aggregate formal diagnosis and localization report for a single sensor."""
 
-def main():
-    print("=" * 60)
-    print("  Unified Diagnosis Engine")
-    print("=" * 60)
+    sensor_id: str
+    anomaly_detected: bool
+    fsm_conformance: bool
+    total_events: int
+    anomalous_events_count: int
+    predicted_attack_category: str        # 'Normal' | 'DoS' | 'Replay' | 'MITM' | 'DataFalsification' | 'Delay' | 'IdentitySpoofing'
+    suspected_state: Optional[str] = None
+    suspected_transition: Optional[str] = None
+    expected_output: Optional[str] = None
+    observed_output: Optional[str] = None
+    candidate_faults: List[str] = field(default_factory=list)
+    evidence: List[str] = field(default_factory=list)
+    diagnosis_confidence: float = 1.0
 
-    records = build_records()
-    print(f"\nTotal diagnosis records: {len(records)}")
 
-    # ── Print summary ──
-    for rec in records:
-        src  = "EXT" if rec.dataset_source == "external_dataset" else "MQTT"
-        flag = "⚠ ATTACK" if rec.binary_prediction == "attack" else "  benign"
-        print(
-            f"  [{src}] {flag}  {rec.capture_id[:45]:<45}  "
-            f"label={rec.dataset_label:<8}  "
-            f"signals={rec.rule_signals}"
+@dataclass
+class SystemDiagnosisReport:
+    """Comprehensive diagnosis report across all sensors in an IoT session."""
+
+    overall_anomaly_detected: bool
+    affected_sensors: List[str]
+    sensor_reports: Dict[str, SensorDiagnosisReport]
+    primary_predicted_attack: str
+    event_diagnoses: List[EventDiagnosis]
+
+
+# ----------------------------------------------------------------------
+# Sensor Monitor Runtime (Fully Isolated Per Sensor)
+# ----------------------------------------------------------------------
+class SensorMonitor:
+    """Tracks the nominal state of a single sensor and checks conformance."""
+
+    def __init__(self, sensor_id: str, fsm_module: Any) -> None:
+        self.sensor_id = sensor_id
+        self.mod = fsm_module
+        self.machine: TFSM = self.mod.build_original()
+        self.state: str = self.machine.init
+        self.last_timestamp: float = 0.0
+        self.last_seq: Optional[int] = None
+        self.seen_seqs: Set[int] = set()
+        self.timeout_threshold: float = TIMEOUT_THRESHOLDS.get(sensor_id, 2.2)
+
+    def reconstruct_input_symbol(self, event: Dict[str, Any]) -> str:
+        """Infers the legitimate formal FSM input symbol from observable message content."""
+        ev_type = event.get("event_type", "")
+        payload = event.get("payload", {})
+
+        if ev_type == "CONNECT":
+            action = payload.get("action", "")
+            if "wifi" in action:
+                return "i2"  # WiFi connected signal ws(1)
+            return "i4"      # MQTT connected signal cc(1)
+
+        if ev_type == "HEARTBEAT":
+            return "i5"      # Health check / alive
+
+        if ev_type == "FLOOD":
+            return "i6"      # Unexpected request / malformed message
+
+        # Domain Telemetry Inputs
+        if self.sensor_id == "motion":
+            is_motion = bool(payload.get("motion", 0))
+            return "i11" if is_motion else "i5"
+
+        elif self.sensor_id == "temperature":
+            is_alert = bool(payload.get("alert", False)) or float(payload.get("temperature", 20.0)) > 30.0
+            return "i12" if is_alert else "i11"
+
+        elif self.sensor_id == "ultrasonic":
+            is_obs = bool(payload.get("obstacle", False)) or float(payload.get("distance_cm", 100.0)) < 30.0
+            return "i12" if is_obs else "i11"
+
+        elif self.sensor_id == "rfid":
+            uid = payload.get("card_uid", "")
+            # Only legitimate authorized card produces i11
+            is_authorized = (uid == "A1B2C3D4")
+            return "i11" if is_authorized else "i12"
+
+        return "i6"
+
+    def evaluate_event(self, event: Dict[str, Any]) -> EventDiagnosis:
+        """Evaluates an observable event against the formal FSM and isolated sensor baselines."""
+        ts = float(event.get("timestamp", 0.0))
+        seq = int(event.get("sequence_number", 0))
+        obs_out = event.get("output_symbol", "")
+        payload = event.get("payload", {})
+        ev_type = event.get("event_type", "")
+
+        # Compute isolated elapsed time for THIS sensor only
+        if self.last_timestamp > 0.0:
+            sensor_dt = ts - self.last_timestamp
+        else:
+            raw_ia = float(event.get("inter_arrival", 0.0))
+            sensor_dt = raw_ia if raw_ia > 0.0 else 0.0
+
+        is_anomaly = False
+        conformance = True
+        dev_type = "NONE"
+        suspected_st = None
+        suspected_tr = None
+        exp_out = None
+        candidate_faults = []
+        evidence = []
+        conf = 1.0
+
+        # --------------------------------------------------------------
+        # 1. Isolated Sequence & Rate Checks
+        # --------------------------------------------------------------
+        if seq in self.seen_seqs:
+            # Genuine Replay: Duplicate sequence number already seen
+            is_anomaly = True
+            dev_type = "REPLAY_DUPLICATE"
+            candidate_faults.extend(["replayed_stale_sequence", "RA_t9"])
+            evidence.append(f"Duplicate sequence number on {self.sensor_id}: seq={seq} was already seen (replay detected)")
+            conf = 0.95
+        elif self.last_seq is not None and seq <= self.last_seq:
+            # Sequence regression (can occur from out-of-order delayed packets or replay)
+            is_anomaly = True
+            dev_type = "SEQUENCE_REGRESSION"
+            candidate_faults.append("replayed_stale_sequence")
+            evidence.append(f"Non-monotonic sequence number on {self.sensor_id}: seq={seq} <= last_seq={self.last_seq}")
+        elif self.last_seq is not None and (seq - self.last_seq) > 5 and ev_type == "FLOOD":
+            is_anomaly = True
+            dev_type = "BURST_FLOOD"
+            candidate_faults.append("dos_queue_exhaustion")
+            evidence.append(f"Sequence surge on FLOOD frame for {self.sensor_id}: delta={seq - self.last_seq}")
+            conf = 0.95
+
+        self.seen_seqs.add(seq)
+
+        # Check Burst Flood Rate (Sensor-isolated interval check)
+        if ev_type == "FLOOD" or (self.last_timestamp > 0.5 and sensor_dt < 0.08 and ev_type != "CONNECT"):
+            is_anomaly = True
+            if dev_type == "NONE" or ev_type == "FLOOD":
+                dev_type = "BURST_FLOOD"
+            candidate_faults.append("dos_queue_exhaustion")
+            evidence.append(f"High-frequency burst rate on {self.sensor_id}: dt={sensor_dt:.4f}s")
+            conf = max(conf, 0.92)
+
+        # Check Message Delay Exceeding Keepalive Timeout
+        if sensor_dt > self.timeout_threshold and ev_type not in ("CONNECT", "FLOOD"):
+            is_anomaly = True
+            if dev_type == "NONE":
+                dev_type = "TIMING_VIOLATION"
+            candidate_faults.extend(["delay_timeout_exceeded", "BD_s8", "BD_s9"])
+            evidence.append(f"Timing violation on {self.sensor_id}: interval dt={sensor_dt:.4f}s exceeds timeout threshold {self.timeout_threshold}s")
+            conf = 0.85
+
+        # --------------------------------------------------------------
+        # 2. Domain Physical Bounds & In-Flight Tampering Checks
+        # --------------------------------------------------------------
+        if self.sensor_id == "temperature" and "temperature" in payload:
+            temp_val = float(payload["temperature"])
+            if temp_val < PHYSICAL_BOUNDS["temperature"]["min"] or temp_val > PHYSICAL_BOUNDS["temperature"]["max"]:
+                is_anomaly = True
+                dev_type = "PHYSICAL_BOUNDS"
+                candidate_faults.extend(["dfa_sensor_falsification", "DFA_t21", "DFA_t23"])
+                evidence.append(f"Temperature reading {temp_val}°C violates physical domain bounds [-20, 70]")
+                conf = 0.95
+            elif temp_val > 30.0 and obs_out == "o11":
+                # In-flight MITM tampering: payload reads high alert temp but output symbol is normal o11
+                is_anomaly = True
+                dev_type = "TAMPERING"
+                candidate_faults.append("mitm_intercept_tamper")
+                evidence.append(f"Semantic inconsistency on temperature: reading {temp_val}°C should trigger alert but output is o11")
+                conf = 0.90
+
+        elif self.sensor_id == "ultrasonic" and "distance_cm" in payload:
+            dist_val = float(payload["distance_cm"])
+            if dist_val < PHYSICAL_BOUNDS["ultrasonic"]["min"] or dist_val > PHYSICAL_BOUNDS["ultrasonic"]["max"]:
+                is_anomaly = True
+                dev_type = "PHYSICAL_BOUNDS"
+                candidate_faults.extend(["dfa_sensor_falsification", "DFA_t21", "DFA_t23"])
+                evidence.append(f"Ultrasonic distance {dist_val}cm violates physical domain bounds [2, 450]")
+                conf = 0.95
+            elif (dist_val < 30.0 or payload.get("obstacle") is True) and obs_out == "o11":
+                # In-flight MITM tampering: payload reads obstacle but output symbol is normal o11
+                is_anomaly = True
+                dev_type = "TAMPERING"
+                candidate_faults.append("mitm_intercept_tamper")
+                evidence.append("Semantic inconsistency on ultrasonic: payload claims obstacle but output symbol is o11")
+                conf = 0.90
+
+        elif self.sensor_id == "motion" and "confidence" in payload:
+            conf_val = float(payload["confidence"])
+            if conf_val < 0.0 or conf_val > 1.0:
+                is_anomaly = True
+                dev_type = "PHYSICAL_BOUNDS"
+                candidate_faults.extend(["dfa_sensor_falsification", "DFA_t21"])
+                evidence.append(f"Motion confidence {conf_val} violates probability bounds [0.0, 1.0]")
+                conf = 0.95
+
+        elif self.sensor_id == "rfid" and payload.get("status") == "tampered":
+            is_anomaly = True
+            dev_type = "TAMPERING"
+            candidate_faults.append("mitm_intercept_tamper")
+            evidence.append("RFID payload tampering detected: status flagged as tampered")
+            conf = 0.95
+
+        # --------------------------------------------------------------
+        # 3. Formal TFSM Conformance & State Machine Transition Check
+        # --------------------------------------------------------------
+        # Synchronize state if evaluating an isolated operational event
+        if self.state == "s1" and event.get("observed_state") in ("s5", "s7", "s8", "s9"):
+            self.state = str(event["observed_state"])
+
+        inp_sym = self.reconstruct_input_symbol(event)
+        tr = self.machine._on_input(self.state, inp_sym)
+
+        if tr is None:
+            exp_out = "o6"
+            suspected_st = self.state
+            suspected_tr = "undefined_transition"
+            if obs_out != "o6":
+                is_anomaly = True
+                conformance = False
+                if dev_type == "NONE":
+                    dev_type = "OUTPUT_MISMATCH"
+                evidence.append(f"State {self.state} received undefined input {inp_sym}: expected o6, observed {obs_out}")
+        else:
+            exp_out = tr.out
+            suspected_st = self.state
+            suspected_tr = tr.tid
+
+            # Check Output Symbol Mismatch
+            if obs_out and obs_out != exp_out:
+                is_anomaly = True
+                conformance = False
+
+                # Check RFID Identity Spoofing (SPOOF_t23: unauthorized UID granted access)
+                if self.sensor_id == "rfid" and tr.tid == "t23" and obs_out == "o11" and exp_out == "o12":
+                    dev_type = "SPOOFING"
+                    candidate_faults.extend(["rfid_uid_spoofing_t23", "SPOOF_t23"])
+                    evidence.append("Identity Spoofing detected on rfid: unauthorized badge produced access-granted o11 output")
+                    conf = 0.95
+                else:
+                    if dev_type == "NONE":
+                        dev_type = "OUTPUT_MISMATCH"
+                    evidence.append(f"Output mismatch on transition {tr.tid} from state {self.state}: expected {exp_out}, observed {obs_out}")
+                    if obs_out == "o6":
+                        # Only attribute DFA sensor fault if this is NOT a duplicate/replayed packet or flood
+                        if dev_type not in ("REPLAY_DUPLICATE", "SEQUENCE_REGRESSION", "BURST_FLOOD"):
+                            candidate_faults.extend([f"DFA_{tr.tid}", "dfa_sensor_falsification"])
+                    elif obs_out == "o4" and tr.tid == "t9":
+                        candidate_faults.append("RA_t9")
+
+            # Advance nominal state machine ONLY if not a replayed duplicate
+            if dev_type != "REPLAY_DUPLICATE":
+                self.state = tr.dst
+
+        # Update isolated monitor state
+        self.last_timestamp = ts
+        if dev_type != "REPLAY_DUPLICATE":
+            self.last_seq = max(self.last_seq if self.last_seq is not None else seq, seq)
+        else:
+            if self.last_seq is None:
+                self.last_seq = seq
+
+        return EventDiagnosis(
+            timestamp=ts,
+            sensor_id=self.sensor_id,
+            event_type=ev_type,
+            sequence_number=seq,
+            is_anomaly=is_anomaly,
+            fsm_conformance=conformance,
+            deviation_type=dev_type,
+            suspected_state=suspected_st,
+            suspected_transition=suspected_tr,
+            expected_output=exp_out,
+            observed_output=obs_out,
+            candidate_faults=sorted(list(set(candidate_faults))),
+            evidence=evidence,
+            diagnosis_confidence=conf if is_anomaly else 1.0,
         )
 
-    # ── Save JSON ──
-    OUT_JSON.parent.mkdir(exist_ok=True)
-    records_dicts = [asdict(r) for r in records]
-    OUT_JSON.write_text(
-        json.dumps(records_dicts, indent=2, default=str),
-        encoding="utf-8"
-    )
 
-    # ── Save CSV ──
-    rows_flat = []
-    for r in records_dicts:
-        row = dict(r)
-        row["rule_signals"]          = "; ".join(r["rule_signals"])
-        row["efsm_signals"]          = "; ".join(r["efsm_signals"])
-        row["efsm_relevant_states"]  = "; ".join(r["efsm_relevant_states"])
-        rows_flat.append(row)
+# ----------------------------------------------------------------------
+# Central Unified Diagnosis Engine
+# ----------------------------------------------------------------------
+class UnifiedDiagnosisEngine:
+    """Central engine performing multi-sensor formal diagnosis and localization."""
 
-    pd.DataFrame(rows_flat).to_csv(OUT_CSV, index=False)
+    MODULES = {
+        "motion": motion_sensor,
+        "temperature": temperature_sensor,
+        "ultrasonic": ultrasonic_sensor,
+        "rfid": rfid_sensor,
+    }
 
-    print(f"\nSaved JSON: {OUT_JSON}")
-    print(f"Saved CSV:  {OUT_CSV}")
+    def __init__(self) -> None:
+        pass
 
-    # ── Statistics ──
-    n_attack = sum(1 for r in records if r.binary_prediction == "attack")
-    n_benign = sum(1 for r in records if r.binary_prediction == "benign")
-    print(f"\nDiagnosis summary: {n_attack} attack, {n_benign} benign")
-    print(f"Dataset sources:   "
-          f"{sum(1 for r in records if r.dataset_source == 'external_dataset')} external, "
-          f"{sum(1 for r in records if r.dataset_source == 'local_mqtt')} local MQTT")
+    def diagnose_events(
+        self,
+        events: Union[List[Dict[str, Any]], List[Any]],
+    ) -> SystemDiagnosisReport:
+        """Analyzes an ordered sequence of observable events and generates diagnosis report.
 
+        Guarantees:
+        - Strict sensor isolation during evaluation.
+        - NEVER reads 'is_attack', 'attack_type', 'attack_target', or 'fault_location'.
+        """
+        # Convert objects to observable dictionaries and strip quarantined ground-truth
+        clean_events = []
+        for e in events:
+            if hasattr(e, "to_observable_dict"):
+                clean_events.append(e.to_observable_dict())
+            elif isinstance(e, dict):
+                clean_e = copy.deepcopy(e)
+                for qk in ("is_attack", "attack_type", "attack_target", "fault_location", "original_payload", "original_timestamp"):
+                    clean_e.pop(qk, None)
+                clean_events.append(clean_e)
+            else:
+                raise TypeError(f"Unsupported event type: {type(e)}")
 
-if __name__ == "__main__":
-    main()
+        # Sort strictly by timestamp and sequence number
+        clean_events.sort(key=lambda x: (float(x.get("timestamp", 0.0)), int(x.get("sequence_number", 0))))
+
+        # Initialize independent monitors for each sensor
+        monitors = {sid: SensorMonitor(sid, mod) for sid, mod in self.MODULES.items()}
+
+        event_diagnoses: List[EventDiagnosis] = []
+        events_by_sensor: Dict[str, List[EventDiagnosis]] = {sid: [] for sid in self.MODULES}
+
+        # Evaluate events chronologically through isolated sensor monitors
+        for ev in clean_events:
+            sid = ev.get("sensor_id", "")
+            if sid not in monitors:
+                continue
+            diag = monitors[sid].evaluate_event(ev)
+            event_diagnoses.append(diag)
+            events_by_sensor[sid].append(diag)
+
+        # Build sensor diagnosis reports
+        sensor_reports: Dict[str, SensorDiagnosisReport] = {}
+        affected_sensors = []
+        all_candidate_faults = []
+
+        for sid, diag_list in events_by_sensor.items():
+            anomalous = [d for d in diag_list if d.is_anomaly]
+            has_anomaly = len(anomalous) > 0
+            conformance = all(d.fsm_conformance for d in diag_list)
+
+            if has_anomaly:
+                affected_sensors.append(sid)
+
+            sensor_faults = []
+            sensor_evidence = []
+            suspected_st = None
+            suspected_tr = None
+            exp_out = None
+            obs_out = None
+            conf_sum = 0.0
+
+            for a in anomalous:
+                sensor_faults.extend(a.candidate_faults)
+                sensor_evidence.extend(a.evidence)
+                if suspected_st is None and a.suspected_state:
+                    suspected_st = a.suspected_state
+                if suspected_tr is None and a.suspected_transition:
+                    suspected_tr = a.suspected_transition
+                if exp_out is None and a.expected_output:
+                    exp_out = a.expected_output
+                if obs_out is None and a.observed_output:
+                    obs_out = a.observed_output
+                conf_sum += a.diagnosis_confidence
+
+            sensor_faults = sorted(list(set(sensor_faults)))
+            all_candidate_faults.extend(sensor_faults)
+
+            # Classify candidate attack category based strictly on isolated observable symptoms
+            pred_attack = self._classify_attack_category(sid, sensor_faults, anomalous, monitors[sid])
+
+            sensor_conf = round(conf_sum / len(anomalous), 2) if anomalous else 1.0
+
+            sensor_reports[sid] = SensorDiagnosisReport(
+                sensor_id=sid,
+                anomaly_detected=has_anomaly,
+                fsm_conformance=conformance,
+                total_events=len(diag_list),
+                anomalous_events_count=len(anomalous),
+                predicted_attack_category=pred_attack,
+                suspected_state=suspected_st,
+                suspected_transition=suspected_tr,
+                expected_output=exp_out,
+                observed_output=obs_out,
+                candidate_faults=sensor_faults,
+                evidence=sensor_evidence[:8],
+                diagnosis_confidence=sensor_conf,
+            )
+
+        affected_sensors = sorted(list(set(affected_sensors)))
+
+        # Primary system-level predicted attack
+        all_pred = [r.predicted_attack_category for r in sensor_reports.values() if r.predicted_attack_category != "Normal"]
+        primary_attack = all_pred[0] if all_pred else "Normal"
+
+        return SystemDiagnosisReport(
+            overall_anomaly_detected=len(affected_sensors) > 0,
+            affected_sensors=affected_sensors,
+            sensor_reports=sensor_reports,
+            primary_predicted_attack=primary_attack,
+            event_diagnoses=event_diagnoses,
+        )
+
+    def _classify_attack_category(
+        self,
+        sensor_id: str,
+        faults: List[str],
+        anomalies: List[EventDiagnosis],
+        monitor: SensorMonitor,
+    ) -> str:
+        """Classifies the most likely attack category from formal symptoms using evidence combinations."""
+        if not anomalies:
+            return "Normal"
+
+        dev_types = {a.deviation_type for a in anomalies}
+
+        # 1. RFID Identity Spoofing (SPOOF_t23 mutant or unauthorized access grant)
+        if "SPOOFING" in dev_types or any("spoof" in f.lower() for f in faults):
+            return "IdentitySpoofing"
+
+        # Observable evidence tallies
+        duplicate_seq_count = sum(1 for a in anomalies if a.deviation_type == "REPLAY_DUPLICATE")
+        seq_regression_count = sum(1 for a in anomalies if a.deviation_type == "SEQUENCE_REGRESSION")
+        burst_count = sum(1 for a in anomalies if a.deviation_type == "BURST_FLOOD")
+        flood_frames = sum(1 for a in anomalies if a.event_type == "FLOOD")
+        timing_violations = sum(1 for a in anomalies if a.deviation_type == "TIMING_VIOLATION")
+        has_physical_bounds = "PHYSICAL_BOUNDS" in dev_types
+        has_replay_fault = any("replay" in f.lower() or "ra_" in f.lower() for f in faults)
+        has_delay_fault = any("delay" in f.lower() for f in faults)
+        has_dfa_fault = any("dfa" in f.lower() for f in faults)
+        has_dos_fault = any("dos" in f.lower() for f in faults)
+
+        # 2. Genuine High-Rate DoS Flood (Flood frames or massive burst without duplicate sequences)
+        if flood_frames >= 5 or (burst_count >= 5 and duplicate_seq_count == 0):
+            return "DoS"
+
+        # 3. Man-in-the-Middle (Payload tampering / semantic contradiction)
+        if "TAMPERING" in dev_types or any("mitm" in f.lower() for f in faults):
+            return "MITM"
+
+        # 4. Replay Attack:
+        # Observable evidence: duplicate sequence numbers already transmitted,
+        # or sequence regressions without physical bounds violation or timeout
+        if duplicate_seq_count > 0:
+            return "Replay"
+
+        if has_replay_fault and not has_physical_bounds and timing_violations == 0:
+            return "Replay"
+
+        # 5. Moderate DoS Flood (Burst rate on fresh sequence progression without replay duplicates)
+        if (burst_count >= 2 or has_dos_fault) and duplicate_seq_count == 0:
+            return "DoS"
+
+        # 5. Data Falsification:
+        # Observable evidence: payload violates physical domain bounds,
+        # or sensor output symbol mismatch without replay or delay symptoms.
+        if has_physical_bounds:
+            return "DataFalsification"
+
+        if (has_dfa_fault or "OUTPUT_MISMATCH" in dev_types) and duplicate_seq_count == 0 and timing_violations == 0:
+            return "DataFalsification"
+
+        # 6. Message Delay Attack:
+        # Observable evidence: inter-arrival gap exceeds timeout threshold,
+        # delayed arrival causing out-of-order sequence regression, but NO duplicate sequence numbers.
+        if timing_violations > 0 or has_delay_fault:
+            return "Delay"
+
+        # 7. Remaining sequence regressions without timeout: Replay
+        if seq_regression_count > 0 or has_replay_fault:
+            return "Replay"
+
+        if "OUTPUT_MISMATCH" in dev_types:
+            return "DataFalsification"
+
+        return "UnknownAnomaly"

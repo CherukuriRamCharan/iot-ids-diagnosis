@@ -1,0 +1,3812 @@
+[
+  {
+    "accuracy": 0.9694626260743985,
+    "macro_precision": 0.5719053795267199,
+    "macro_recall": 0.8374936103291106,
+    "macro_f1": 0.6106804448574639,
+    "weighted_precision": 0.9886446993778097,
+    "weighted_recall": 0.9694626260743985,
+    "weighted_f1": 0.977713944939448,
+    "per_class": {
+      "normal": {
+        "precision": 0.9959281100814378,
+        "recall": 0.980508708874758,
+        "f1": 0.9881582613541376,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9831794195250659,
+        "recall": 0.919068907044859,
+        "f1": 0.9500438212094654,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.16694772344013492,
+        "recall": 0.6111111111111112,
+        "f1": 0.26225165562913905,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.14156626506024098,
+        "recall": 0.8392857142857143,
+        "f1": 0.2422680412371134,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35465,
+        88,
+        486,
+        131
+      ],
+      [
+        78,
+        5962,
+        8,
+        439
+      ],
+      [
+        58,
+        5,
+        99,
+        0
+      ],
+      [
+        9,
+        9,
+        0,
+        94
+      ]
+    ],
+    "val_macro_f1": 0.7192834801195502,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 1.9356294999888632,
+    "inference_time_s": 0.07176209997851402,
+    "inference_ms_per_1k": 1.6715683300764952,
+    "task_id": "mqtt_uad_full_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 42
+  },
+  {
+    "accuracy": 0.9693461601173977,
+    "macro_precision": 0.5704568400108296,
+    "macro_recall": 0.8300308734873629,
+    "macro_f1": 0.6085505983389764,
+    "weighted_precision": 0.9884358117007104,
+    "weighted_recall": 0.9693461601173977,
+    "weighted_f1": 0.9775845792718125,
+    "per_class": {
+      "normal": {
+        "precision": 0.9958437473672386,
+        "recall": 0.9803981199889411,
+        "f1": 0.9880605748199334,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9823781291172595,
+        "recall": 0.919531370433174,
+        "f1": 0.9499163946174058,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.163575042158516,
+        "recall": 0.5987654320987654,
+        "f1": 0.25695364238410595,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.1400304414003044,
+        "recall": 0.8214285714285714,
+        "f1": 0.23927178153446033,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35461,
+        91,
+        489,
+        129
+      ],
+      [
+        79,
+        5965,
+        7,
+        436
+      ],
+      [
+        60,
+        5,
+        97,
+        0
+      ],
+      [
+        9,
+        11,
+        0,
+        92
+      ]
+    ],
+    "val_macro_f1": 0.7193962425976346,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 1.7314583000261337,
+    "inference_time_s": 0.0718883000081405,
+    "inference_ms_per_1k": 1.67450793152129,
+    "task_id": "mqtt_uad_full_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 43
+  },
+  {
+    "accuracy": 0.9693694533087979,
+    "macro_precision": 0.5703430894233227,
+    "macro_recall": 0.8307019483096432,
+    "macro_f1": 0.6090188190612936,
+    "weighted_precision": 0.988411964734522,
+    "weighted_recall": 0.9693694533087979,
+    "weighted_f1": 0.9775935939340703,
+    "per_class": {
+      "normal": {
+        "precision": 0.9958134307389717,
+        "recall": 0.9798451755598563,
+        "f1": 0.9877647714604236,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9824388642704743,
+        "recall": 0.9227686141513797,
+        "f1": 0.9516693163751987,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.15823817292006526,
+        "recall": 0.5987654320987654,
+        "f1": 0.2503225806451613,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.14488188976377953,
+        "recall": 0.8214285714285714,
+        "f1": 0.2463186077643909,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35441,
+        91,
+        509,
+        129
+      ],
+      [
+        80,
+        5986,
+        7,
+        414
+      ],
+      [
+        60,
+        5,
+        97,
+        0
+      ],
+      [
+        9,
+        11,
+        0,
+        92
+      ]
+    ],
+    "val_macro_f1": 0.7180017611676928,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 1.7427003999764565,
+    "inference_time_s": 0.07106020001810975,
+    "inference_ms_per_1k": 1.6552188399550385,
+    "task_id": "mqtt_uad_full_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 44
+  },
+  {
+    "accuracy": 0.969998369476602,
+    "macro_precision": 0.5713292997129743,
+    "macro_recall": 0.8235239409185218,
+    "macro_f1": 0.6099573334244427,
+    "weighted_precision": 0.9883179463533768,
+    "weighted_recall": 0.969998369476602,
+    "weighted_f1": 0.97792013587446,
+    "per_class": {
+      "normal": {
+        "precision": 0.995872873266326,
+        "recall": 0.9806745922034835,
+        "f1": 0.9882153006073439,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9813114754098361,
+        "recall": 0.9227686141513797,
+        "f1": 0.9511400651465798,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.1695501730103806,
+        "recall": 0.6049382716049383,
+        "f1": 0.2648648648648649,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.13858267716535433,
+        "recall": 0.7857142857142857,
+        "f1": 0.23560910307898258,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35471,
+        94,
+        473,
+        132
+      ],
+      [
+        79,
+        5986,
+        7,
+        415
+      ],
+      [
+        59,
+        5,
+        98,
+        0
+      ],
+      [
+        9,
+        15,
+        0,
+        88
+      ]
+    ],
+    "val_macro_f1": 0.7186371708562828,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 1.736314300011145,
+    "inference_time_s": 0.07095189997926354,
+    "inference_ms_per_1k": 1.6526961864215495,
+    "task_id": "mqtt_uad_full_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 45
+  },
+  {
+    "accuracy": 0.9699750762852019,
+    "macro_precision": 0.5719694775534847,
+    "macro_recall": 0.8293456552362497,
+    "macro_f1": 0.6107260215801664,
+    "weighted_precision": 0.9886085268741118,
+    "weighted_recall": 0.9699750762852019,
+    "weighted_f1": 0.9780118688525216,
+    "per_class": {
+      "normal": {
+        "precision": 0.9958729891350122,
+        "recall": 0.9807022394249378,
+        "f1": 0.9882293944754768,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9832319579155022,
+        "recall": 0.9219978418375212,
+        "f1": 0.9516308671439936,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.1683673469387755,
+        "recall": 0.6111111111111112,
+        "f1": 0.264,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.14040561622464898,
+        "recall": 0.8035714285714286,
+        "f1": 0.23904382470119523,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35472,
+        86,
+        482,
+        130
+      ],
+      [
+        78,
+        5981,
+        7,
+        421
+      ],
+      [
+        58,
+        5,
+        99,
+        0
+      ],
+      [
+        11,
+        11,
+        0,
+        90
+      ]
+    ],
+    "val_macro_f1": 0.718570706259279,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 1.7505553999799304,
+    "inference_time_s": 0.08233770000515506,
+    "inference_ms_per_1k": 1.917907805668516,
+    "task_id": "mqtt_uad_full_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 46
+  },
+  {
+    "accuracy": 0.9746570077566328,
+    "macro_precision": 0.5770425965011803,
+    "macro_recall": 0.7344786238935523,
+    "macro_f1": 0.6088540693316761,
+    "weighted_precision": 0.9861793491385867,
+    "weighted_recall": 0.9746570077566328,
+    "weighted_f1": 0.9797250736464668,
+    "per_class": {
+      "normal": {
+        "precision": 0.9928537663709924,
+        "recall": 0.9871716892452308,
+        "f1": 0.9900045748825087,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9832786885245902,
+        "recall": 0.9246184677046401,
+        "f1": 0.9530467943115913,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.20855614973262032,
+        "recall": 0.48148148148148145,
+        "f1": 0.291044776119403,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.12348178137651822,
+        "recall": 0.5446428571428571,
+        "f1": 0.20132013201320131,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35706,
+        81,
+        289,
+        94
+      ],
+      [
+        143,
+        5998,
+        7,
+        339
+      ],
+      [
+        79,
+        5,
+        78,
+        0
+      ],
+      [
+        35,
+        16,
+        0,
+        61
+      ]
+    ],
+    "best_val_macro_f1": 0.73737281743896,
+    "selected_max_depth": null,
+    "train_time_s": 3.3838626999931876,
+    "inference_time_s": 0.004201200004899874,
+    "inference_ms_per_1k": 0.09785935582445958,
+    "task_id": "mqtt_uad_full_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 42
+  },
+  {
+    "accuracy": 0.9746104213738325,
+    "macro_precision": 0.576939840902536,
+    "macro_recall": 0.7344648002828252,
+    "macro_f1": 0.6087452244931184,
+    "weighted_precision": 0.9861540107136472,
+    "weighted_recall": 0.9746104213738325,
+    "weighted_f1": 0.9796891740902878,
+    "per_class": {
+      "normal": {
+        "precision": 0.9928533689274491,
+        "recall": 0.9871163948023224,
+        "f1": 0.9899765704066212,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9831175217177512,
+        "recall": 0.9246184677046401,
+        "f1": 0.9529710835716555,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.20855614973262032,
+        "recall": 0.48148148148148145,
+        "f1": 0.291044776119403,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.12323232323232323,
+        "recall": 0.5446428571428571,
+        "f1": 0.20098846787479407,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35704,
+        82,
+        289,
+        95
+      ],
+      [
+        143,
+        5998,
+        7,
+        339
+      ],
+      [
+        79,
+        5,
+        78,
+        0
+      ],
+      [
+        35,
+        16,
+        0,
+        61
+      ]
+    ],
+    "best_val_macro_f1": 0.737591946378171,
+    "selected_max_depth": null,
+    "train_time_s": 3.4324807999946643,
+    "inference_time_s": 0.004174000001512468,
+    "inference_ms_per_1k": 0.0972257809394719,
+    "task_id": "mqtt_uad_full_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 43
+  },
+  {
+    "accuracy": 0.9746104213738325,
+    "macro_precision": 0.576939840902536,
+    "macro_recall": 0.7344648002828252,
+    "macro_f1": 0.6087452244931184,
+    "weighted_precision": 0.9861540107136472,
+    "weighted_recall": 0.9746104213738325,
+    "weighted_f1": 0.9796891740902878,
+    "per_class": {
+      "normal": {
+        "precision": 0.9928533689274491,
+        "recall": 0.9871163948023224,
+        "f1": 0.9899765704066212,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9831175217177512,
+        "recall": 0.9246184677046401,
+        "f1": 0.9529710835716555,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.20855614973262032,
+        "recall": 0.48148148148148145,
+        "f1": 0.291044776119403,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.12323232323232323,
+        "recall": 0.5446428571428571,
+        "f1": 0.20098846787479407,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35704,
+        82,
+        289,
+        95
+      ],
+      [
+        143,
+        5998,
+        7,
+        339
+      ],
+      [
+        79,
+        5,
+        78,
+        0
+      ],
+      [
+        35,
+        16,
+        0,
+        61
+      ]
+    ],
+    "best_val_macro_f1": 0.73737281743896,
+    "selected_max_depth": null,
+    "train_time_s": 3.5756817999936175,
+    "inference_time_s": 0.004117900010896847,
+    "inference_ms_per_1k": 0.0959190331205154,
+    "task_id": "mqtt_uad_full_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 44
+  },
+  {
+    "accuracy": 0.9746337145652326,
+    "macro_precision": 0.577002255120409,
+    "macro_recall": 0.7344717120881888,
+    "macro_f1": 0.6088316411357361,
+    "weighted_precision": 0.9861548289400688,
+    "weighted_recall": 0.9746337145652326,
+    "weighted_f1": 0.9797018366034189,
+    "per_class": {
+      "normal": {
+        "precision": 0.9928535676547466,
+        "recall": 0.9871440420237766,
+        "f1": 0.9899905728386846,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9831175217177512,
+        "recall": 0.9246184677046401,
+        "f1": 0.9529710835716555,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.20855614973262032,
+        "recall": 0.48148148148148145,
+        "f1": 0.291044776119403,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.12348178137651822,
+        "recall": 0.5446428571428571,
+        "f1": 0.20132013201320131,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35705,
+        82,
+        289,
+        94
+      ],
+      [
+        143,
+        5998,
+        7,
+        339
+      ],
+      [
+        79,
+        5,
+        78,
+        0
+      ],
+      [
+        35,
+        16,
+        0,
+        61
+      ]
+    ],
+    "best_val_macro_f1": 0.7375040709306337,
+    "selected_max_depth": null,
+    "train_time_s": 3.448245300009148,
+    "inference_time_s": 0.004805300006410107,
+    "inference_ms_per_1k": 0.1119307727844706,
+    "task_id": "mqtt_uad_full_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 45
+  },
+  {
+    "accuracy": 0.9746337145652326,
+    "macro_precision": 0.577002255120409,
+    "macro_recall": 0.7344717120881888,
+    "macro_f1": 0.6088316411357361,
+    "weighted_precision": 0.9861548289400688,
+    "weighted_recall": 0.9746337145652326,
+    "weighted_f1": 0.9797018366034189,
+    "per_class": {
+      "normal": {
+        "precision": 0.9928535676547466,
+        "recall": 0.9871440420237766,
+        "f1": 0.9899905728386846,
+        "support": 36170
+      },
+      "DoS": {
+        "precision": 0.9831175217177512,
+        "recall": 0.9246184677046401,
+        "f1": 0.9529710835716555,
+        "support": 6487
+      },
+      "mitm": {
+        "precision": 0.20855614973262032,
+        "recall": 0.48148148148148145,
+        "f1": 0.291044776119403,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.12348178137651822,
+        "recall": 0.5446428571428571,
+        "f1": 0.20132013201320131,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35705,
+        82,
+        289,
+        94
+      ],
+      [
+        143,
+        5998,
+        7,
+        339
+      ],
+      [
+        79,
+        5,
+        78,
+        0
+      ],
+      [
+        35,
+        16,
+        0,
+        61
+      ]
+    ],
+    "best_val_macro_f1": 0.73737281743896,
+    "selected_max_depth": null,
+    "train_time_s": 3.5485074000025634,
+    "inference_time_s": 0.004517599998507649,
+    "inference_ms_per_1k": 0.10522932143457289,
+    "task_id": "mqtt_uad_full_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 46
+  },
+  {
+    "accuracy": 0.9857911532459063,
+    "macro_precision": 0.9665848597343586,
+    "macro_recall": 0.9810448568296346,
+    "macro_f1": 0.9736382755515527,
+    "weighted_precision": 0.9861368651994527,
+    "weighted_recall": 0.9857911532459063,
+    "weighted_f1": 0.9858995531292823,
+    "per_class": {
+      "normal": {
+        "precision": 0.9951267056530214,
+        "recall": 0.9879734586674039,
+        "f1": 0.9915371809100999,
+        "support": 36170
+      },
+      "attack": {
+        "precision": 0.9380430138156958,
+        "recall": 0.9741162549918652,
+        "f1": 0.9557393701930054,
+        "support": 6761
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35735,
+        435
+      ],
+      [
+        175,
+        6586
+      ]
+    ],
+    "val_macro_f1": 0.9558551421899184,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 2.236085300013656,
+    "inference_time_s": 0.07387579997885041,
+    "inference_ms_per_1k": 1.720803148746836,
+    "task_id": "mqtt_uad_full_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 42
+  },
+  {
+    "accuracy": 0.9855582213319047,
+    "macro_precision": 0.9661591666104443,
+    "macro_recall": 0.9806059709901684,
+    "macro_f1": 0.973206116134365,
+    "weighted_precision": 0.9859074029738845,
+    "weighted_recall": 0.9855582213319047,
+    "weighted_f1": 0.9856683982625494,
+    "per_class": {
+      "normal": {
+        "precision": 0.9949874686716792,
+        "recall": 0.9878352225601327,
+        "f1": 0.9913984461709212,
+        "support": 36170
+      },
+      "attack": {
+        "precision": 0.9373308645492096,
+        "recall": 0.9733767194202041,
+        "f1": 0.9550137860978087,
+        "support": 6761
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35730,
+        440
+      ],
+      [
+        180,
+        6581
+      ]
+    ],
+    "val_macro_f1": 0.9563955539901827,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 2.2531258999952115,
+    "inference_time_s": 0.0610226999851875,
+    "inference_ms_per_1k": 1.421413430509131,
+    "task_id": "mqtt_uad_full_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 43
+  },
+  {
+    "accuracy": 0.9856746872889055,
+    "macro_precision": 0.9665421780544488,
+    "macro_recall": 0.980614959097365,
+    "macro_f1": 0.9734112720269421,
+    "weighted_precision": 0.9860096369367841,
+    "weighted_recall": 0.9856746872889055,
+    "weighted_f1": 0.9857811025743107,
+    "per_class": {
+      "normal": {
+        "precision": 0.9949606036138876,
+        "recall": 0.9880011058888581,
+        "f1": 0.9914686420575138,
+        "support": 36170
+      },
+      "attack": {
+        "precision": 0.93812375249501,
+        "recall": 0.9732288123058719,
+        "f1": 0.9553539019963703,
+        "support": 6761
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35736,
+        434
+      ],
+      [
+        181,
+        6580
+      ]
+    ],
+    "val_macro_f1": 0.9559554195379534,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 2.298589699988952,
+    "inference_time_s": 0.06453639999381267,
+    "inference_ms_per_1k": 1.5032587173327587,
+    "task_id": "mqtt_uad_full_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 44
+  },
+  {
+    "accuracy": 0.985744566863106,
+    "macro_precision": 0.9666456367621703,
+    "macro_recall": 0.9807766898224244,
+    "macro_f1": 0.9735425267786513,
+    "weighted_precision": 0.9860802734646518,
+    "weighted_recall": 0.985744566863106,
+    "weighted_f1": 0.9858508717226994,
+    "per_class": {
+      "normal": {
+        "precision": 0.9950161487916249,
+        "recall": 0.9880287531103125,
+        "f1": 0.9915101406653164,
+        "support": 36170
+      },
+      "attack": {
+        "precision": 0.9382751247327156,
+        "recall": 0.9735246265345363,
+        "f1": 0.955574912891986,
+        "support": 6761
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35737,
+        433
+      ],
+      [
+        179,
+        6582
+      ]
+    ],
+    "val_macro_f1": 0.955939557739814,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 2.4375280999811366,
+    "inference_time_s": 0.08533920001355,
+    "inference_ms_per_1k": 1.9878223198516223,
+    "task_id": "mqtt_uad_full_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 45
+  },
+  {
+    "accuracy": 0.9858144464373064,
+    "macro_precision": 0.9669930654925265,
+    "macro_recall": 0.9806377708152887,
+    "macro_f1": 0.9736582976104249,
+    "weighted_precision": 0.9861333536146965,
+    "weighted_recall": 0.9858144464373064,
+    "weighted_f1": 0.9859165674242282,
+    "per_class": {
+      "normal": {
+        "precision": 0.9949338900487126,
+        "recall": 0.9881946364390378,
+        "f1": 0.9915528122615993,
+        "support": 36170
+      },
+      "attack": {
+        "precision": 0.9390522409363403,
+        "recall": 0.9730809051915397,
+        "f1": 0.9557637829592504,
+        "support": 6761
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35743,
+        427
+      ],
+      [
+        182,
+        6579
+      ]
+    ],
+    "val_macro_f1": 0.9564614009996723,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 2.73295910001616,
+    "inference_time_s": 0.10773590000462718,
+    "inference_ms_per_1k": 2.509512939475605,
+    "task_id": "mqtt_uad_full_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 46
+  },
+  {
+    "accuracy": 0.9856746872889055,
+    "macro_precision": 0.9685697835550892,
+    "macro_recall": 0.978149631293367,
+    "macro_f1": 0.9732824380708096,
+    "weighted_precision": 0.9858759422198226,
+    "weighted_recall": 0.9856746872889055,
+    "weighted_f1": 0.9857471640183771,
+    "per_class": {
+      "normal": {
+        "precision": 0.9938331620322787,
+        "recall": 0.9891346419684822,
+        "f1": 0.9914783355734457,
+        "support": 36170
+      },
+      "attack": {
+        "precision": 0.9433064050778996,
+        "recall": 0.9671646206182517,
+        "f1": 0.9550865405681735,
+        "support": 6761
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35777,
+        393
+      ],
+      [
+        222,
+        6539
+      ]
+    ],
+    "best_val_macro_f1": 0.9579738529619464,
+    "selected_max_depth": 24,
+    "train_time_s": 4.106922100007068,
+    "inference_time_s": 0.0042944000160787255,
+    "inference_ms_per_1k": 0.10003028152334503,
+    "task_id": "mqtt_uad_full_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 42
+  },
+  {
+    "accuracy": 0.9860240851599078,
+    "macro_precision": 0.9673034222489749,
+    "macro_recall": 0.9811229629904668,
+    "macro_f1": 0.9740521582383779,
+    "weighted_precision": 0.9863452365037263,
+    "weighted_recall": 0.9860240851599078,
+    "weighted_f1": 0.9861259005255172,
+    "per_class": {
+      "normal": {
+        "precision": 0.9951004955180669,
+        "recall": 0.9882775781034006,
+        "f1": 0.991677301226211,
+        "support": 36170
+      },
+      "attack": {
+        "precision": 0.939506348979883,
+        "recall": 0.973968347877533,
+        "f1": 0.9564270152505446,
+        "support": 6761
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35746,
+        424
+      ],
+      [
+        176,
+        6585
+      ]
+    ],
+    "best_val_macro_f1": 0.9576524721340469,
+    "selected_max_depth": 16,
+    "train_time_s": 3.920635999995284,
+    "inference_time_s": 0.004136300005484372,
+    "inference_ms_per_1k": 0.09634762771620443,
+    "task_id": "mqtt_uad_full_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 43
+  },
+  {
+    "accuracy": 0.9856513940975054,
+    "macro_precision": 0.9685016677249093,
+    "macro_recall": 0.9781358076826399,
+    "macro_f1": 0.9732405783062668,
+    "weighted_precision": 0.9858543703876197,
+    "weighted_recall": 0.9856513940975054,
+    "weighted_f1": 0.9857244063872783,
+    "per_class": {
+      "normal": {
+        "precision": 0.9938329907217067,
+        "recall": 0.9891069947470279,
+        "f1": 0.9914643609355948,
+        "support": 36170
+      },
+      "attack": {
+        "precision": 0.9431703447281119,
+        "recall": 0.9671646206182517,
+        "f1": 0.9550167956769388,
+        "support": 6761
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35776,
+        394
+      ],
+      [
+        222,
+        6539
+      ]
+    ],
+    "best_val_macro_f1": 0.9579384543720345,
+    "selected_max_depth": 24,
+    "train_time_s": 3.9319438000093214,
+    "inference_time_s": 0.004395999974803999,
+    "inference_ms_per_1k": 0.10239686880818055,
+    "task_id": "mqtt_uad_full_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 44
+  },
+  {
+    "accuracy": 0.9856746872889055,
+    "macro_precision": 0.9685697835550892,
+    "macro_recall": 0.978149631293367,
+    "macro_f1": 0.9732824380708096,
+    "weighted_precision": 0.9858759422198226,
+    "weighted_recall": 0.9856746872889055,
+    "weighted_f1": 0.9857471640183771,
+    "per_class": {
+      "normal": {
+        "precision": 0.9938331620322787,
+        "recall": 0.9891346419684822,
+        "f1": 0.9914783355734457,
+        "support": 36170
+      },
+      "attack": {
+        "precision": 0.9433064050778996,
+        "recall": 0.9671646206182517,
+        "f1": 0.9550865405681735,
+        "support": 6761
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35777,
+        393
+      ],
+      [
+        222,
+        6539
+      ]
+    ],
+    "best_val_macro_f1": 0.9579384543720345,
+    "selected_max_depth": 24,
+    "train_time_s": 3.848015800002031,
+    "inference_time_s": 0.004849200020544231,
+    "inference_ms_per_1k": 0.1129533442161662,
+    "task_id": "mqtt_uad_full_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 45
+  },
+  {
+    "accuracy": 0.9856281009061052,
+    "macro_precision": 0.9684335715121727,
+    "macro_recall": 0.9781219840719126,
+    "macro_f1": 0.9731987234408075,
+    "weighted_precision": 0.9858328047278132,
+    "weighted_recall": 0.9856281009061052,
+    "weighted_f1": 0.9857016500339438,
+    "per_class": {
+      "normal": {
+        "precision": 0.9938328194016168,
+        "recall": 0.9890793475255737,
+        "f1": 0.9914503859104576,
+        "support": 36170
+      },
+      "attack": {
+        "precision": 0.9430343236227285,
+        "recall": 0.9671646206182517,
+        "f1": 0.9549470609711573,
+        "support": 6761
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35775,
+        395
+      ],
+      [
+        222,
+        6539
+      ]
+    ],
+    "best_val_macro_f1": 0.9579738529619464,
+    "selected_max_depth": 24,
+    "train_time_s": 4.075220600003377,
+    "inference_time_s": 0.004823800001759082,
+    "inference_ms_per_1k": 0.11236169671703623,
+    "task_id": "mqtt_uad_full_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 46
+  },
+  {
+    "accuracy": 0.9907540251873107,
+    "macro_precision": 0.764735166059691,
+    "macro_recall": 0.7009036757933217,
+    "macro_f1": 0.6913432493874199,
+    "weighted_precision": 0.9907421551895729,
+    "weighted_recall": 0.9907540251873107,
+    "weighted_f1": 0.9903419222970704,
+    "per_class": {
+      "normal": {
+        "precision": 0.956661316211878,
+        "recall": 0.952076677316294,
+        "f1": 0.9543634907926342,
+        "support": 626
+      },
+      "DoS": {
+        "precision": 0.999104744852283,
+        "recall": 0.999104744852283,
+        "f1": 0.999104744852283,
+        "support": 5585
+      },
+      "mitm": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 13
+      },
+      "intrusion": {
+        "precision": 0.6031746031746031,
+        "recall": 0.7755102040816326,
+        "f1": 0.6785714285714286,
+        "support": 49
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        596,
+        4,
+        1,
+        25
+      ],
+      [
+        5,
+        5580,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        10,
+        1,
+        0,
+        38
+      ]
+    ],
+    "val_macro_f1": 0.6598845612764664,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.440591000020504,
+    "inference_time_s": 0.04066870000679046,
+    "inference_ms_per_1k": 6.483134067717274,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 42
+  },
+  {
+    "accuracy": 0.9902757851107923,
+    "macro_precision": 0.7596759729930468,
+    "macro_recall": 0.7000601909912073,
+    "macro_f1": 0.6877345520224246,
+    "weighted_precision": 0.9904296499477123,
+    "weighted_recall": 0.9902757851107923,
+    "weighted_f1": 0.9899256103490244,
+    "per_class": {
+      "normal": {
+        "precision": 0.954983922829582,
+        "recall": 0.9488817891373802,
+        "f1": 0.9519230769230769,
+        "support": 626
+      },
+      "DoS": {
+        "precision": 0.9991045845272206,
+        "recall": 0.9989256938227394,
+        "f1": 0.9990151311666219,
+        "support": 5585
+      },
+      "mitm": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 13
+      },
+      "intrusion": {
+        "precision": 0.5846153846153846,
+        "recall": 0.7755102040816326,
+        "f1": 0.6666666666666666,
+        "support": 49
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        594,
+        4,
+        1,
+        27
+      ],
+      [
+        6,
+        5579,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        10,
+        1,
+        0,
+        38
+      ]
+    ],
+    "val_macro_f1": 0.6598845612764664,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.5230411000084132,
+    "inference_time_s": 0.051781099988147616,
+    "inference_ms_per_1k": 8.254599073513091,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 43
+  },
+  {
+    "accuracy": 0.9904351984696318,
+    "macro_precision": 0.7578907456274467,
+    "macro_recall": 0.7001049537485932,
+    "macro_f1": 0.6865208860629746,
+    "weighted_precision": 0.990673364191837,
+    "weighted_recall": 0.9904351984696318,
+    "weighted_f1": 0.9901159342016235,
+    "per_class": {
+      "normal": {
+        "precision": 0.9565217391304348,
+        "recall": 0.9488817891373802,
+        "f1": 0.9526864474739375,
+        "support": 626
+      },
+      "DoS": {
+        "precision": 0.9992836676217765,
+        "recall": 0.999104744852283,
+        "f1": 0.9991941982272361,
+        "support": 5585
+      },
+      "mitm": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 13
+      },
+      "intrusion": {
+        "precision": 0.5757575757575758,
+        "recall": 0.7755102040816326,
+        "f1": 0.6608695652173913,
+        "support": 49
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        594,
+        3,
+        1,
+        28
+      ],
+      [
+        5,
+        5580,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        10,
+        1,
+        0,
+        38
+      ]
+    ],
+    "val_macro_f1": 0.6598845612764664,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.4791376999928616,
+    "inference_time_s": 0.03991779999341816,
+    "inference_ms_per_1k": 6.363430574432991,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 44
+  },
+  {
+    "accuracy": 0.9907540251873107,
+    "macro_precision": 0.764735166059691,
+    "macro_recall": 0.7009036757933217,
+    "macro_f1": 0.6913432493874199,
+    "weighted_precision": 0.9907421551895729,
+    "weighted_recall": 0.9907540251873107,
+    "weighted_f1": 0.9903419222970704,
+    "per_class": {
+      "normal": {
+        "precision": 0.956661316211878,
+        "recall": 0.952076677316294,
+        "f1": 0.9543634907926342,
+        "support": 626
+      },
+      "DoS": {
+        "precision": 0.999104744852283,
+        "recall": 0.999104744852283,
+        "f1": 0.999104744852283,
+        "support": 5585
+      },
+      "mitm": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 13
+      },
+      "intrusion": {
+        "precision": 0.6031746031746031,
+        "recall": 0.7755102040816326,
+        "f1": 0.6785714285714286,
+        "support": 49
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        596,
+        4,
+        1,
+        25
+      ],
+      [
+        5,
+        5580,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        10,
+        1,
+        0,
+        38
+      ]
+    ],
+    "val_macro_f1": 0.6598845612764664,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.41901519999373704,
+    "inference_time_s": 0.04023269997560419,
+    "inference_ms_per_1k": 6.413629838291757,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 45
+  },
+  {
+    "accuracy": 0.9907540251873107,
+    "macro_precision": 0.7643091974852124,
+    "macro_recall": 0.705606355587284,
+    "macro_f1": 0.6927347253033787,
+    "weighted_precision": 0.9908641256536652,
+    "weighted_recall": 0.9907540251873107,
+    "weighted_f1": 0.9903786664856667,
+    "per_class": {
+      "normal": {
+        "precision": 0.9581320450885669,
+        "recall": 0.950479233226837,
+        "f1": 0.9542902967121091,
+        "support": 626
+      },
+      "DoS": {
+        "precision": 0.999104744852283,
+        "recall": 0.999104744852283,
+        "f1": 0.999104744852283,
+        "support": 5585
+      },
+      "mitm": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 13
+      },
+      "intrusion": {
+        "precision": 0.6,
+        "recall": 0.7959183673469388,
+        "f1": 0.6842105263157895,
+        "support": 49
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        595,
+        4,
+        1,
+        26
+      ],
+      [
+        5,
+        5580,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        9,
+        1,
+        0,
+        39
+      ]
+    ],
+    "val_macro_f1": 0.6598845612764664,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.473082099983003,
+    "inference_time_s": 0.041890099993906915,
+    "inference_ms_per_1k": 6.677841542149994,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 46
+  },
+  {
+    "accuracy": 0.9901163717519528,
+    "macro_precision": 0.7623208814580066,
+    "macro_recall": 0.6761474309990315,
+    "macro_f1": 0.6799209082313507,
+    "weighted_precision": 0.9896462167267707,
+    "weighted_recall": 0.9901163717519528,
+    "weighted_f1": 0.9895426842404921,
+    "per_class": {
+      "normal": {
+        "precision": 0.9507154213036566,
+        "recall": 0.9552715654952076,
+        "f1": 0.9529880478087649,
+        "support": 626
+      },
+      "DoS": {
+        "precision": 0.9985681045283694,
+        "recall": 0.9989256938227394,
+        "f1": 0.9987468671679198,
+        "support": 5585
+      },
+      "mitm": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 13
+      },
+      "intrusion": {
+        "precision": 0.6,
+        "recall": 0.673469387755102,
+        "f1": 0.6346153846153846,
+        "support": 49
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        598,
+        5,
+        1,
+        22
+      ],
+      [
+        6,
+        5579,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        13,
+        3,
+        0,
+        33
+      ]
+    ],
+    "best_val_macro_f1": 0.6574611005136839,
+    "selected_max_depth": null,
+    "train_time_s": 0.30382689999532886,
+    "inference_time_s": 0.0004901000065729022,
+    "inference_ms_per_1k": 0.07812848821503303,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 42
+  },
+  {
+    "accuracy": 0.9856527977044476,
+    "macro_precision": 0.7498243117610601,
+    "macro_recall": 0.6745394755272492,
+    "macro_f1": 0.6725775728291008,
+    "weighted_precision": 0.9856379671143433,
+    "weighted_recall": 0.9856527977044476,
+    "weighted_f1": 0.9852498208360234,
+    "per_class": {
+      "normal": {
+        "precision": 0.9114503816793893,
+        "recall": 0.9536741214057508,
+        "f1": 0.9320843091334895,
+        "support": 626
+      },
+      "DoS": {
+        "precision": 0.9985611510791367,
+        "recall": 0.9940913160250672,
+        "f1": 0.9963212202781516,
+        "support": 5585
+      },
+      "mitm": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 13
+      },
+      "intrusion": {
+        "precision": 0.5892857142857143,
+        "recall": 0.673469387755102,
+        "f1": 0.6285714285714286,
+        "support": 49
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        597,
+        5,
+        1,
+        23
+      ],
+      [
+        33,
+        5552,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        13,
+        3,
+        0,
+        33
+      ]
+    ],
+    "best_val_macro_f1": 0.6574611005136839,
+    "selected_max_depth": null,
+    "train_time_s": 0.2966017999860924,
+    "inference_time_s": 0.0007374999986495823,
+    "inference_ms_per_1k": 0.11756735192883505,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 43
+  },
+  {
+    "accuracy": 0.9901163717519528,
+    "macro_precision": 0.7623208814580066,
+    "macro_recall": 0.6761474309990315,
+    "macro_f1": 0.6799209082313507,
+    "weighted_precision": 0.9896462167267707,
+    "weighted_recall": 0.9901163717519528,
+    "weighted_f1": 0.9895426842404921,
+    "per_class": {
+      "normal": {
+        "precision": 0.9507154213036566,
+        "recall": 0.9552715654952076,
+        "f1": 0.9529880478087649,
+        "support": 626
+      },
+      "DoS": {
+        "precision": 0.9985681045283694,
+        "recall": 0.9989256938227394,
+        "f1": 0.9987468671679198,
+        "support": 5585
+      },
+      "mitm": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 13
+      },
+      "intrusion": {
+        "precision": 0.6,
+        "recall": 0.673469387755102,
+        "f1": 0.6346153846153846,
+        "support": 49
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        598,
+        5,
+        1,
+        22
+      ],
+      [
+        6,
+        5579,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        13,
+        3,
+        0,
+        33
+      ]
+    ],
+    "best_val_macro_f1": 0.6574611005136839,
+    "selected_max_depth": null,
+    "train_time_s": 0.3128104000061285,
+    "inference_time_s": 0.0006733000045642257,
+    "inference_ms_per_1k": 0.1073330152342142,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 44
+  },
+  {
+    "accuracy": 0.9856527977044476,
+    "macro_precision": 0.7498243117610601,
+    "macro_recall": 0.6745394755272492,
+    "macro_f1": 0.6725775728291008,
+    "weighted_precision": 0.9856379671143433,
+    "weighted_recall": 0.9856527977044476,
+    "weighted_f1": 0.9852498208360234,
+    "per_class": {
+      "normal": {
+        "precision": 0.9114503816793893,
+        "recall": 0.9536741214057508,
+        "f1": 0.9320843091334895,
+        "support": 626
+      },
+      "DoS": {
+        "precision": 0.9985611510791367,
+        "recall": 0.9940913160250672,
+        "f1": 0.9963212202781516,
+        "support": 5585
+      },
+      "mitm": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 13
+      },
+      "intrusion": {
+        "precision": 0.5892857142857143,
+        "recall": 0.673469387755102,
+        "f1": 0.6285714285714286,
+        "support": 49
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        597,
+        5,
+        1,
+        23
+      ],
+      [
+        33,
+        5552,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        13,
+        3,
+        0,
+        33
+      ]
+    ],
+    "best_val_macro_f1": 0.6574611005136839,
+    "selected_max_depth": null,
+    "train_time_s": 0.3282657000236213,
+    "inference_time_s": 0.0006554000137839466,
+    "inference_ms_per_1k": 0.10447951758073436,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 45
+  },
+  {
+    "accuracy": 0.9858122110632871,
+    "macro_precision": 0.7499029652138323,
+    "macro_recall": 0.6749388365496135,
+    "macro_f1": 0.6728081757871894,
+    "weighted_precision": 0.9858113660645632,
+    "weighted_recall": 0.9858122110632871,
+    "weighted_f1": 0.9854125476968135,
+    "per_class": {
+      "normal": {
+        "precision": 0.9115853658536586,
+        "recall": 0.9552715654952076,
+        "f1": 0.9329173166926678,
+        "support": 626
+      },
+      "DoS": {
+        "precision": 0.9987407807159561,
+        "recall": 0.9940913160250672,
+        "f1": 0.9964106245513281,
+        "support": 5585
+      },
+      "mitm": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 13
+      },
+      "intrusion": {
+        "precision": 0.5892857142857143,
+        "recall": 0.673469387755102,
+        "f1": 0.6285714285714286,
+        "support": 49
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        598,
+        4,
+        1,
+        23
+      ],
+      [
+        33,
+        5552,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        1,
+        0
+      ],
+      [
+        13,
+        3,
+        0,
+        33
+      ]
+    ],
+    "best_val_macro_f1": 0.6574611005136839,
+    "selected_max_depth": null,
+    "train_time_s": 0.3028310999798123,
+    "inference_time_s": 0.00047050000284798443,
+    "inference_ms_per_1k": 0.07500398578797775,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 46
+  },
+  {
+    "accuracy": 0.9923481587757054,
+    "macro_precision": 0.9718382716049383,
+    "macro_recall": 0.9865176228040449,
+    "macro_f1": 0.979032525823563,
+    "weighted_precision": 0.9925294798597949,
+    "weighted_recall": 0.9923481587757054,
+    "weighted_f1": 0.992406759280796,
+    "per_class": {
+      "normal": {
+        "precision": 0.9459876543209876,
+        "recall": 0.9792332268370607,
+        "f1": 0.9623233908948194,
+        "support": 626
+      },
+      "attack": {
+        "precision": 0.9976888888888888,
+        "recall": 0.9938020187710289,
+        "f1": 0.9957416607523066,
+        "support": 5647
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        613,
+        13
+      ],
+      [
+        35,
+        5612
+      ]
+    ],
+    "val_macro_f1": 0.9883688635175103,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.38921639998443425,
+    "inference_time_s": 0.04211059998488054,
+    "inference_ms_per_1k": 6.712992186335172,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 42
+  },
+  {
+    "accuracy": 0.9902757851107923,
+    "macro_precision": 0.9707501428523411,
+    "macro_recall": 0.975424056766832,
+    "macro_f1": 0.9730722003488588,
+    "weighted_precision": 0.9903303804756052,
+    "weighted_recall": 0.9902757851107923,
+    "weighted_f1": 0.990299802879706,
+    "per_class": {
+      "normal": {
+        "precision": 0.9462875197472354,
+        "recall": 0.9568690095846646,
+        "f1": 0.9515488482922955,
+        "support": 626
+      },
+      "attack": {
+        "precision": 0.9952127659574468,
+        "recall": 0.9939791039489995,
+        "f1": 0.9945955524054222,
+        "support": 5647
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        599,
+        27
+      ],
+      [
+        34,
+        5613
+      ]
+    ],
+    "val_macro_f1": 0.9871162171927179,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.4692687999922782,
+    "inference_time_s": 0.04691899998579174,
+    "inference_ms_per_1k": 7.479515381124142,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 43
+  },
+  {
+    "accuracy": 0.992188745416866,
+    "macro_precision": 0.971707863304123,
+    "macro_recall": 0.9857189007593163,
+    "macro_f1": 0.9785807896001604,
+    "weighted_precision": 0.9923615104397089,
+    "weighted_recall": 0.992188745416866,
+    "weighted_f1": 0.9922458988312962,
+    "per_class": {
+      "normal": {
+        "precision": 0.9459041731066461,
+        "recall": 0.9776357827476039,
+        "f1": 0.9615082482325216,
+        "support": 626
+      },
+      "attack": {
+        "precision": 0.9975115535015997,
+        "recall": 0.9938020187710289,
+        "f1": 0.9956533309677992,
+        "support": 5647
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        612,
+        14
+      ],
+      [
+        35,
+        5612
+      ]
+    ],
+    "val_macro_f1": 0.9881700477214468,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.4190148999914527,
+    "inference_time_s": 0.04302420001477003,
+    "inference_ms_per_1k": 6.858632235735698,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 44
+  },
+  {
+    "accuracy": 0.9920293320580265,
+    "macro_precision": 0.9721812728891752,
+    "macro_recall": 0.9842099992588448,
+    "macro_f1": 0.9780978623681262,
+    "weighted_precision": 0.9921726680921447,
+    "weighted_recall": 0.9920293320580265,
+    "weighted_f1": 0.9920794552749799,
+    "per_class": {
+      "normal": {
+        "precision": 0.9472049689440993,
+        "recall": 0.9744408945686901,
+        "f1": 0.9606299212598425,
+        "support": 626
+      },
+      "attack": {
+        "precision": 0.9971575768342512,
+        "recall": 0.9939791039489995,
+        "f1": 0.9955658034764101,
+        "support": 5647
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        610,
+        16
+      ],
+      [
+        34,
+        5613
+      ]
+    ],
+    "val_macro_f1": 0.9890112050415985,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.48794880000059493,
+    "inference_time_s": 0.04148089999216609,
+    "inference_ms_per_1k": 6.612609595435371,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 45
+  },
+  {
+    "accuracy": 0.9923481587757054,
+    "macro_precision": 0.9724402083937407,
+    "macro_recall": 0.9858074433483017,
+    "macro_f1": 0.9790032835611073,
+    "weighted_precision": 0.9925080298889916,
+    "weighted_recall": 0.9923481587757054,
+    "weighted_f1": 0.9924015276027983,
+    "per_class": {
+      "normal": {
+        "precision": 0.9473684210526315,
+        "recall": 0.9776357827476039,
+        "f1": 0.9622641509433962,
+        "support": 626
+      },
+      "attack": {
+        "precision": 0.9975119957348498,
+        "recall": 0.9939791039489995,
+        "f1": 0.9957424161788185,
+        "support": 5647
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        612,
+        14
+      ],
+      [
+        34,
+        5613
+      ]
+    ],
+    "val_macro_f1": 0.9885908377495112,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.40274290001252666,
+    "inference_time_s": 0.042750900000100955,
+    "inference_ms_per_1k": 6.815064562426424,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "RandomForest",
+    "seed": 46
+  },
+  {
+    "accuracy": 0.991551091981508,
+    "macro_precision": 0.9647894254180387,
+    "macro_recall": 0.990335986593577,
+    "macro_f1": 0.9771187674227584,
+    "weighted_precision": 0.9919733881562907,
+    "weighted_recall": 0.991551091981508,
+    "weighted_f1": 0.9916640708369457,
+    "per_class": {
+      "normal": {
+        "precision": 0.9308270676691729,
+        "recall": 0.9888178913738019,
+        "f1": 0.9589465530596437,
+        "support": 626
+      },
+      "attack": {
+        "precision": 0.9987517831669044,
+        "recall": 0.9918540818133522,
+        "f1": 0.9952909817858729,
+        "support": 5647
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        619,
+        7
+      ],
+      [
+        46,
+        5601
+      ]
+    ],
+    "best_val_macro_f1": 0.9938305514702683,
+    "selected_max_depth": 8,
+    "train_time_s": 0.2758935999881942,
+    "inference_time_s": 0.0007387000077869743,
+    "inference_ms_per_1k": 0.11775864941606477,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 42
+  },
+  {
+    "accuracy": 0.991551091981508,
+    "macro_precision": 0.9647894254180387,
+    "macro_recall": 0.990335986593577,
+    "macro_f1": 0.9771187674227584,
+    "weighted_precision": 0.9919733881562907,
+    "weighted_recall": 0.991551091981508,
+    "weighted_f1": 0.9916640708369457,
+    "per_class": {
+      "normal": {
+        "precision": 0.9308270676691729,
+        "recall": 0.9888178913738019,
+        "f1": 0.9589465530596437,
+        "support": 626
+      },
+      "attack": {
+        "precision": 0.9987517831669044,
+        "recall": 0.9918540818133522,
+        "f1": 0.9952909817858729,
+        "support": 5647
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        619,
+        7
+      ],
+      [
+        46,
+        5601
+      ]
+    ],
+    "best_val_macro_f1": 0.9938305514702683,
+    "selected_max_depth": 8,
+    "train_time_s": 0.2819312999781687,
+    "inference_time_s": 0.0006895000115036964,
+    "inference_ms_per_1k": 0.10991551275365796,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 43
+  },
+  {
+    "accuracy": 0.991551091981508,
+    "macro_precision": 0.9647894254180387,
+    "macro_recall": 0.990335986593577,
+    "macro_f1": 0.9771187674227584,
+    "weighted_precision": 0.9919733881562907,
+    "weighted_recall": 0.991551091981508,
+    "weighted_f1": 0.9916640708369457,
+    "per_class": {
+      "normal": {
+        "precision": 0.9308270676691729,
+        "recall": 0.9888178913738019,
+        "f1": 0.9589465530596437,
+        "support": 626
+      },
+      "attack": {
+        "precision": 0.9987517831669044,
+        "recall": 0.9918540818133522,
+        "f1": 0.9952909817858729,
+        "support": 5647
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        619,
+        7
+      ],
+      [
+        46,
+        5601
+      ]
+    ],
+    "best_val_macro_f1": 0.9938305514702683,
+    "selected_max_depth": 8,
+    "train_time_s": 0.29995769998640753,
+    "inference_time_s": 0.0005972000071778893,
+    "inference_ms_per_1k": 0.09520165904318337,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 44
+  },
+  {
+    "accuracy": 0.9872469312928424,
+    "macro_precision": 0.9466272075052329,
+    "macro_recall": 0.987945336690974,
+    "macro_f1": 0.9660884640771796,
+    "weighted_precision": 0.9883436389099347,
+    "weighted_recall": 0.9872469312928424,
+    "weighted_f1": 0.9875287595140804,
+    "per_class": {
+      "normal": {
+        "precision": 0.8945086705202312,
+        "recall": 0.9888178913738019,
+        "f1": 0.9393019726858877,
+        "support": 626
+      },
+      "attack": {
+        "precision": 0.9987457444902347,
+        "recall": 0.987072782008146,
+        "f1": 0.9928749554684717,
+        "support": 5647
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        619,
+        7
+      ],
+      [
+        73,
+        5574
+      ]
+    ],
+    "best_val_macro_f1": 0.9938305514702683,
+    "selected_max_depth": 8,
+    "train_time_s": 0.30165360000682995,
+    "inference_time_s": 0.0006256999913603067,
+    "inference_ms_per_1k": 0.09974493724857432,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 45
+  },
+  {
+    "accuracy": 0.991551091981508,
+    "macro_precision": 0.9647894254180387,
+    "macro_recall": 0.990335986593577,
+    "macro_f1": 0.9771187674227584,
+    "weighted_precision": 0.9919733881562907,
+    "weighted_recall": 0.991551091981508,
+    "weighted_f1": 0.9916640708369457,
+    "per_class": {
+      "normal": {
+        "precision": 0.9308270676691729,
+        "recall": 0.9888178913738019,
+        "f1": 0.9589465530596437,
+        "support": 626
+      },
+      "attack": {
+        "precision": 0.9987517831669044,
+        "recall": 0.9918540818133522,
+        "f1": 0.9952909817858729,
+        "support": 5647
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        619,
+        7
+      ],
+      [
+        46,
+        5601
+      ]
+    ],
+    "best_val_macro_f1": 0.9938305514702683,
+    "selected_max_depth": 8,
+    "train_time_s": 0.2818949999928009,
+    "inference_time_s": 0.0006301999965216964,
+    "inference_ms_per_1k": 0.10046229818614642,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "dataset_group": "MQTT-UAD",
+    "model": "DecisionTree",
+    "seed": 46
+  },
+  {
+    "accuracy": 0.9969472553564362,
+    "macro_precision": 0.9792580699947674,
+    "macro_recall": 0.9881784266782322,
+    "macro_f1": 0.9835839006410322,
+    "weighted_precision": 0.997057200257737,
+    "weighted_recall": 0.9969472553564362,
+    "weighted_f1": 0.9969836995317944,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Flood": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 10019
+      },
+      "MalariaDoS": {
+        "precision": 0.9983548121743899,
+        "recall": 0.9910179640718563,
+        "f1": 0.9946728588990575,
+        "support": 3674
+      },
+      "Bruteforce": {
+        "precision": 0.9655913978494624,
+        "recall": 0.9846491228070176,
+        "f1": 0.9750271444082519,
+        "support": 456
+      },
+      "Malformed": {
+        "precision": 0.9116022099447514,
+        "recall": 0.9620991253644315,
+        "f1": 0.9361702127659575,
+        "support": 343
+      },
+      "Slowite": {
+        "precision": 1.0,
+        "recall": 0.991304347826087,
+        "f1": 0.9956331877729258,
+        "support": 115
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10019,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3641,
+        6,
+        27,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        449,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        10,
+        330,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        114
+      ]
+    ],
+    "val_macro_f1": 0.9825906520162572,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.8213339000067208,
+    "inference_time_s": 0.06658449998940341,
+    "inference_ms_per_1k": 3.764175475685647,
+    "task_id": "mqttset_multiclass",
+    "dataset_group": "MQTTset",
+    "model": "RandomForest",
+    "seed": 42
+  },
+  {
+    "accuracy": 0.9969472553564362,
+    "macro_precision": 0.9791445759927537,
+    "macro_recall": 0.987737881846877,
+    "macro_f1": 0.9833106064643586,
+    "weighted_precision": 0.9970573747374446,
+    "weighted_recall": 0.9969472553564362,
+    "weighted_f1": 0.9969845290404314,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Flood": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 10019
+      },
+      "MalariaDoS": {
+        "precision": 0.9983552631578947,
+        "recall": 0.9912901469787697,
+        "f1": 0.9948101611581535,
+        "support": 3674
+      },
+      "Bruteforce": {
+        "precision": 0.9676724137931034,
+        "recall": 0.9846491228070176,
+        "f1": 0.9760869565217392,
+        "support": 456
+      },
+      "Malformed": {
+        "precision": 0.9088397790055248,
+        "recall": 0.9591836734693877,
+        "f1": 0.9333333333333333,
+        "support": 343
+      },
+      "Slowite": {
+        "precision": 1.0,
+        "recall": 0.991304347826087,
+        "f1": 0.9956331877729258,
+        "support": 115
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10019,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3642,
+        4,
+        28,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        449,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        11,
+        329,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        114
+      ]
+    ],
+    "val_macro_f1": 0.982259744615276,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.8883217000111472,
+    "inference_time_s": 0.06781199999386445,
+    "inference_ms_per_1k": 3.833568884270702,
+    "task_id": "mqttset_multiclass",
+    "dataset_group": "MQTTset",
+    "model": "RandomForest",
+    "seed": 43
+  },
+  {
+    "accuracy": 0.996890723048222,
+    "macro_precision": 0.9789126473654953,
+    "macro_recall": 0.9881330628604132,
+    "macro_f1": 0.9833847584835015,
+    "weighted_precision": 0.9970036908239256,
+    "weighted_recall": 0.996890723048222,
+    "weighted_f1": 0.9969279127527949,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Flood": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 10019
+      },
+      "MalariaDoS": {
+        "precision": 0.9983543609434997,
+        "recall": 0.9907457811649428,
+        "f1": 0.994535519125683,
+        "support": 3674
+      },
+      "Bruteforce": {
+        "precision": 0.9635193133047211,
+        "recall": 0.9846491228070176,
+        "f1": 0.9739696312364425,
+        "support": 456
+      },
+      "Malformed": {
+        "precision": 0.9116022099447514,
+        "recall": 0.9620991253644315,
+        "f1": 0.9361702127659575,
+        "support": 343
+      },
+      "Slowite": {
+        "precision": 1.0,
+        "recall": 0.991304347826087,
+        "f1": 0.9956331877729258,
+        "support": 115
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10019,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3640,
+        7,
+        27,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        449,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        10,
+        330,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        114
+      ]
+    ],
+    "val_macro_f1": 0.9826212366021422,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.9308803000021726,
+    "inference_time_s": 0.06843069999013096,
+    "inference_ms_per_1k": 3.8685454231517302,
+    "task_id": "mqttset_multiclass",
+    "dataset_group": "MQTTset",
+    "model": "RandomForest",
+    "seed": 44
+  },
+  {
+    "accuracy": 0.9968341907400079,
+    "macro_precision": 0.9785142572420918,
+    "macro_recall": 0.9873270209530348,
+    "macro_f1": 0.9827942619034257,
+    "weighted_precision": 0.9969437172191852,
+    "weighted_recall": 0.9968341907400079,
+    "weighted_f1": 0.9968712174911893,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Flood": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 10019
+      },
+      "MalariaDoS": {
+        "precision": 0.9983548121743899,
+        "recall": 0.9910179640718563,
+        "f1": 0.9946728588990575,
+        "support": 3674
+      },
+      "Bruteforce": {
+        "precision": 0.9613733905579399,
+        "recall": 0.9824561403508771,
+        "f1": 0.9718004338394793,
+        "support": 456
+      },
+      "Malformed": {
+        "precision": 0.9113573407202216,
+        "recall": 0.9591836734693877,
+        "f1": 0.9346590909090909,
+        "support": 343
+      },
+      "Slowite": {
+        "precision": 1.0,
+        "recall": 0.991304347826087,
+        "f1": 0.9956331877729258,
+        "support": 115
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10019,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3641,
+        7,
+        26,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        448,
+        6,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        11,
+        329,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        114
+      ]
+    ],
+    "val_macro_f1": 0.9833409011947732,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.8549194000079297,
+    "inference_time_s": 0.07296950000454672,
+    "inference_ms_per_1k": 4.125134264489045,
+    "task_id": "mqttset_multiclass",
+    "dataset_group": "MQTTset",
+    "model": "RandomForest",
+    "seed": 45
+  },
+  {
+    "accuracy": 0.9970037876646504,
+    "macro_precision": 0.9796790141383452,
+    "macro_recall": 0.988223790496051,
+    "macro_f1": 0.9838284155565553,
+    "weighted_precision": 0.9971062592929307,
+    "weighted_recall": 0.9970037876646504,
+    "weighted_f1": 0.9970380025178984,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Flood": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 10019
+      },
+      "MalariaDoS": {
+        "precision": 0.9983552631578947,
+        "recall": 0.9912901469787697,
+        "f1": 0.9948101611581535,
+        "support": 3674
+      },
+      "Bruteforce": {
+        "precision": 0.9655913978494624,
+        "recall": 0.9846491228070176,
+        "f1": 0.9750271444082519,
+        "support": 456
+      },
+      "Malformed": {
+        "precision": 0.9141274238227147,
+        "recall": 0.9620991253644315,
+        "f1": 0.9375,
+        "support": 343
+      },
+      "Slowite": {
+        "precision": 1.0,
+        "recall": 0.991304347826087,
+        "f1": 0.9956331877729258,
+        "support": 115
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10019,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3642,
+        6,
+        26,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        449,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        10,
+        330,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        114
+      ]
+    ],
+    "val_macro_f1": 0.9831756372212194,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.8731572999968193,
+    "inference_time_s": 0.06617080001160502,
+    "inference_ms_per_1k": 3.740788061032564,
+    "task_id": "mqttset_multiclass",
+    "dataset_group": "MQTTset",
+    "model": "RandomForest",
+    "seed": 46
+  },
+  {
+    "accuracy": 0.9973429815139352,
+    "macro_precision": 0.9833568320315905,
+    "macro_recall": 0.9892596184310554,
+    "macro_f1": 0.9862702028576565,
+    "weighted_precision": 0.9973888541636394,
+    "weighted_recall": 0.9973429815139352,
+    "weighted_f1": 0.9973591762597696,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Flood": {
+        "precision": 0.9995011971268954,
+        "recall": 1.0,
+        "f1": 0.9997505363468543,
+        "support": 10019
+      },
+      "MalariaDoS": {
+        "precision": 0.9991785323110625,
+        "recall": 0.9931954273271638,
+        "f1": 0.9961779961779962,
+        "support": 3674
+      },
+      "Bruteforce": {
+        "precision": 0.9612903225806452,
+        "recall": 0.9802631578947368,
+        "f1": 0.9706840390879479,
+        "support": 456
+      },
+      "Malformed": {
+        "precision": 0.9401709401709402,
+        "recall": 0.9620991253644315,
+        "f1": 0.9510086455331412,
+        "support": 343
+      },
+      "Slowite": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 115
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10019,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        3649,
+        8,
+        14,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        447,
+        7,
+        0
+      ],
+      [
+        0,
+        1,
+        2,
+        10,
+        330,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        115
+      ]
+    ],
+    "best_val_macro_f1": 0.9822989328445368,
+    "selected_max_depth": 24,
+    "train_time_s": 3.4534816999803297,
+    "inference_time_s": 0.0020326999947428703,
+    "inference_ms_per_1k": 0.11491322260969361,
+    "task_id": "mqttset_multiclass",
+    "dataset_group": "MQTTset",
+    "model": "DecisionTree",
+    "seed": 42
+  },
+  {
+    "accuracy": 0.9975125784385777,
+    "macro_precision": 0.9842620570923136,
+    "macro_recall": 0.9890755766263076,
+    "macro_f1": 0.9866382762603512,
+    "weighted_precision": 0.9975502991114551,
+    "weighted_recall": 0.9975125784385777,
+    "weighted_f1": 0.9975267360007811,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Flood": {
+        "precision": 0.9996009178888556,
+        "recall": 1.0,
+        "f1": 0.9998004191198483,
+        "support": 10019
+      },
+      "MalariaDoS": {
+        "precision": 0.9989062072737216,
+        "recall": 0.9942841589548176,
+        "f1": 0.9965898240349202,
+        "support": 3674
+      },
+      "Bruteforce": {
+        "precision": 0.9695652173913043,
+        "recall": 0.9780701754385965,
+        "f1": 0.9737991266375546,
+        "support": 456
+      },
+      "Malformed": {
+        "precision": 0.9375,
+        "recall": 0.9620991253644315,
+        "f1": 0.9496402877697842,
+        "support": 343
+      },
+      "Slowite": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 115
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10019,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        3653,
+        4,
+        14,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        446,
+        8,
+        0
+      ],
+      [
+        0,
+        1,
+        2,
+        10,
+        330,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        115
+      ]
+    ],
+    "best_val_macro_f1": 0.9821366577356013,
+    "selected_max_depth": 24,
+    "train_time_s": 3.4330549000005703,
+    "inference_time_s": 0.0018748000147752464,
+    "inference_ms_per_1k": 0.10598677227515668,
+    "task_id": "mqttset_multiclass",
+    "dataset_group": "MQTTset",
+    "model": "DecisionTree",
+    "seed": 43
+  },
+  {
+    "accuracy": 0.9974560461303635,
+    "macro_precision": 0.9837939761296615,
+    "macro_recall": 0.9889098012353381,
+    "macro_f1": 0.9863234006113247,
+    "weighted_precision": 0.9974943879185667,
+    "weighted_recall": 0.9974560461303635,
+    "weighted_f1": 0.9974700273795831,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Flood": {
+        "precision": 0.9996009178888556,
+        "recall": 1.0,
+        "f1": 0.9998004191198483,
+        "support": 10019
+      },
+      "MalariaDoS": {
+        "precision": 0.9991792065663475,
+        "recall": 0.9940119760479041,
+        "f1": 0.9965888934370309,
+        "support": 3674
+      },
+      "Bruteforce": {
+        "precision": 0.9612903225806452,
+        "recall": 0.9802631578947368,
+        "f1": 0.9706840390879479,
+        "support": 456
+      },
+      "Malformed": {
+        "precision": 0.9426934097421203,
+        "recall": 0.9591836734693877,
+        "f1": 0.9508670520231214,
+        "support": 343
+      },
+      "Slowite": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 115
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10019,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        3652,
+        7,
+        13,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        447,
+        7,
+        0
+      ],
+      [
+        0,
+        1,
+        2,
+        11,
+        329,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        115
+      ]
+    ],
+    "best_val_macro_f1": 0.9823602267719057,
+    "selected_max_depth": 24,
+    "train_time_s": 3.4622231000103056,
+    "inference_time_s": 0.0018693000019993633,
+    "inference_ms_per_1k": 0.10567584385772873,
+    "task_id": "mqttset_multiclass",
+    "dataset_group": "MQTTset",
+    "model": "DecisionTree",
+    "seed": 44
+  },
+  {
+    "accuracy": 0.9978517722878625,
+    "macro_precision": 0.9856604251428062,
+    "macro_recall": 0.9908691157123402,
+    "macro_f1": 0.9882324290235868,
+    "weighted_precision": 0.9978879325402441,
+    "weighted_recall": 0.9978517722878625,
+    "weighted_f1": 0.9978650046225807,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Flood": {
+        "precision": 0.9998004191198483,
+        "recall": 1.0,
+        "f1": 0.9999001996007985,
+        "support": 10019
+      },
+      "MalariaDoS": {
+        "precision": 0.9991798797156917,
+        "recall": 0.9948285247686446,
+        "f1": 0.9969994544462629,
+        "support": 3674
+      },
+      "Bruteforce": {
+        "precision": 0.9718004338394793,
+        "recall": 0.9824561403508771,
+        "f1": 0.9770992366412213,
+        "support": 456
+      },
+      "Malformed": {
+        "precision": 0.9431818181818182,
+        "recall": 0.967930029154519,
+        "f1": 0.9553956834532374,
+        "support": 343
+      },
+      "Slowite": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 115
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10019,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        3655,
+        4,
+        13,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        448,
+        7,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        9,
+        332,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        115
+      ]
+    ],
+    "best_val_macro_f1": 0.9821971058565554,
+    "selected_max_depth": null,
+    "train_time_s": 3.569668299984187,
+    "inference_time_s": 0.0017994000227190554,
+    "inference_ms_per_1k": 0.10172423668489206,
+    "task_id": "mqttset_multiclass",
+    "dataset_group": "MQTTset",
+    "model": "DecisionTree",
+    "seed": 45
+  },
+  {
+    "accuracy": 0.9977387076714342,
+    "macro_precision": 0.9852391084701653,
+    "macro_recall": 0.9898972984139922,
+    "macro_f1": 0.9875442620143215,
+    "weighted_precision": 0.9977709081509197,
+    "weighted_recall": 0.9977387076714342,
+    "weighted_f1": 0.9977508498087381,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Flood": {
+        "precision": 0.9997006585511874,
+        "recall": 1.0,
+        "f1": 0.9998503068709146,
+        "support": 10019
+      },
+      "MalariaDoS": {
+        "precision": 0.9991798797156917,
+        "recall": 0.9948285247686446,
+        "f1": 0.9969994544462629,
+        "support": 3674
+      },
+      "Bruteforce": {
+        "precision": 0.9696969696969697,
+        "recall": 0.9824561403508771,
+        "f1": 0.9760348583877996,
+        "support": 456
+      },
+      "Malformed": {
+        "precision": 0.9428571428571428,
+        "recall": 0.9620991253644315,
+        "f1": 0.9523809523809523,
+        "support": 343
+      },
+      "Slowite": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 115
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10019,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        3655,
+        4,
+        13,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        448,
+        7,
+        0
+      ],
+      [
+        0,
+        1,
+        2,
+        10,
+        330,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        115
+      ]
+    ],
+    "best_val_macro_f1": 0.9821366577356013,
+    "selected_max_depth": 24,
+    "train_time_s": 3.544266200013226,
+    "inference_time_s": 0.002860400010831654,
+    "inference_ms_per_1k": 0.161705015028077,
+    "task_id": "mqttset_multiclass",
+    "dataset_group": "MQTTset",
+    "model": "DecisionTree",
+    "seed": 46
+  },
+  {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14607
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0
+      ],
+      [
+        0,
+        14607
+      ]
+    ],
+    "val_macro_f1": 1.0,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.6702299999888055,
+    "inference_time_s": 0.05679149998468347,
+    "inference_ms_per_1k": 3.210554581077702,
+    "task_id": "mqttset_binary",
+    "dataset_group": "MQTTset",
+    "model": "RandomForest",
+    "seed": 42
+  },
+  {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14607
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0
+      ],
+      [
+        0,
+        14607
+      ]
+    ],
+    "val_macro_f1": 1.0,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.6909206999989692,
+    "inference_time_s": 0.0572538000124041,
+    "inference_ms_per_1k": 3.236689468732212,
+    "task_id": "mqttset_binary",
+    "dataset_group": "MQTTset",
+    "model": "RandomForest",
+    "seed": 43
+  },
+  {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14607
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0
+      ],
+      [
+        0,
+        14607
+      ]
+    ],
+    "val_macro_f1": 1.0,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.6518627000041306,
+    "inference_time_s": 0.055898499995237216,
+    "inference_ms_per_1k": 3.1600712304390988,
+    "task_id": "mqttset_binary",
+    "dataset_group": "MQTTset",
+    "model": "RandomForest",
+    "seed": 44
+  },
+  {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14607
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0
+      ],
+      [
+        0,
+        14607
+      ]
+    ],
+    "val_macro_f1": 1.0,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.6369441999995615,
+    "inference_time_s": 0.040932999982032925,
+    "inference_ms_per_1k": 2.3140369711138518,
+    "task_id": "mqttset_binary",
+    "dataset_group": "MQTTset",
+    "model": "RandomForest",
+    "seed": 45
+  },
+  {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14607
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0
+      ],
+      [
+        0,
+        14607
+      ]
+    ],
+    "val_macro_f1": 1.0,
+    "n_estimators": 100,
+    "max_depth": 20,
+    "train_time_s": 0.713084599992726,
+    "inference_time_s": 0.05603879998670891,
+    "inference_ms_per_1k": 3.168002712799418,
+    "task_id": "mqttset_binary",
+    "dataset_group": "MQTTset",
+    "model": "RandomForest",
+    "seed": 46
+  },
+  {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14607
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0
+      ],
+      [
+        0,
+        14607
+      ]
+    ],
+    "best_val_macro_f1": 1.0,
+    "selected_max_depth": 8,
+    "train_time_s": 2.0609819999954198,
+    "inference_time_s": 0.0013340000004973263,
+    "inference_ms_per_1k": 0.07541409918578361,
+    "task_id": "mqttset_binary",
+    "dataset_group": "MQTTset",
+    "model": "DecisionTree",
+    "seed": 42
+  },
+  {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14607
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0
+      ],
+      [
+        0,
+        14607
+      ]
+    ],
+    "best_val_macro_f1": 1.0,
+    "selected_max_depth": 8,
+    "train_time_s": 2.022146300005261,
+    "inference_time_s": 0.0013435000146273524,
+    "inference_ms_per_1k": 0.07595115691262097,
+    "task_id": "mqttset_binary",
+    "dataset_group": "MQTTset",
+    "model": "DecisionTree",
+    "seed": 43
+  },
+  {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14607
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0
+      ],
+      [
+        0,
+        14607
+      ]
+    ],
+    "best_val_macro_f1": 1.0,
+    "selected_max_depth": 8,
+    "train_time_s": 1.8283797999902163,
+    "inference_time_s": 0.0013398999872151762,
+    "inference_ms_per_1k": 0.07574763905337646,
+    "task_id": "mqttset_binary",
+    "dataset_group": "MQTTset",
+    "model": "DecisionTree",
+    "seed": 44
+  },
+  {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14607
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0
+      ],
+      [
+        0,
+        14607
+      ]
+    ],
+    "best_val_macro_f1": 1.0,
+    "selected_max_depth": 8,
+    "train_time_s": 1.803449900005944,
+    "inference_time_s": 0.0013744999887421727,
+    "inference_ms_per_1k": 0.07770365700391049,
+    "task_id": "mqttset_binary",
+    "dataset_group": "MQTTset",
+    "model": "DecisionTree",
+    "seed": 45
+  },
+  {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3082
+      },
+      "Anomaly": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14607
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        3082,
+        0
+      ],
+      [
+        0,
+        14607
+      ]
+    ],
+    "best_val_macro_f1": 1.0,
+    "selected_max_depth": 8,
+    "train_time_s": 1.8839873000106309,
+    "inference_time_s": 0.0013413999986369163,
+    "inference_ms_per_1k": 0.07583243816139501,
+    "task_id": "mqttset_binary",
+    "dataset_group": "MQTTset",
+    "model": "DecisionTree",
+    "seed": 46
+  }
+]

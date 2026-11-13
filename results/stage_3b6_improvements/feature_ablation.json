@@ -1,0 +1,67 @@
+[
+  {
+    "ablation_id": "all_33_features",
+    "n_features": 33,
+    "macro_f1": 0.6885892829738693,
+    "balanced_accuracy": 0.6963430950967153,
+    "accuracy": 0.987421676643917,
+    "normal_f1": 0.9939621703027205,
+    "DoS_f1": 0.9758887171561051,
+    "mitm_f1": 0.3816793893129771,
+    "intrusion_f1": 0.4028268551236749,
+    "mitm_recall": 0.30864197530864196,
+    "intrusion_recall": 0.5089285714285714
+  },
+  {
+    "ablation_id": "no_layer_flags",
+    "n_features": 30,
+    "macro_f1": 0.6804997114516523,
+    "balanced_accuracy": 0.6185304293544337,
+    "accuracy": 0.9824602268756842,
+    "normal_f1": 0.989863242939248,
+    "DoS_f1": 0.9579190199665898,
+    "mitm_f1": 0.38427947598253276,
+    "intrusion_f1": 0.389937106918239,
+    "mitm_recall": 0.2716049382716049,
+    "intrusion_recall": 0.2767857142857143
+  },
+  {
+    "ablation_id": "no_mitm_nan_cols",
+    "n_features": 30,
+    "macro_f1": 0.6937278203908275,
+    "balanced_accuracy": 0.6938539581680624,
+    "accuracy": 0.9874915562181175,
+    "normal_f1": 0.9939643384942612,
+    "DoS_f1": 0.9750251295136473,
+    "mitm_f1": 0.3816793893129771,
+    "intrusion_f1": 0.42424242424242425,
+    "mitm_recall": 0.30864197530864196,
+    "intrusion_recall": 0.5
+  },
+  {
+    "ablation_id": "packet_and_layer_only",
+    "n_features": 7,
+    "macro_f1": 0.6854172750692324,
+    "balanced_accuracy": 0.6658520506265514,
+    "accuracy": 0.9852088234609023,
+    "normal_f1": 0.9924007337222613,
+    "DoS_f1": 0.9666149068322981,
+    "mitm_f1": 0.38427947598253276,
+    "intrusion_f1": 0.3983739837398374,
+    "mitm_recall": 0.2716049382716049,
+    "intrusion_recall": 0.4375
+  },
+  {
+    "ablation_id": "mqtt_features_only",
+    "n_features": 26,
+    "macro_f1": 0.5280971761793821,
+    "balanced_accuracy": 0.5094521193180688,
+    "accuracy": 0.9711630290466097,
+    "normal_f1": 0.984009471836257,
+    "DoS_f1": 0.9183792328812713,
+    "mitm_f1": 0.0,
+    "intrusion_f1": 0.21,
+    "mitm_recall": 0.0,
+    "intrusion_recall": 0.1875
+  }
+]
