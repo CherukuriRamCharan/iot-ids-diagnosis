@@ -1,0 +1,177 @@
+{
+  "model": "Transformer",
+  "task": "5-class sequence-level classification",
+  "features": [
+    "packet_length",
+    "iat_seconds",
+    "rolling_10s_pkt_rate",
+    "tcp_syn",
+    "tcp_ack",
+    "tcp_reset",
+    "udp_length"
+  ],
+  "iat_features_used": true,
+  "n_steps": 20,
+  "d_model": 64,
+  "n_heads": 4,
+  "n_layers": 2,
+  "dim_ff": 128,
+  "dropout": 0.2,
+  "epochs": 30,
+  "batch_size": 256,
+  "lr": 0.0005,
+  "train_captures": [
+    "dos-synflooding-4-dec.pcap",
+    "dos-synflooding-5-dec.pcap",
+    "dos-synflooding-6-dec.pcap",
+    "mirai-ackflooding-1-dec.pcap",
+    "mirai-ackflooding-3-dec.pcap",
+    "mirai-ackflooding-4-dec.pcap",
+    "mirai-hostbruteforce-1-dec.pcap",
+    "mirai-hostbruteforce-5-dec.pcap",
+    "mirai-httpflooding-1-dec.pcap",
+    "mirai-httpflooding-2-dec.pcap",
+    "mirai-httpflooding-3-dec.pcap",
+    "mirai-udpflooding-1-dec.pcap",
+    "mirai-udpflooding-2-dec.pcap",
+    "mirai-udpflooding-4-dec.pcap",
+    "mitm-arpspoofing-1-dec.pcap",
+    "mitm-arpspoofing-2-dec.pcap",
+    "mitm-arpspoofing-3-dec.pcap",
+    "mitm-arpspoofing-4-dec.pcap",
+    "mitm-arpspoofing-5-dec.pcap",
+    "mitm-arpspoofing-6-dec.pcap",
+    "scan-hostport-1-dec.pcap",
+    "scan-hostport-2-dec.pcap",
+    "scan-hostport-3-dec.pcap",
+    "scan-hostport-5-dec.pcap",
+    "scan-hostport-6-dec.pcap",
+    "scan-portos-2-dec.pcap",
+    "scan-portos-3-dec.pcap",
+    "scan-portos-4-dec.pcap",
+    "scan-portos-6-dec.pcap"
+  ],
+  "val_captures": [
+    "benign-dec.pcap",
+    "dos-synflooding-3-dec.pcap",
+    "mirai-hostbruteforce-2-dec.pcap",
+    "mirai-hostbruteforce-4-dec.pcap",
+    "mirai-httpflooding-4-dec.pcap",
+    "mirai-udpflooding-3-dec.pcap"
+  ],
+  "test_captures": [
+    "dos-synflooding-1-dec.pcap",
+    "dos-synflooding-2-dec.pcap",
+    "mirai-ackflooding-2-dec.pcap",
+    "mirai-hostbruteforce-3-dec.pcap",
+    "scan-hostport-4-dec.pcap",
+    "scan-portos-1-dec.pcap",
+    "scan-portos-5-dec.pcap"
+  ],
+  "train_sequences": 169255,
+  "val_sequences": 35886,
+  "test_sequences": 41867,
+  "classes": [
+    "benign",
+    "dos",
+    "mirai",
+    "mitm",
+    "scan"
+  ],
+  "classification_report": {
+    "benign": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "dos": {
+      "precision": 0.6544962812711291,
+      "recall": 0.24276876776458786,
+      "f1-score": 0.35416793706933347,
+      "support": 11962.0
+    },
+    "mirai": {
+      "precision": 0.5687299228076904,
+      "recall": 0.9916401939475005,
+      "f1-score": 0.722873944970901,
+      "support": 11962.0
+    },
+    "mitm": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "scan": {
+      "precision": 0.8912900635175586,
+      "recall": 0.680376748592766,
+      "f1-score": 0.7716814159292036,
+      "support": 17943.0
+    },
+    "accuracy": 0.6442783098860678,
+    "macro avg": {
+      "precision": 0.4229032535192756,
+      "recall": 0.38295714206097087,
+      "f1-score": 0.36974465959388764,
+      "support": 41867.0
+    },
+    "weighted avg": {
+      "precision": 0.7314746569586165,
+      "recall": 0.6442783098860678,
+      "f1-score": 0.6384468588382971,
+      "support": 41867.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "benign",
+    "dos",
+    "mirai",
+    "mitm",
+    "scan"
+  ],
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      2904,
+      7052,
+      529,
+      1477
+    ],
+    [
+      0,
+      65,
+      11862,
+      23,
+      12
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1468,
+      1943,
+      2324,
+      12208
+    ]
+  ],
+  "training_history": "predict_only",
+  "limitations": [
+    "Only one benign capture; class imbalance may inflate attack-class metrics.",
+    "Transformer may overfit on 42 captures compared to LSTM.",
+    "Window label assigned by majority vote within window.",
+    "IAT features included."
+  ]
+}

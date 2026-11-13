@@ -1,0 +1,1506 @@
+{
+  "mqtt_uad_full_multiclass__RF_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9873052106869163,
+    "accuracy_std": 0.00010623329762634146,
+    "macro_precision_mean": 0.7078865130058454,
+    "macro_precision_std": 0.0033347573814739508,
+    "macro_recall_mean": 0.6985097331816638,
+    "macro_recall_std": 0.0016131334508578054,
+    "macro_f1_mean": 0.6889115318512331,
+    "macro_f1_std": 0.0018983424840574594,
+    "weighted_precision_mean": 0.9876351483434986,
+    "weighted_precision_std": 0.00011379162343144221,
+    "weighted_recall_mean": 0.9873052106869163,
+    "weighted_recall_std": 0.00010623329762634146,
+    "weighted_f1_mean": 0.9872674390983214,
+    "weighted_f1_std": 9.300238712458037e-05,
+    "train_time_s_mean": 754.4311313200102,
+    "train_time_s_std": 941.5262956796386,
+    "inference_time_s_mean": 0.2914264999970328,
+    "inference_time_s_std": 0.028296299269475002,
+    "inference_ms_per_1k_mean": 6.788253243507787,
+    "inference_ms_per_1k_std": 0.6591111147999115,
+    "per_class": {
+      "normal": {
+        "support": 36170,
+        "precision_mean": 0.992511336261684,
+        "precision_std": 9.50885097952139e-05,
+        "recall_mean": 0.9959358584462261,
+        "recall_std": 0.00012967696322433423,
+        "f1_mean": 0.9942206403763185,
+        "f1_std": 6.965520716862905e-05
+      },
+      "DoS": {
+        "support": 6487,
+        "precision_mean": 0.9833060120262624,
+        "precision_std": 0.0010979969138404085,
+        "recall_mean": 0.9641745028518575,
+        "recall_std": 0.0010662319386952736,
+        "f1_mean": 0.9736452904315825,
+        "f1_std": 0.0004491492903974517
+      },
+      "mitm": {
+        "support": 162,
+        "precision_mean": 0.5296361223380348,
+        "precision_std": 0.01072246216284128,
+        "recall_mean": 0.3,
+        "recall_std": 0.003024061410843443,
+        "f1_mean": 0.38298968940099054,
+        "f1_std": 0.003604782220763608
+      },
+      "intrusion": {
+        "support": 112,
+        "precision_mean": 0.32609258139739994,
+        "precision_std": 0.01219742146623912,
+        "recall_mean": 0.5339285714285714,
+        "recall_std": 0.0066815310478105855,
+        "f1_mean": 0.40479050719604065,
+        "f1_std": 0.010410361502166256
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        180115,
+        390,
+        211,
+        134
+      ],
+      [
+        672,
+        31273,
+        5,
+        485
+      ],
+      [
+        534,
+        33,
+        243,
+        0
+      ],
+      [
+        153,
+        108,
+        0,
+        299
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        36023.0,
+        78.0,
+        42.2,
+        26.8
+      ],
+      [
+        134.4,
+        6254.6,
+        1.0,
+        97.0
+      ],
+      [
+        106.8,
+        6.6,
+        48.6,
+        0.0
+      ],
+      [
+        30.6,
+        21.6,
+        0.0,
+        59.8
+      ]
+    ],
+    "balanced_accuracy_mean": 0.6985097331816638,
+    "balanced_accuracy_std": 0.0016131334508578054,
+    "task_id": "mqtt_uad_full_multiclass",
+    "task_label": "MQTT-UAD (Full Stream, 4-Class)",
+    "model": "RF_tuned"
+  },
+  "mqtt_uad_full_multiclass__ExtraTrees_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9889310754466469,
+    "accuracy_std": 6.815000274080508e-05,
+    "macro_precision_mean": 0.8129905723228272,
+    "macro_precision_std": 0.006623214198263094,
+    "macro_recall_mean": 0.6341262750914358,
+    "macro_recall_std": 0.0006791181688114409,
+    "macro_f1_mean": 0.6864776693379948,
+    "macro_f1_std": 0.0013145277205810102,
+    "weighted_precision_mean": 0.9877402339973411,
+    "weighted_precision_std": 7.868464065619322e-05,
+    "weighted_recall_mean": 0.9889310754466469,
+    "weighted_recall_std": 6.815000274080508e-05,
+    "weighted_f1_mean": 0.9878863109093446,
+    "weighted_f1_std": 4.799281177012118e-05,
+    "train_time_s_mean": 664.6276954400062,
+    "train_time_s_std": 590.1962801624053,
+    "inference_time_s_mean": 0.609440280002309,
+    "inference_time_s_std": 0.14272069250428693,
+    "inference_ms_per_1k_mean": 14.195809089057068,
+    "inference_ms_per_1k_std": 3.3244204072648413,
+    "per_class": {
+      "normal": {
+        "support": 36170,
+        "precision_mean": 0.993524743250988,
+        "precision_std": 4.753778162953798e-05,
+        "recall_mean": 0.99517832457838,
+        "recall_std": 9.983671598157505e-05,
+        "f1_mean": 0.9943508424039269,
+        "f1_std": 4.562895814624473e-05
+      },
+      "DoS": {
+        "support": 6487,
+        "precision_mean": 0.9705641647603012,
+        "precision_std": 0.00021688614971891506,
+        "recall_mean": 0.9840295976568522,
+        "recall_std": 0.00026877748996707174,
+        "f1_mean": 0.977250453518538,
+        "f1_std": 0.00012344783458447051
+      },
+      "mitm": {
+        "support": 162,
+        "precision_mean": 0.5718893369635875,
+        "precision_std": 0.018964533609026602,
+        "recall_mean": 0.2876543209876543,
+        "recall_std": 0.003024061410843443,
+        "f1_mean": 0.3826180240835079,
+        "f1_std": 0.0020058078744834176
+      },
+      "intrusion": {
+        "support": 112,
+        "precision_mean": 0.7159840443164324,
+        "precision_std": 0.013880999005208925,
+        "recall_mean": 0.26964285714285713,
+        "recall_std": 0.003571428571428581,
+        "f1_mean": 0.39169135734600624,
+        "f1_std": 0.0034314356313083026
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        179978,
+        642,
+        170,
+        60
+      ],
+      [
+        513,
+        31917,
+        5,
+        0
+      ],
+      [
+        512,
+        65,
+        233,
+        0
+      ],
+      [
+        148,
+        261,
+        0,
+        151
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        35995.6,
+        128.4,
+        34.0,
+        12.0
+      ],
+      [
+        102.6,
+        6383.4,
+        1.0,
+        0.0
+      ],
+      [
+        102.4,
+        13.0,
+        46.6,
+        0.0
+      ],
+      [
+        29.6,
+        52.2,
+        0.0,
+        30.2
+      ]
+    ],
+    "balanced_accuracy_mean": 0.6341262750914358,
+    "balanced_accuracy_std": 0.0006791181688114409,
+    "task_id": "mqtt_uad_full_multiclass",
+    "task_label": "MQTT-UAD (Full Stream, 4-Class)",
+    "model": "ExtraTrees_tuned"
+  },
+  "mqtt_uad_full_multiclass__HistGB_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9879853718758007,
+    "accuracy_std": 0.00025320031197411535,
+    "macro_precision_mean": 0.7311343962312764,
+    "macro_precision_std": 0.01523132229142426,
+    "macro_recall_mean": 0.6911036310679257,
+    "macro_recall_std": 0.004968890044618799,
+    "macro_f1_mean": 0.6974549732781249,
+    "macro_f1_std": 0.000935331620919355,
+    "weighted_precision_mean": 0.9877433564780421,
+    "weighted_precision_std": 0.00017543642207414173,
+    "weighted_recall_mean": 0.9879853718758007,
+    "weighted_recall_std": 0.00025320031197411535,
+    "weighted_f1_mean": 0.9876639009962789,
+    "weighted_f1_std": 0.00016035640128888383,
+    "train_time_s_mean": 582.4950211000047,
+    "train_time_s_std": 329.96190656392395,
+    "inference_time_s_mean": 3.087410459999228,
+    "inference_time_s_std": 2.0776943378625448,
+    "inference_ms_per_1k_mean": 71.91564277559871,
+    "inference_ms_per_1k_std": 48.39613188284794,
+    "per_class": {
+      "normal": {
+        "support": 36170,
+        "precision_mean": 0.9930060683691015,
+        "precision_std": 0.0003369123908250794,
+        "recall_mean": 0.9954382084600498,
+        "recall_std": 0.0005181180768646977,
+        "f1_mean": 0.9942204765249999,
+        "f1_std": 0.000131430095498809
+      },
+      "DoS": {
+        "support": 6487,
+        "precision_mean": 0.9792877632808331,
+        "precision_std": 0.0012248254246676822,
+        "recall_mean": 0.9721288731308771,
+        "recall_std": 0.001896538492274361,
+        "f1_mean": 0.9756929776099064,
+        "f1_std": 0.0006340831745272991
+      },
+      "mitm": {
+        "support": 162,
+        "precision_mean": 0.5697904655768505,
+        "precision_std": 0.06266216003859446,
+        "recall_mean": 0.29506172839506173,
+        "recall_std": 0.019675774630258297,
+        "f1_mean": 0.38588861682097203,
+        "f1_std": 0.0018363585647018193
+      },
+      "intrusion": {
+        "support": 112,
+        "precision_mean": 0.38245328769832077,
+        "precision_std": 0.0068608822792665496,
+        "recall_mean": 0.5017857142857143,
+        "recall_std": 0.0035714285714285587,
+        "f1_mean": 0.43401782215662077,
+        "f1_std": 0.0041157997260342
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        180025,
+        491,
+        188,
+        146
+      ],
+      [
+        594,
+        31531,
+        2,
+        308
+      ],
+      [
+        509,
+        62,
+        239,
+        0
+      ],
+      [
+        165,
+        114,
+        0,
+        281
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        36005.0,
+        98.2,
+        37.6,
+        29.2
+      ],
+      [
+        118.8,
+        6306.2,
+        0.4,
+        61.6
+      ],
+      [
+        101.8,
+        12.4,
+        47.8,
+        0.0
+      ],
+      [
+        33.0,
+        22.8,
+        0.0,
+        56.2
+      ]
+    ],
+    "balanced_accuracy_mean": 0.6911036310679257,
+    "balanced_accuracy_std": 0.004968890044618799,
+    "task_id": "mqtt_uad_full_multiclass",
+    "task_label": "MQTT-UAD (Full Stream, 4-Class)",
+    "model": "HistGB_tuned"
+  },
+  "mqtt_uad_full_multiclass__RF_train_oversampled": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9776897812769327,
+    "accuracy_std": 0.0001945504462306557,
+    "macro_precision_mean": 0.6064399995768857,
+    "macro_precision_std": 0.006152771591619195,
+    "macro_recall_mean": 0.799880234800989,
+    "macro_recall_std": 0.011505125951534837,
+    "macro_f1_mean": 0.641167152241327,
+    "macro_f1_std": 0.0046193941173176215,
+    "weighted_precision_mean": 0.9884288386511526,
+    "weighted_precision_std": 0.0004123225223206722,
+    "weighted_recall_mean": 0.9776897812769327,
+    "weighted_recall_std": 0.0001945504462306557,
+    "weighted_f1_mean": 0.9822007844921625,
+    "weighted_f1_std": 0.00022336187823450624,
+    "train_time_s_mean": 157.59932249999838,
+    "train_time_s_std": 4.500664960061969,
+    "inference_time_s_mean": 0.4288786999997683,
+    "inference_time_s_std": 0.012471987835980072,
+    "inference_ms_per_1k_mean": 9.989953646543716,
+    "inference_ms_per_1k_std": 0.29051239980387294,
+    "per_class": {
+      "normal": {
+        "support": 36170,
+        "precision_mean": 0.9943239583239911,
+        "precision_std": 0.0002353995610810107,
+        "recall_mean": 0.990937240807299,
+        "recall_std": 0.0006631645828284181,
+        "f1_mean": 0.9926276570065997,
+        "f1_std": 0.00044186967250462166
+      },
+      "DoS": {
+        "support": 6487,
+        "precision_mean": 0.9874519420440425,
+        "precision_std": 0.0013471179223702222,
+        "recall_mean": 0.9192538924001848,
+        "recall_std": 0.0037347398453468003,
+        "f1_mean": 0.9521280341061423,
+        "f1_std": 0.0018802886252903782
+      },
+      "mitm": {
+        "support": 162,
+        "precision_mean": 0.28427865089885396,
+        "precision_std": 0.02375175338422894,
+        "recall_mean": 0.46790123456790117,
+        "recall_std": 0.011969579894855142,
+        "f1_mean": 0.3526944211658748,
+        "f1_std": 0.01578700575172537
+      },
+      "intrusion": {
+        "support": 112,
+        "precision_mean": 0.1597054470406547,
+        "precision_std": 0.0015594347178857404,
+        "recall_mean": 0.8214285714285714,
+        "recall_std": 0.06002762969275573,
+        "f1_mean": 0.26721849668669123,
+        "f1_std": 0.0045890899721367515
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        179211,
+        322,
+        948,
+        369
+      ],
+      [
+        549,
+        29816,
+        19,
+        2051
+      ],
+      [
+        399,
+        32,
+        379,
+        0
+      ],
+      [
+        75,
+        25,
+        0,
+        460
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        35842.2,
+        64.4,
+        189.6,
+        73.8
+      ],
+      [
+        109.8,
+        5963.2,
+        3.8,
+        410.2
+      ],
+      [
+        79.8,
+        6.4,
+        75.8,
+        0.0
+      ],
+      [
+        15.0,
+        5.0,
+        0.0,
+        92.0
+      ]
+    ],
+    "balanced_accuracy_mean": 0.799880234800989,
+    "balanced_accuracy_std": 0.011505125951534837,
+    "task_id": "mqtt_uad_full_multiclass",
+    "task_label": "MQTT-UAD (Full Stream, 4-Class)",
+    "model": "RF_train_oversampled"
+  },
+  "mqtt_uad_full_binary__RF_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9903845705900164,
+    "accuracy_std": 0.00023311818505409267,
+    "macro_precision_mean": 0.9835870096927396,
+    "macro_precision_std": 0.0005080873208341569,
+    "macro_recall_mean": 0.9800668681643818,
+    "macro_recall_std": 0.00045392126873184134,
+    "macro_f1_mean": 0.9818167093918462,
+    "macro_f1_std": 0.000439653390151136,
+    "weighted_precision_mean": 0.9903568652251007,
+    "weighted_precision_std": 0.00023359274922471818,
+    "weighted_recall_mean": 0.9903845705900164,
+    "weighted_recall_std": 0.00023311818505409267,
+    "weighted_f1_mean": 0.9903670160788659,
+    "weighted_f1_std": 0.000233220650354007,
+    "train_time_s_mean": 9077.164817859995,
+    "train_time_s_std": 16261.170665459731,
+    "inference_time_s_mean": 0.3817014199972618,
+    "inference_time_s_std": 0.04255559953570002,
+    "inference_ms_per_1k_mean": 8.891044233706689,
+    "inference_ms_per_1k_std": 0.9912557251333538,
+    "per_class": {
+      "normal": {
+        "support": 36170,
+        "precision_mean": 0.9934695853620855,
+        "precision_std": 0.00015323426726186913,
+        "recall_mean": 0.9951285595797621,
+        "recall_std": 0.00017780409389899158,
+        "f1_mean": 0.9942983720250688,
+        "f1_std": 0.0001383213043674225
+      },
+      "attack": {
+        "support": 6761,
+        "precision_mean": 0.9737044340233938,
+        "precision_std": 0.0009433089168614395,
+        "recall_mean": 0.9650051767490015,
+        "recall_std": 0.0008240430869506841,
+        "f1_mean": 0.9693350467586237,
+        "f1_std": 0.0007410186828290567
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        179969,
+        881
+      ],
+      [
+        1183,
+        32622
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        35993.8,
+        176.2
+      ],
+      [
+        236.6,
+        6524.4
+      ]
+    ],
+    "balanced_accuracy_mean": 0.9800668681643818,
+    "balanced_accuracy_std": 0.00045392126873184134,
+    "task_id": "mqtt_uad_full_binary",
+    "task_label": "MQTT-UAD (Full Stream, Binary)",
+    "model": "RF_tuned"
+  },
+  "mqtt_uad_full_binary__ExtraTrees_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9907013579930586,
+    "accuracy_std": 0.00010561863500737851,
+    "macro_precision_mean": 0.9836894105631366,
+    "macro_precision_std": 0.0006965177374020905,
+    "macro_recall_mean": 0.9811928964347189,
+    "macro_recall_std": 0.000824998974516249,
+    "macro_f1_mean": 0.9824343164003011,
+    "macro_f1_std": 0.00020719121769299464,
+    "weighted_precision_mean": 0.9906822072065617,
+    "weighted_precision_std": 0.00010783358926118905,
+    "weighted_recall_mean": 0.9907013579930586,
+    "weighted_recall_std": 0.00010561863500737851,
+    "weighted_f1_mean": 0.9906893088902251,
+    "weighted_f1_std": 0.0001075799224290168,
+    "train_time_s_mean": 474.33445806000964,
+    "train_time_s_std": 154.09430113229425,
+    "inference_time_s_mean": 0.8591053800017108,
+    "inference_time_s_std": 0.39122349675763785,
+    "inference_ms_per_1k_mean": 20.011306049281657,
+    "inference_ms_per_1k_std": 9.112843790213082,
+    "per_class": {
+      "normal": {
+        "support": 36170,
+        "precision_mean": 0.9938974337090742,
+        "precision_std": 0.0003624841672317622,
+        "recall_mean": 0.9950732651368538,
+        "recall_std": 0.0003387884696055462,
+        "f1_mean": 0.9944848819613515,
+        "f1_std": 6.224221707491283e-05
+      },
+      "attack": {
+        "support": 6761,
+        "precision_mean": 0.9734813874171987,
+        "precision_std": 0.0017267952692349173,
+        "recall_mean": 0.9673125277325839,
+        "recall_std": 0.0019644381264172636,
+        "f1_mean": 0.9703837508392507,
+        "f1_std": 0.0003530379680161148
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        179959,
+        891
+      ],
+      [
+        1105,
+        32700
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        35991.8,
+        178.2
+      ],
+      [
+        221.0,
+        6540.0
+      ]
+    ],
+    "balanced_accuracy_mean": 0.9811928964347189,
+    "balanced_accuracy_std": 0.000824998974516249,
+    "task_id": "mqtt_uad_full_binary",
+    "task_label": "MQTT-UAD (Full Stream, Binary)",
+    "model": "ExtraTrees_tuned"
+  },
+  "mqtt_uad_full_binary__HistGB_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9911672218210617,
+    "accuracy_std": 1.7431028332784564e-05,
+    "macro_precision_mean": 0.9848657384304842,
+    "macro_precision_std": 0.00010707389524855022,
+    "macro_recall_mean": 0.9817579923921684,
+    "macro_recall_std": 5.0140254038378784e-05,
+    "macro_f1_mean": 0.9833039959318157,
+    "macro_f1_std": 3.048554140116201e-05,
+    "weighted_precision_mean": 0.991144521874757,
+    "weighted_precision_std": 1.6709058636751408e-05,
+    "weighted_recall_mean": 0.9911672218210617,
+    "weighted_recall_std": 1.7431028332784564e-05,
+    "weighted_f1_mean": 0.9911530242838611,
+    "weighted_f1_std": 1.680211458378351e-05,
+    "train_time_s_mean": 69.34341247999691,
+    "train_time_s_std": 13.757139940895318,
+    "inference_time_s_mean": 0.10846781999571249,
+    "inference_time_s_std": 0.018442242562034843,
+    "inference_ms_per_1k_mean": 2.5265616919175535,
+    "inference_ms_per_1k_std": 0.4295786858455391,
+    "per_class": {
+      "normal": {
+        "support": 36170,
+        "precision_mean": 0.9940314513770676,
+        "precision_std": 2.6616739249671403e-05,
+        "recall_mean": 0.9954935029029583,
+        "recall_std": 4.6262650071008334e-05,
+        "f1_mean": 0.9947619386086035,
+        "f1_std": 1.0514962842730238e-05
+      },
+      "attack": {
+        "support": 6761,
+        "precision_mean": 0.9757000254839007,
+        "precision_std": 0.00024000885268657667,
+        "recall_mean": 0.9680224818813785,
+        "recall_std": 0.00014491878377653864,
+        "f1_mean": 0.9718460532550278,
+        "f1_std": 5.0465355647847095e-05
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        180035,
+        815
+      ],
+      [
+        1081,
+        32724
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        36007.0,
+        163.0
+      ],
+      [
+        216.2,
+        6544.8
+      ]
+    ],
+    "balanced_accuracy_mean": 0.9817579923921684,
+    "balanced_accuracy_std": 5.0140254038378784e-05,
+    "task_id": "mqtt_uad_full_binary",
+    "task_label": "MQTT-UAD (Full Stream, Binary)",
+    "model": "HistGB_tuned"
+  },
+  "mqtt_uad_full_binary__RF_train_oversampled": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9903612773986163,
+    "accuracy_std": 0.00017885773748994526,
+    "macro_precision_mean": 0.9832983915506086,
+    "macro_precision_std": 0.0005958386973485667,
+    "macro_recall_mean": 0.980281538350123,
+    "macro_recall_std": 0.00016342109132515416,
+    "macro_f1_mean": 0.9817822759985233,
+    "macro_f1_std": 0.00032850858831344113,
+    "weighted_precision_mean": 0.9903367613593383,
+    "weighted_precision_std": 0.00017589968386649433,
+    "weighted_recall_mean": 0.9903612773986163,
+    "weighted_recall_std": 0.00017885773748994526,
+    "weighted_f1_mean": 0.9903462365261483,
+    "weighted_f1_std": 0.0001765949824716052,
+    "train_time_s_mean": 1339.7774875000002,
+    "train_time_s_std": 2137.2197685245765,
+    "inference_time_s_mean": 0.559276659990428,
+    "inference_time_s_std": 0.18721006895026093,
+    "inference_ms_per_1k_mean": 13.027338286795743,
+    "inference_ms_per_1k_std": 4.360719968094406,
+    "per_class": {
+      "normal": {
+        "support": 36170,
+        "precision_mean": 0.9935729420031428,
+        "precision_std": 6.5170794990271e-05,
+        "recall_mean": 0.9949958529167819,
+        "recall_std": 0.00023328751019885006,
+        "f1_mean": 0.9942838703883862,
+        "f1_std": 0.00010675836968782125
+      },
+      "attack": {
+        "support": 6761,
+        "precision_mean": 0.973023841098074,
+        "precision_std": 0.001217575167457425,
+        "recall_mean": 0.965567223783464,
+        "recall_std": 0.00035497707439726133,
+        "f1_mean": 0.9692806816086605,
+        "f1_std": 0.0005502831173251735
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        179945,
+        905
+      ],
+      [
+        1164,
+        32641
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        35989.0,
+        181.0
+      ],
+      [
+        232.8,
+        6528.2
+      ]
+    ],
+    "balanced_accuracy_mean": 0.980281538350123,
+    "balanced_accuracy_std": 0.00016342109132515416,
+    "task_id": "mqtt_uad_full_binary",
+    "task_label": "MQTT-UAD (Full Stream, Binary)",
+    "model": "RF_train_oversampled"
+  },
+  "mqtt_uad_mqtt_only_multiclass__RF_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9914554439662042,
+    "accuracy_std": 7.809627746799916e-05,
+    "macro_precision_mean": 0.6736641286365032,
+    "macro_precision_std": 0.002253339548129587,
+    "macro_recall_mean": 0.6668998088250548,
+    "macro_recall_std": 0.00249947932937062,
+    "macro_f1_mean": 0.6701082143701331,
+    "macro_f1_std": 0.002283604731835609,
+    "weighted_precision_mean": 0.9895355180896444,
+    "weighted_precision_std": 0.0001316705597793528,
+    "weighted_recall_mean": 0.9914554439662042,
+    "weighted_recall_std": 7.809627746799916e-05,
+    "weighted_f1_mean": 0.9904847544832954,
+    "weighted_f1_std": 0.0001047781825744074,
+    "train_time_s_mean": 30.582832540001256,
+    "train_time_s_std": 0.9342808065324303,
+    "inference_time_s_mean": 0.029326200002105906,
+    "inference_time_s_std": 0.0023181853824142903,
+    "inference_ms_per_1k_mean": 4.674988044333796,
+    "inference_ms_per_1k_std": 0.3695497182232251,
+    "per_class": {
+      "normal": {
+        "support": 626,
+        "precision_mean": 0.9518570791858565,
+        "precision_std": 0.0007338886219897193,
+        "recall_mean": 0.9664536741214057,
+        "recall_std": 0.0,
+        "f1_mean": 0.959099700763236,
+        "f1_std": 0.0003724916567823399
+      },
+      "DoS": {
+        "support": 5585,
+        "precision_mean": 0.998211091234347,
+        "precision_std": 0.0,
+        "recall_mean": 0.999104744852283,
+        "recall_std": 0.0,
+        "f1_mean": 0.9986577181208054,
+        "f1_std": 0.0
+      },
+      "mitm": {
+        "support": 13,
+        "precision_mean": 0.0,
+        "precision_std": 0.0,
+        "recall_mean": 0.0,
+        "recall_std": 0.0,
+        "f1_mean": 0.0,
+        "f1_std": 0.0
+      },
+      "intrusion": {
+        "support": 49,
+        "precision_mean": 0.7445883441258093,
+        "precision_std": 0.008419656061411882,
+        "recall_mean": 0.7020408163265306,
+        "recall_std": 0.00999791731748237,
+        "f1_mean": 0.7226754385964912,
+        "f1_std": 0.008775876305223987
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        3025,
+        40,
+        6,
+        59
+      ],
+      [
+        25,
+        27900,
+        0,
+        0
+      ],
+      [
+        65,
+        0,
+        0,
+        0
+      ],
+      [
+        63,
+        10,
+        0,
+        172
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        605.0,
+        8.0,
+        1.2,
+        11.8
+      ],
+      [
+        5.0,
+        5580.0,
+        0.0,
+        0.0
+      ],
+      [
+        13.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        12.6,
+        2.0,
+        0.0,
+        34.4
+      ]
+    ],
+    "balanced_accuracy_mean": 0.6668998088250548,
+    "balanced_accuracy_std": 0.00249947932937062,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "task_label": "MQTT-UAD (MQTT-Only, 4-Class)",
+    "model": "RF_tuned"
+  },
+  "mqtt_uad_mqtt_only_multiclass__ExtraTrees_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9912322652638291,
+    "accuracy_std": 0.00010082186067808298,
+    "macro_precision_mean": 0.6955915286527107,
+    "macro_precision_std": 0.04950866666022793,
+    "macro_recall_mean": 0.6525914000833475,
+    "macro_recall_std": 0.011183032850536028,
+    "macro_f1_mean": 0.6651180496025261,
+    "macro_f1_std": 0.015153771309632351,
+    "weighted_precision_mean": 0.9892154413926297,
+    "weighted_precision_std": 0.0005870927056333223,
+    "weighted_recall_mean": 0.9912322652638291,
+    "weighted_recall_std": 0.00010082186067808298,
+    "weighted_f1_mean": 0.9901084030690361,
+    "weighted_f1_std": 0.00022652652736251748,
+    "train_time_s_mean": 27.852039119997062,
+    "train_time_s_std": 14.14084801361696,
+    "inference_time_s_mean": 0.10543546000262723,
+    "inference_time_s_std": 0.058909701040648896,
+    "inference_ms_per_1k_mean": 16.80782081980348,
+    "inference_ms_per_1k_std": 9.390993311118907,
+    "per_class": {
+      "normal": {
+        "support": 626,
+        "precision_mean": 0.9485416801902298,
+        "precision_std": 0.0022499830534735985,
+        "recall_mean": 0.9715654952076678,
+        "recall_std": 0.0011954176954549547,
+        "f1_mean": 0.9599126408681894,
+        "f1_std": 0.0007161784681061831
+      },
+      "DoS": {
+        "support": 5585,
+        "precision_mean": 0.9980679145177515,
+        "precision_std": 7.142831993971476e-05,
+        "recall_mean": 0.9989256938227393,
+        "recall_std": 1.1102230246251565e-16,
+        "f1_mean": 0.9984966186685375,
+        "f1_std": 3.574292991599393e-05
+      },
+      "mitm": {
+        "support": 13,
+        "precision_mean": 0.1,
+        "precision_std": 0.20000000000000004,
+        "recall_mean": 0.015384615384615385,
+        "recall_std": 0.03076923076923077,
+        "f1_mean": 0.026666666666666665,
+        "f1_std": 0.05333333333333333
+      },
+      "intrusion": {
+        "support": 49,
+        "precision_mean": 0.7357565199028613,
+        "precision_std": 0.007913446184362476,
+        "recall_mean": 0.6244897959183675,
+        "recall_std": 0.01632653061224488,
+        "f1_mean": 0.6753962722067107,
+        "f1_std": 0.008393358313248559
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        3041,
+        33,
+        1,
+        55
+      ],
+      [
+        30,
+        27895,
+        0,
+        0
+      ],
+      [
+        64,
+        0,
+        1,
+        0
+      ],
+      [
+        71,
+        21,
+        0,
+        153
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        608.2,
+        6.6,
+        0.2,
+        11.0
+      ],
+      [
+        6.0,
+        5579.0,
+        0.0,
+        0.0
+      ],
+      [
+        12.8,
+        0.0,
+        0.2,
+        0.0
+      ],
+      [
+        14.2,
+        4.2,
+        0.0,
+        30.6
+      ]
+    ],
+    "balanced_accuracy_mean": 0.6525914000833475,
+    "balanced_accuracy_std": 0.011183032850536028,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "task_label": "MQTT-UAD (MQTT-Only, 4-Class)",
+    "model": "ExtraTrees_tuned"
+  },
+  "mqtt_uad_mqtt_only_multiclass__HistGB_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9915829746532759,
+    "accuracy_std": 0.0003251407309799158,
+    "macro_precision_mean": 0.6743527666441248,
+    "macro_precision_std": 0.00837702820081015,
+    "macro_recall_mean": 0.6664915206431408,
+    "macro_recall_std": 0.0016599888990351296,
+    "macro_f1_mean": 0.6700605409243806,
+    "macro_f1_std": 0.003774492807343105,
+    "weighted_precision_mean": 0.9894897308496382,
+    "weighted_precision_std": 0.0002786855588875342,
+    "weighted_recall_mean": 0.9915829746532759,
+    "weighted_recall_std": 0.0003251407309799158,
+    "weighted_f1_mean": 0.9905166684804263,
+    "weighted_f1_std": 0.0002878226834054411,
+    "train_time_s_mean": 16.326284300000406,
+    "train_time_s_std": 2.8835782101991363,
+    "inference_time_s_mean": 0.021509479999076576,
+    "inference_time_s_std": 0.011875022441242895,
+    "inference_ms_per_1k_mean": 3.428898453543213,
+    "inference_ms_per_1k_std": 1.8930372136526221,
+    "per_class": {
+      "normal": {
+        "support": 626,
+        "precision_mean": 0.9507844929333105,
+        "precision_std": 0.0006911454271270479,
+        "recall_mean": 0.9690095846645367,
+        "recall_std": 0.003440999876763265,
+        "f1_mean": 0.9598072342888445,
+        "f1_std": 0.0016814877758942765
+      },
+      "DoS": {
+        "support": 5585,
+        "precision_mean": 0.9982466197498215,
+        "precision_std": 7.153725343138397e-05,
+        "recall_mean": 0.998997314234557,
+        "recall_std": 8.771673206032397e-05,
+        "f1_mean": 0.9986218246336473,
+        "f1_std": 7.16068012413474e-05
+      },
+      "mitm": {
+        "support": 13,
+        "precision_mean": 0.0,
+        "precision_std": 0.0,
+        "recall_mean": 0.0,
+        "recall_std": 0.0,
+        "f1_mean": 0.0,
+        "f1_std": 0.0
+      },
+      "intrusion": {
+        "support": 49,
+        "precision_mean": 0.7483799538933674,
+        "precision_std": 0.033650606645483576,
+        "recall_mean": 0.6979591836734694,
+        "recall_std": 0.008163265306122458,
+        "f1_mean": 0.7218131047750309,
+        "f1_std": 0.013596743335559687
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        3033,
+        39,
+        0,
+        58
+      ],
+      [
+        28,
+        27897,
+        0,
+        0
+      ],
+      [
+        65,
+        0,
+        0,
+        0
+      ],
+      [
+        64,
+        10,
+        0,
+        171
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        606.6,
+        7.8,
+        0.0,
+        11.6
+      ],
+      [
+        5.6,
+        5579.4,
+        0.0,
+        0.0
+      ],
+      [
+        13.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        12.8,
+        2.0,
+        0.0,
+        34.2
+      ]
+    ],
+    "balanced_accuracy_mean": 0.6664915206431408,
+    "balanced_accuracy_std": 0.0016599888990351296,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "task_label": "MQTT-UAD (MQTT-Only, 4-Class)",
+    "model": "HistGB_tuned"
+  },
+  "mqtt_uad_mqtt_only_multiclass__RF_train_oversampled": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9903395504543282,
+    "accuracy_std": 7.809627746799916e-05,
+    "macro_precision_mean": 0.7664924831690837,
+    "macro_precision_std": 0.000887855509448789,
+    "macro_recall_mean": 0.6782330100829481,
+    "macro_recall_std": 0.0024994793293705653,
+    "macro_f1_mean": 0.6831351149298872,
+    "macro_f1_std": 0.0016116207300701311,
+    "weighted_precision_mean": 0.9898034792782529,
+    "weighted_precision_std": 0.00010495837665810693,
+    "weighted_recall_mean": 0.9903395504543282,
+    "weighted_recall_std": 7.809627746799916e-05,
+    "weighted_f1_mean": 0.989735902129896,
+    "weighted_f1_std": 8.899487839190681e-05,
+    "train_time_s_mean": 16.840473740000743,
+    "train_time_s_std": 0.19783074124886754,
+    "inference_time_s_mean": 0.0302332799998112,
+    "inference_time_s_std": 0.0013681387158473322,
+    "inference_ms_per_1k_mean": 4.819588713504098,
+    "inference_ms_per_1k_std": 0.21809958805154323,
+    "per_class": {
+      "normal": {
+        "support": 626,
+        "precision_mean": 0.9537480063795855,
+        "precision_std": 1.1102230246251565e-16,
+        "recall_mean": 0.9552715654952075,
+        "recall_std": 1.1102230246251565e-16,
+        "f1_mean": 0.954509177972865,
+        "f1_std": 1.1102230246251565e-16
+      },
+      "DoS": {
+        "support": 5585,
+        "precision_mean": 0.9982825323573554,
+        "precision_std": 8.749714901095004e-05,
+        "recall_mean": 0.999104744852283,
+        "recall_std": 0.0,
+        "f1_mean": 0.9986934674574124,
+        "f1_std": 4.37838166652305e-05
+      },
+      "mitm": {
+        "support": 13,
+        "precision_mean": 0.5,
+        "precision_std": 0.0,
+        "recall_mean": 0.07692307692307693,
+        "recall_std": 0.0,
+        "f1_mean": 0.13333333333333333,
+        "f1_std": 0.0
+      },
+      "intrusion": {
+        "support": 49,
+        "precision_mean": 0.613939393939394,
+        "precision_std": 0.0034639248887842603,
+        "recall_mean": 0.6816326530612244,
+        "recall_std": 0.00999791731748237,
+        "f1_mean": 0.6460044809559373,
+        "f1_std": 0.006402699103615458
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        2990,
+        30,
+        5,
+        105
+      ],
+      [
+        25,
+        27900,
+        0,
+        0
+      ],
+      [
+        60,
+        0,
+        5,
+        0
+      ],
+      [
+        60,
+        18,
+        0,
+        167
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        598.0,
+        6.0,
+        1.0,
+        21.0
+      ],
+      [
+        5.0,
+        5580.0,
+        0.0,
+        0.0
+      ],
+      [
+        12.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        12.0,
+        3.6,
+        0.0,
+        33.4
+      ]
+    ],
+    "balanced_accuracy_mean": 0.6782330100829481,
+    "balanced_accuracy_std": 0.0024994793293705653,
+    "task_id": "mqtt_uad_mqtt_only_multiclass",
+    "task_label": "MQTT-UAD (MQTT-Only, 4-Class)",
+    "model": "RF_train_oversampled"
+  },
+  "mqtt_uad_mqtt_only_binary__RF_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9920612147297942,
+    "accuracy_std": 0.0001859063253577456,
+    "macro_precision_mean": 0.9699455891261823,
+    "macro_precision_std": 0.0014744383115669487,
+    "macro_recall_mean": 0.9870684255996144,
+    "macro_recall_std": 0.0012547082379236985,
+    "macro_f1_mean": 0.9783040883783286,
+    "macro_f1_std": 0.0004831662861035264,
+    "weighted_precision_mean": 0.9922930407481416,
+    "weighted_precision_std": 0.00016564628508045241,
+    "weighted_recall_mean": 0.9920612147297942,
+    "weighted_recall_std": 0.0001859063253577456,
+    "weighted_f1_mean": 0.992132350753387,
+    "weighted_f1_std": 0.00017951994756411664,
+    "train_time_s_mean": 30.470812600001228,
+    "train_time_s_std": 0.4102805906250339,
+    "inference_time_s_mean": 0.028970280004432424,
+    "inference_time_s_std": 0.002504660332068912,
+    "inference_ms_per_1k_mean": 4.618249642026529,
+    "inference_ms_per_1k_std": 0.3992763162870896,
+    "per_class": {
+      "normal": {
+        "support": 626,
+        "precision_mean": 0.9420257396889087,
+        "precision_std": 0.0032157540445514428,
+        "recall_mean": 0.9808306709265174,
+        "recall_std": 0.002857594859424676,
+        "f1_mean": 0.9610277111867849,
+        "f1_std": 0.0008629875261561856
+      },
+      "attack": {
+        "support": 5647,
+        "precision_mean": 0.997865438563456,
+        "precision_std": 0.0003166607856229251,
+        "recall_mean": 0.9933061802727112,
+        "recall_std": 0.0004099818276178795,
+        "f1_mean": 0.9955804655698725,
+        "f1_std": 0.00010422774252686942
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        3070,
+        60
+      ],
+      [
+        189,
+        28046
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        614.0,
+        12.0
+      ],
+      [
+        37.8,
+        5609.2
+      ]
+    ],
+    "balanced_accuracy_mean": 0.9870684255996144,
+    "balanced_accuracy_std": 0.0012547082379236985,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "task_label": "MQTT-UAD (MQTT-Only, Binary)",
+    "model": "RF_tuned"
+  },
+  "mqtt_uad_mqtt_only_binary__ExtraTrees_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9919974493862587,
+    "accuracy_std": 0.00011929403433046012,
+    "macro_precision_mean": 0.9721553314855644,
+    "macro_precision_std": 9.69614028179459e-05,
+    "macro_recall_mean": 0.9840502548498989,
+    "macro_recall_std": 0.0005977088477274536,
+    "macro_f1_mean": 0.9780070021104343,
+    "macro_f1_std": 0.00033928745458379966,
+    "weighted_precision_mean": 0.9921391475536572,
+    "weighted_precision_std": 0.0001254557812632134,
+    "weighted_recall_mean": 0.9919974493862587,
+    "weighted_recall_std": 0.00011929403433046012,
+    "weighted_f1_mean": 0.9920471908139307,
+    "weighted_f1_std": 0.00012060013728100418,
+    "train_time_s_mean": 12.041421120008454,
+    "train_time_s_std": 0.20077690428810074,
+    "inference_time_s_mean": 0.03633419999387115,
+    "inference_time_s_std": 0.0033095093866966426,
+    "inference_ms_per_1k_mean": 5.7921568617680785,
+    "inference_ms_per_1k_std": 0.5275800074440689,
+    "per_class": {
+      "normal": {
+        "support": 626,
+        "precision_mean": 0.9471884965532507,
+        "precision_std": 6.136189801564398e-05,
+        "recall_mean": 0.9741214057507988,
+        "recall_std": 0.0011954176954549073,
+        "f1_mean": 0.9604658541843175,
+        "f1_std": 0.0006125050535813463
+      },
+      "attack": {
+        "support": 5647,
+        "precision_mean": 0.997122166417878,
+        "precision_std": 0.00013256093324350712,
+        "recall_mean": 0.9939791039489995,
+        "recall_std": 0.0,
+        "f1_mean": 0.9955481500365513,
+        "f1_std": 6.606986492575616e-05
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        3049,
+        81
+      ],
+      [
+        170,
+        28065
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        609.8,
+        16.2
+      ],
+      [
+        34.0,
+        5613.0
+      ]
+    ],
+    "balanced_accuracy_mean": 0.9840502548498989,
+    "balanced_accuracy_std": 0.0005977088477274536,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "task_label": "MQTT-UAD (MQTT-Only, Binary)",
+    "model": "ExtraTrees_tuned"
+  },
+  "mqtt_uad_mqtt_only_binary__HistGB_tuned": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.991869918699187,
+    "accuracy_std": 0.00020164372135618352,
+    "macro_precision_mean": 0.9660857271630743,
+    "macro_precision_std": 0.0011806904654725245,
+    "macro_recall_mean": 0.9906551076626963,
+    "macro_recall_std": 0.0008205570192068254,
+    "macro_f1_mean": 0.9779585228233266,
+    "macro_f1_std": 0.0005236344911200301,
+    "weighted_precision_mean": 0.9922610074758944,
+    "weighted_precision_std": 0.00017651252565432647,
+    "weighted_recall_mean": 0.991869918699187,
+    "weighted_recall_std": 0.00020164372135618352,
+    "weighted_f1_mean": 0.991974409223886,
+    "weighted_f1_std": 0.0001948373385289112,
+    "train_time_s_mean": 14.59795869999798,
+    "train_time_s_std": 0.8414322346930592,
+    "inference_time_s_mean": 0.015018779988167807,
+    "inference_time_s_std": 0.0009278386863177138,
+    "inference_ms_per_1k_mean": 2.394194163584857,
+    "inference_ms_per_1k_std": 0.14790988144710873,
+    "per_class": {
+      "normal": {
+        "support": 626,
+        "precision_mean": 0.9333835695446078,
+        "precision_std": 0.0025037228897201555,
+        "recall_mean": 0.9891373801916933,
+        "recall_std": 0.0018629239280655927,
+        "f1_mean": 0.9604477370454518,
+        "f1_std": 0.000934598763809105
+      },
+      "attack": {
+        "support": 5647,
+        "precision_mean": 0.9987878847815408,
+        "precision_std": 0.00020722275007767067,
+        "recall_mean": 0.9921728351336994,
+        "recall_std": 0.000324602493002027,
+        "f1_mean": 0.9954693086012014,
+        "f1_std": 0.00011301659242514124
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        3096,
+        34
+      ],
+      [
+        221,
+        28014
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        619.2,
+        6.8
+      ],
+      [
+        44.2,
+        5602.8
+      ]
+    ],
+    "balanced_accuracy_mean": 0.9906551076626963,
+    "balanced_accuracy_std": 0.0008205570192068254,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "task_label": "MQTT-UAD (MQTT-Only, Binary)",
+    "model": "HistGB_tuned"
+  },
+  "mqtt_uad_mqtt_only_binary__RF_train_oversampled": {
+    "num_seeds": 5,
+    "accuracy_mean": 0.9914235612944365,
+    "accuracy_std": 0.0005826770885540254,
+    "macro_precision_mean": 0.9727933775202622,
+    "macro_precision_std": 0.0004723120579264264,
+    "macro_recall_mean": 0.979896532468539,
+    "macro_recall_std": 0.0030020344660597388,
+    "macro_f1_mean": 0.9763061365877934,
+    "macro_f1_std": 0.001680076796246048,
+    "weighted_precision_mean": 0.9915029469731083,
+    "weighted_precision_std": 0.0006118748325723958,
+    "weighted_recall_mean": 0.9914235612944365,
+    "weighted_recall_std": 0.0005826770885540254,
+    "weighted_f1_mean": 0.991454706506668,
+    "weighted_f1_std": 0.0005931734114576518,
+    "train_time_s_mean": 10.250891759997467,
+    "train_time_s_std": 0.2356330407863072,
+    "inference_time_s_mean": 0.026322899997467175,
+    "inference_time_s_std": 0.000483115174701378,
+    "inference_ms_per_1k_mean": 4.196221902991738,
+    "inference_ms_per_1k_std": 0.07701501270546464,
+    "per_class": {
+      "normal": {
+        "support": 626,
+        "precision_mean": 0.9494185260608509,
+        "precision_std": 0.0005659626920923476,
+        "recall_mean": 0.9654952076677314,
+        "recall_std": 0.006028102959780574,
+        "f1_mean": 0.957380229577019,
+        "f1_std": 0.0030380089115276104
+      },
+      "attack": {
+        "support": 5647,
+        "precision_mean": 0.9961682289796734,
+        "precision_std": 0.0006662253861500547,
+        "recall_mean": 0.9942978572693466,
+        "recall_std": 7.083407118821939e-05,
+        "f1_mean": 0.995232043598568,
+        "f1_std": 0.0003221578055781386
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix_sum": [
+      [
+        3022,
+        108
+      ],
+      [
+        161,
+        28074
+      ]
+    ],
+    "confusion_matrix_mean": [
+      [
+        604.4,
+        21.6
+      ],
+      [
+        32.2,
+        5614.8
+      ]
+    ],
+    "balanced_accuracy_mean": 0.979896532468539,
+    "balanced_accuracy_std": 0.0030020344660597388,
+    "task_id": "mqtt_uad_mqtt_only_binary",
+    "task_label": "MQTT-UAD (MQTT-Only, Binary)",
+    "model": "RF_train_oversampled"
+  }
+}

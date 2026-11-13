@@ -1,0 +1,48 @@
+{
+  "evaluation_level": "capture-level, not packet-level",
+  "number_of_captures": 42,
+  "attack_threshold_percent": 50,
+  "accuracy": 1.0,
+  "labels_order": [
+    "benign",
+    "attack"
+  ],
+  "confusion_matrix_rows_true_columns_predicted": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      41
+    ]
+  ],
+  "classification_report": {
+    "benign": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1.0
+    },
+    "attack": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 41.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 42.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 42.0
+    }
+  },
+  "limitation": "This evaluates the saved model's capture-level predictions against filename-derived capture labels. It is not an independent test of the model and does not establish packet-level accuracy."
+}

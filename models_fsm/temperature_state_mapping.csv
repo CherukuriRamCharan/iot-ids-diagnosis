@@ -6,3 +6,7 @@ S04,temp_01,PUBLISH_DATA_to_WAIT_TIMER,publish_success,Temperature message publi
 S05,temp_01,WAIT_TIMER_to_GENERATE_DATA,timer_expired,Next publishing interval reached,None,Normal
 S06,temp_01,PUBLISH_DATA_to_ANOMALOUS,unexpected_message,Unexpected communication observed,Abnormal MQTT traffic,Abnormal
 S07,temp_01,ANY_to_DISCONNECTED,disconnect,Device disconnects,MQTT DISCONNECT,Normal
+S08,temp_01,PUBLISH_DATA_to_ANOMALOUS,repeated_payload_detected,Repeated identical payloads observed,Repeated MQTT PUBLISH to iot/temperature,Replay-like
+S09,temp_01,PUBLISH_DATA_to_ANOMALOUS,invalid_or_unexpected_value,Temperature value differs from expected behavior,Altered MQTT PUBLISH to iot/temperature,Data Falsification
+S10,temp_01,PUBLISH_DATA_to_ANOMALOUS,message_value_changed,Original reading modified before forwarding,Input on iot/test/temperature/original and modified output on iot/test/temperature/forwarded,Controlled Message Manipulation
+S11,temp_01,CONNECTED_to_ANOMALOUS,excessive_publish_rate,Publishing frequency exceeds the configured normal interval,High-frequency MQTT PUBLISH to iot/temperature,Battery-draining-like

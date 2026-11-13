@@ -1,0 +1,512 @@
+# MQTT-UAD Dataset Audit
+
+Generated: 2026-11-12T13:20:11.918515
+
+Audit method: pandas chunked CSV inspection.
+
+This report describes observed files, not assumed dataset properties.
+
+## DoS.csv
+- File size: 34,541,574 bytes
+- SHA-256: e935c819f8bc08898135180029bde0a685e9c5676d5277cacf66d917bb98d4e1
+- Total data rows: 94,625
+- Columns (67):
+  - `frame.time_delta` (float64)
+  - `frame.time_delta_displayed` (float64)
+  - `frame.time_epoch` (float64)
+  - `frame.time_invalid` (float64)
+  - `frame.time_relative` (float64)
+  - `ip.src` (object)
+  - `ip.dst` (object)
+  - `tcp.srcport` (float64)
+  - `tcp.dstport` (float64)
+  - `eth.src` (object)
+  - `eth.dst` (object)
+  - `frame.cap_len` (int64)
+  - `frame.coloring_rule.name` (float64)
+  - `frame.coloring_rule.string` (float64)
+  - `frame.comment` (float64)
+  - `frame.comment.expert` (float64)
+  - `frame.encap_type` (int64)
+  - `frame.file_off` (float64)
+  - `frame.ignored` (int64)
+  - `frame.incomplete` (float64)
+  - `frame.interface_id` (float64)
+  - `frame.interface_name` (float64)
+  - `frame.len` (int64)
+  - `frame.link_nr` (float64)
+  - `frame.marked` (int64)
+  - `frame.md5_hash` (float64)
+  - `frame.number` (int64)
+  - `frame.offset_shift` (float64)
+  - `mqtt.clientid` (object)
+  - `mqtt.clientid_len` (float64)
+  - `mqtt.conack.flags` (object)
+  - `mqtt.conack.flags.reserved` (float64)
+  - `mqtt.conack.flags.sp` (float64)
+  - `mqtt.conack.val` (float64)
+  - `mqtt.conflag.cleansess` (float64)
+  - `mqtt.conflag.passwd` (float64)
+  - `mqtt.conflag.qos` (float64)
+  - `mqtt.conflag.reserved` (float64)
+  - `mqtt.conflag.retain` (float64)
+  - `mqtt.conflag.uname` (float64)
+  - `mqtt.conflag.willflag` (float64)
+  - `mqtt.conflags` (object)
+  - `mqtt.dupflag` (float64)
+  - `mqtt.hdrflags` (object)
+  - `mqtt.kalive` (float64)
+  - `mqtt.len` (float64)
+  - `mqtt.msg` (object)
+  - `mqtt.msgid` (float64)
+  - `mqtt.msgtype` (float64)
+  - `mqtt.passwd` (float64)
+  - `mqtt.passwd_len` (float64)
+  - `mqtt.proto_len` (float64)
+  - `mqtt.protoname` (object)
+  - `mqtt.qos` (float64)
+  - `mqtt.retain` (float64)
+  - `mqtt.sub.qos` (float64)
+  - `mqtt.suback.qos` (float64)
+  - `mqtt.topic` (object)
+  - `mqtt.topic_len` (float64)
+  - `mqtt.username` (float64)
+  - `mqtt.username_len` (float64)
+  - `mqtt.ver` (float64)
+  - `mqtt.willmsg` (float64)
+  - `mqtt.willmsg_len` (float64)
+  - `mqtt.willtopic` (float64)
+  - `mqtt.willtopic_len` (float64)
+  - `type` (object)
+- Missing values by column:
+  - `frame.time_delta`: 0
+  - `frame.time_delta_displayed`: 0
+  - `frame.time_epoch`: 0
+  - `frame.time_invalid`: 94,625
+  - `frame.time_relative`: 0
+  - `ip.src`: 1,033
+  - `ip.dst`: 1,033
+  - `tcp.srcport`: 6,165
+  - `tcp.dstport`: 6,165
+  - `eth.src`: 0
+  - `eth.dst`: 0
+  - `frame.cap_len`: 0
+  - `frame.coloring_rule.name`: 94,625
+  - `frame.coloring_rule.string`: 94,625
+  - `frame.comment`: 94,625
+  - `frame.comment.expert`: 94,625
+  - `frame.encap_type`: 0
+  - `frame.file_off`: 94,625
+  - `frame.ignored`: 0
+  - `frame.incomplete`: 94,625
+  - `frame.interface_id`: 94,625
+  - `frame.interface_name`: 94,625
+  - `frame.len`: 0
+  - `frame.link_nr`: 94,625
+  - `frame.marked`: 0
+  - `frame.md5_hash`: 94,625
+  - `frame.number`: 0
+  - `frame.offset_shift`: 0
+  - `mqtt.clientid`: 94,302
+  - `mqtt.clientid_len`: 94,302
+  - `mqtt.conack.flags`: 93,855
+  - `mqtt.conack.flags.reserved`: 93,855
+  - `mqtt.conack.flags.sp`: 93,855
+  - `mqtt.conack.val`: 93,855
+  - `mqtt.conflag.cleansess`: 94,302
+  - `mqtt.conflag.passwd`: 94,302
+  - `mqtt.conflag.qos`: 94,302
+  - `mqtt.conflag.reserved`: 94,302
+  - `mqtt.conflag.retain`: 94,302
+  - `mqtt.conflag.uname`: 94,302
+  - `mqtt.conflag.willflag`: 94,302
+  - `mqtt.conflags`: 94,302
+  - `mqtt.dupflag`: 56,161
+  - `mqtt.hdrflags`: 55,090
+  - `mqtt.kalive`: 94,302
+  - `mqtt.len`: 55,090
+  - `mqtt.msg`: 56,892
+  - `mqtt.msgid`: 93,834
+  - `mqtt.msgtype`: 55,090
+  - `mqtt.passwd`: 94,625
+  - `mqtt.passwd_len`: 94,625
+  - `mqtt.proto_len`: 94,302
+  - `mqtt.protoname`: 94,302
+  - `mqtt.qos`: 56,161
+  - `mqtt.retain`: 56,161
+  - `mqtt.sub.qos`: 94,621
+  - `mqtt.suback.qos`: 94,621
+  - `mqtt.topic`: 56,888
+  - `mqtt.topic_len`: 56,157
+  - `mqtt.username`: 94,625
+  - `mqtt.username_len`: 94,625
+  - `mqtt.ver`: 94,302
+  - `mqtt.willmsg`: 94,625
+  - `mqtt.willmsg_len`: 94,625
+  - `mqtt.willtopic`: 94,625
+  - `mqtt.willtopic_len`: 94,625
+  - `type`: 0
+- Duplicate rows within individual chunks: 32,297
+- Duplicate limitation: duplicates spanning different chunks were not checked.
+- Candidate label distributions:
+  - Column `frame.encap_type`:
+    - 1: 94,625
+  - Column `mqtt.msgtype`:
+    - <MISSING>: 55,090
+    - 3.0: 37,863
+    - 2.0: 378
+    - 6.0: 339
+    - 1.0: 323
+    - 14.0: 175
+    - 4.0: 162
+    - 13.0: 115
+    - 12.0: 115
+    - 7.0: 35
+    - 0.0: 22
+    - 8.0: 4
+    - 9.0: 4
+  - Column `type`:
+    - normal: 49,111
+    - DoS: 45,514
+- First five data rows:
+```text
+ frame.time_delta  frame.time_delta_displayed  frame.time_epoch  frame.time_invalid  frame.time_relative        ip.src        ip.dst  tcp.srcport  tcp.dstport           eth.src           eth.dst  frame.cap_len  frame.coloring_rule.name  frame.coloring_rule.string  frame.comment  frame.comment.expert  frame.encap_type  frame.file_off  frame.ignored  frame.incomplete  frame.interface_id  frame.interface_name  frame.len  frame.link_nr  frame.marked  frame.md5_hash  frame.number  frame.offset_shift mqtt.clientid  mqtt.clientid_len mqtt.conack.flags  mqtt.conack.flags.reserved  mqtt.conack.flags.sp  mqtt.conack.val  mqtt.conflag.cleansess  mqtt.conflag.passwd  mqtt.conflag.qos  mqtt.conflag.reserved  mqtt.conflag.retain  mqtt.conflag.uname  mqtt.conflag.willflag mqtt.conflags  mqtt.dupflag mqtt.hdrflags  mqtt.kalive  mqtt.len mqtt.msg  mqtt.msgid  mqtt.msgtype  mqtt.passwd  mqtt.passwd_len  mqtt.proto_len mqtt.protoname  mqtt.qos  mqtt.retain  mqtt.sub.qos  mqtt.suback.qos mqtt.topic  mqtt.topic_len  mqtt.username  mqtt.username_len  mqtt.ver  mqtt.willmsg  mqtt.willmsg_len  mqtt.willtopic  mqtt.willtopic_len   type
+         0.000000                    0.000000      1.522235e+09                 NaN             0.000000   192.168.1.1 192.168.1.196         22.0      51749.0 18:a6:f7:eb:77:26 30:5a:3a:62:72:80            122                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN        122            NaN             0             NaN             1                 0.0           NaN                NaN               NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN           NaN           NaN           NaN          NaN       NaN      NaN         NaN           NaN          NaN              NaN             NaN            NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.001922                    0.001922      1.522235e+09                 NaN             0.001922   192.168.1.1 192.168.1.196         22.0      51749.0 18:a6:f7:eb:77:26 30:5a:3a:62:72:80            190                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN        190            NaN             0             NaN             2                 0.0           NaN                NaN               NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN           NaN           NaN           NaN          NaN       NaN      NaN         NaN           NaN          NaN              NaN             NaN            NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.001010                    0.001010      1.522235e+09                 NaN             0.002932 192.168.1.196   192.168.1.1      51749.0         22.0 30:5a:3a:62:72:80 18:a6:f7:eb:77:26             54                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN         54            NaN             0             NaN             3                 0.0           NaN                NaN               NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN           NaN           NaN           NaN          NaN       NaN      NaN         NaN           NaN          NaN              NaN             NaN            NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.008597                    0.008597      1.522235e+09                 NaN             0.011529   192.168.1.1 192.168.1.196         22.0      51749.0 18:a6:f7:eb:77:26 30:5a:3a:62:72:80            186                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN        186            NaN             0             NaN             4                 0.0           NaN                NaN               NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN           NaN           NaN           NaN          NaN       NaN      NaN         NaN           NaN          NaN              NaN             NaN            NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.002925                    0.002925      1.522235e+09                 NaN             0.014454 192.168.1.196   192.168.1.1      51749.0         22.0 30:5a:3a:62:72:80 18:a6:f7:eb:77:26             54                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN         54            NaN             0             NaN             5                 0.0           NaN                NaN               NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN           NaN           NaN           NaN          NaN       NaN      NaN         NaN           NaN          NaN              NaN             NaN            NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+```
+
+## MitM.csv
+- File size: 28,099,946 bytes
+- SHA-256: bfee47413bcf82f3b1433d51db63629a1b61d1a40fc704f545f23c7350daa5d0
+- Total data rows: 110,668
+- Columns (67):
+  - `frame.time_delta` (float64)
+  - `frame.time_delta_displayed` (float64)
+  - `frame.time_epoch` (float64)
+  - `frame.time_invalid` (float64)
+  - `frame.time_relative` (float64)
+  - `ip.src` (object)
+  - `ip.dst` (object)
+  - `tcp.srcport` (float64)
+  - `tcp.dstport` (float64)
+  - `eth.src` (object)
+  - `eth.dst` (object)
+  - `frame.cap_len` (int64)
+  - `frame.coloring_rule.name` (float64)
+  - `frame.coloring_rule.string` (float64)
+  - `frame.comment` (float64)
+  - `frame.comment.expert` (float64)
+  - `frame.encap_type` (int64)
+  - `frame.file_off` (float64)
+  - `frame.ignored` (int64)
+  - `frame.incomplete` (float64)
+  - `frame.interface_id` (float64)
+  - `frame.interface_name` (float64)
+  - `frame.len` (int64)
+  - `frame.link_nr` (float64)
+  - `frame.marked` (int64)
+  - `frame.md5_hash` (float64)
+  - `frame.number` (int64)
+  - `frame.offset_shift` (float64)
+  - `mqtt.clientid` (float64)
+  - `mqtt.clientid_len` (float64)
+  - `mqtt.conack.flags` (float64)
+  - `mqtt.conack.flags.reserved` (float64)
+  - `mqtt.conack.flags.sp` (float64)
+  - `mqtt.conack.val` (float64)
+  - `mqtt.conflag.cleansess` (float64)
+  - `mqtt.conflag.passwd` (float64)
+  - `mqtt.conflag.qos` (float64)
+  - `mqtt.conflag.reserved` (float64)
+  - `mqtt.conflag.retain` (float64)
+  - `mqtt.conflag.uname` (float64)
+  - `mqtt.conflag.willflag` (float64)
+  - `mqtt.conflags` (float64)
+  - `mqtt.dupflag` (float64)
+  - `mqtt.hdrflags` (object)
+  - `mqtt.kalive` (float64)
+  - `mqtt.len` (float64)
+  - `mqtt.msg` (float64)
+  - `mqtt.msgid` (float64)
+  - `mqtt.msgtype` (float64)
+  - `mqtt.passwd` (float64)
+  - `mqtt.passwd_len` (float64)
+  - `mqtt.proto_len` (float64)
+  - `mqtt.protoname` (float64)
+  - `mqtt.qos` (float64)
+  - `mqtt.retain` (float64)
+  - `mqtt.sub.qos` (float64)
+  - `mqtt.suback.qos` (float64)
+  - `mqtt.topic` (object)
+  - `mqtt.topic_len` (float64)
+  - `mqtt.username` (float64)
+  - `mqtt.username_len` (float64)
+  - `mqtt.ver` (float64)
+  - `mqtt.willmsg` (float64)
+  - `mqtt.willmsg_len` (float64)
+  - `mqtt.willtopic` (float64)
+  - `mqtt.willtopic_len` (float64)
+  - `type` (object)
+- Missing values by column:
+  - `frame.time_delta`: 0
+  - `frame.time_delta_displayed`: 0
+  - `frame.time_epoch`: 0
+  - `frame.time_invalid`: 110,668
+  - `frame.time_relative`: 0
+  - `ip.src`: 8,233
+  - `ip.dst`: 8,233
+  - `tcp.srcport`: 11,154
+  - `tcp.dstport`: 11,154
+  - `eth.src`: 0
+  - `eth.dst`: 0
+  - `frame.cap_len`: 0
+  - `frame.coloring_rule.name`: 110,668
+  - `frame.coloring_rule.string`: 110,668
+  - `frame.comment`: 110,668
+  - `frame.comment.expert`: 110,668
+  - `frame.encap_type`: 0
+  - `frame.file_off`: 110,668
+  - `frame.ignored`: 0
+  - `frame.incomplete`: 110,668
+  - `frame.interface_id`: 110,668
+  - `frame.interface_name`: 110,668
+  - `frame.len`: 0
+  - `frame.link_nr`: 110,668
+  - `frame.marked`: 0
+  - `frame.md5_hash`: 110,668
+  - `frame.number`: 0
+  - `frame.offset_shift`: 0
+  - `mqtt.clientid`: 110,664
+  - `mqtt.clientid_len`: 110,664
+  - `mqtt.conack.flags`: 110,661
+  - `mqtt.conack.flags.reserved`: 110,661
+  - `mqtt.conack.flags.sp`: 110,661
+  - `mqtt.conack.val`: 110,661
+  - `mqtt.conflag.cleansess`: 110,664
+  - `mqtt.conflag.passwd`: 110,664
+  - `mqtt.conflag.qos`: 110,664
+  - `mqtt.conflag.reserved`: 110,664
+  - `mqtt.conflag.retain`: 110,664
+  - `mqtt.conflag.uname`: 110,664
+  - `mqtt.conflag.willflag`: 110,664
+  - `mqtt.conflags`: 110,664
+  - `mqtt.dupflag`: 108,633
+  - `mqtt.hdrflags`: 107,049
+  - `mqtt.kalive`: 110,664
+  - `mqtt.len`: 107,049
+  - `mqtt.msg`: 108,633
+  - `mqtt.msgid`: 110,668
+  - `mqtt.msgtype`: 107,049
+  - `mqtt.passwd`: 110,668
+  - `mqtt.passwd_len`: 110,668
+  - `mqtt.proto_len`: 110,664
+  - `mqtt.protoname`: 110,664
+  - `mqtt.qos`: 108,633
+  - `mqtt.retain`: 108,633
+  - `mqtt.sub.qos`: 110,668
+  - `mqtt.suback.qos`: 110,668
+  - `mqtt.topic`: 108,633
+  - `mqtt.topic_len`: 108,633
+  - `mqtt.username`: 110,668
+  - `mqtt.username_len`: 110,668
+  - `mqtt.ver`: 110,664
+  - `mqtt.willmsg`: 110,668
+  - `mqtt.willmsg_len`: 110,668
+  - `mqtt.willtopic`: 110,668
+  - `mqtt.willtopic_len`: 110,668
+  - `type`: 0
+- Duplicate rows within individual chunks: 37
+- Duplicate limitation: duplicates spanning different chunks were not checked.
+- Candidate label distributions:
+  - Column `frame.encap_type`:
+    - 1: 110,668
+  - Column `mqtt.msgtype`:
+    - <MISSING>: 107,049
+    - 3.0: 2,035
+    - 13.0: 807
+    - 12.0: 766
+    - 2.0: 7
+    - 1.0: 4
+  - Column `type`:
+    - normal: 106,813
+    - mitm: 3,855
+- First five data rows:
+```text
+ frame.time_delta  frame.time_delta_displayed  frame.time_epoch  frame.time_invalid  frame.time_relative        ip.src        ip.dst  tcp.srcport  tcp.dstport           eth.src           eth.dst  frame.cap_len  frame.coloring_rule.name  frame.coloring_rule.string  frame.comment  frame.comment.expert  frame.encap_type  frame.file_off  frame.ignored  frame.incomplete  frame.interface_id  frame.interface_name  frame.len  frame.link_nr  frame.marked  frame.md5_hash  frame.number  frame.offset_shift  mqtt.clientid  mqtt.clientid_len  mqtt.conack.flags  mqtt.conack.flags.reserved  mqtt.conack.flags.sp  mqtt.conack.val  mqtt.conflag.cleansess  mqtt.conflag.passwd  mqtt.conflag.qos  mqtt.conflag.reserved  mqtt.conflag.retain  mqtt.conflag.uname  mqtt.conflag.willflag  mqtt.conflags  mqtt.dupflag mqtt.hdrflags  mqtt.kalive  mqtt.len  mqtt.msg  mqtt.msgid  mqtt.msgtype  mqtt.passwd  mqtt.passwd_len  mqtt.proto_len  mqtt.protoname  mqtt.qos  mqtt.retain  mqtt.sub.qos  mqtt.suback.qos mqtt.topic  mqtt.topic_len  mqtt.username  mqtt.username_len  mqtt.ver  mqtt.willmsg  mqtt.willmsg_len  mqtt.willtopic  mqtt.willtopic_len   type
+         0.000000                    0.000000      1.529668e+09                 NaN             0.000000   192.168.1.1 192.168.1.102         22.0      53940.0 18:a6:f7:eb:77:26 30:5a:3a:62:72:80            134                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN        134            NaN             0             NaN             1                 0.0            NaN                NaN                NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN            NaN           NaN           NaN          NaN       NaN       NaN         NaN           NaN          NaN              NaN             NaN             NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.000481                    0.000481      1.529668e+09                 NaN             0.000481   192.168.1.1 192.168.1.102         22.0      53940.0 18:a6:f7:eb:77:26 30:5a:3a:62:72:80            150                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN        150            NaN             0             NaN             2                 0.0            NaN                NaN                NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN            NaN           NaN           NaN          NaN       NaN       NaN         NaN           NaN          NaN              NaN             NaN             NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.000423                    0.000423      1.529668e+09                 NaN             0.000904   192.168.1.1 192.168.1.102         22.0      53940.0 18:a6:f7:eb:77:26 30:5a:3a:62:72:80            118                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN        118            NaN             0             NaN             3                 0.0            NaN                NaN                NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN            NaN           NaN           NaN          NaN       NaN       NaN         NaN           NaN          NaN              NaN             NaN             NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.000274                    0.000274      1.529668e+09                 NaN             0.001178 192.168.1.102   192.168.1.1      53940.0         22.0 30:5a:3a:62:72:80 18:a6:f7:eb:77:26             66                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN         66            NaN             0             NaN             4                 0.0            NaN                NaN                NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN            NaN           NaN           NaN          NaN       NaN       NaN         NaN           NaN          NaN              NaN             NaN             NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.000861                    0.000861      1.529668e+09                 NaN             0.002039 192.168.1.102   192.168.1.1      53940.0         22.0 30:5a:3a:62:72:80 18:a6:f7:eb:77:26             66                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN         66            NaN             0             NaN             5                 0.0            NaN                NaN                NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN            NaN           NaN           NaN          NaN       NaN       NaN         NaN           NaN          NaN              NaN             NaN             NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+```
+
+## Intrusion.csv
+- File size: 20,625,178 bytes
+- SHA-256: 730f65a2bd388b973f7088a28b8a37a3a0a56062ad059d90e95da9fffed93518
+- Total data rows: 80,893
+- Columns (67):
+  - `frame.time_delta` (float64)
+  - `frame.time_delta_displayed` (float64)
+  - `frame.time_epoch` (float64)
+  - `frame.time_invalid` (float64)
+  - `frame.time_relative` (float64)
+  - `ip.src` (object)
+  - `ip.dst` (object)
+  - `tcp.srcport` (float64)
+  - `tcp.dstport` (float64)
+  - `eth.src` (object)
+  - `eth.dst` (object)
+  - `frame.cap_len` (int64)
+  - `frame.coloring_rule.name` (float64)
+  - `frame.coloring_rule.string` (float64)
+  - `frame.comment` (float64)
+  - `frame.comment.expert` (float64)
+  - `frame.encap_type` (int64)
+  - `frame.file_off` (float64)
+  - `frame.ignored` (int64)
+  - `frame.incomplete` (float64)
+  - `frame.interface_id` (float64)
+  - `frame.interface_name` (float64)
+  - `frame.len` (int64)
+  - `frame.link_nr` (float64)
+  - `frame.marked` (int64)
+  - `frame.md5_hash` (float64)
+  - `frame.number` (int64)
+  - `frame.offset_shift` (float64)
+  - `mqtt.clientid` (object)
+  - `mqtt.clientid_len` (float64)
+  - `mqtt.conack.flags` (object)
+  - `mqtt.conack.flags.reserved` (float64)
+  - `mqtt.conack.flags.sp` (float64)
+  - `mqtt.conack.val` (float64)
+  - `mqtt.conflag.cleansess` (float64)
+  - `mqtt.conflag.passwd` (float64)
+  - `mqtt.conflag.qos` (float64)
+  - `mqtt.conflag.reserved` (float64)
+  - `mqtt.conflag.retain` (float64)
+  - `mqtt.conflag.uname` (float64)
+  - `mqtt.conflag.willflag` (float64)
+  - `mqtt.conflags` (object)
+  - `mqtt.dupflag` (float64)
+  - `mqtt.hdrflags` (object)
+  - `mqtt.kalive` (float64)
+  - `mqtt.len` (float64)
+  - `mqtt.msg` (float64)
+  - `mqtt.msgid` (float64)
+  - `mqtt.msgtype` (float64)
+  - `mqtt.passwd` (float64)
+  - `mqtt.passwd_len` (float64)
+  - `mqtt.proto_len` (float64)
+  - `mqtt.protoname` (object)
+  - `mqtt.qos` (float64)
+  - `mqtt.retain` (float64)
+  - `mqtt.sub.qos` (float64)
+  - `mqtt.suback.qos` (float64)
+  - `mqtt.topic` (object)
+  - `mqtt.topic_len` (float64)
+  - `mqtt.username` (float64)
+  - `mqtt.username_len` (float64)
+  - `mqtt.ver` (float64)
+  - `mqtt.willmsg` (float64)
+  - `mqtt.willmsg_len` (float64)
+  - `mqtt.willtopic` (float64)
+  - `mqtt.willtopic_len` (float64)
+  - `type` (object)
+- Missing values by column:
+  - `frame.time_delta`: 0
+  - `frame.time_delta_displayed`: 0
+  - `frame.time_epoch`: 0
+  - `frame.time_invalid`: 80,893
+  - `frame.time_relative`: 0
+  - `ip.src`: 3,787
+  - `ip.dst`: 3,787
+  - `tcp.srcport`: 9,136
+  - `tcp.dstport`: 9,136
+  - `eth.src`: 0
+  - `eth.dst`: 0
+  - `frame.cap_len`: 0
+  - `frame.coloring_rule.name`: 80,893
+  - `frame.coloring_rule.string`: 80,893
+  - `frame.comment`: 80,893
+  - `frame.comment.expert`: 80,893
+  - `frame.encap_type`: 0
+  - `frame.file_off`: 80,893
+  - `frame.ignored`: 0
+  - `frame.incomplete`: 80,893
+  - `frame.interface_id`: 80,893
+  - `frame.interface_name`: 80,893
+  - `frame.len`: 0
+  - `frame.link_nr`: 80,893
+  - `frame.marked`: 0
+  - `frame.md5_hash`: 80,893
+  - `frame.number`: 0
+  - `frame.offset_shift`: 0
+  - `mqtt.clientid`: 80,612
+  - `mqtt.clientid_len`: 80,612
+  - `mqtt.conack.flags`: 80,818
+  - `mqtt.conack.flags.reserved`: 80,611
+  - `mqtt.conack.flags.sp`: 80,818
+  - `mqtt.conack.val`: 80,611
+  - `mqtt.conflag.cleansess`: 80,612
+  - `mqtt.conflag.passwd`: 80,612
+  - `mqtt.conflag.qos`: 80,612
+  - `mqtt.conflag.reserved`: 80,612
+  - `mqtt.conflag.retain`: 80,612
+  - `mqtt.conflag.uname`: 80,612
+  - `mqtt.conflag.willflag`: 80,612
+  - `mqtt.conflags`: 80,612
+  - `mqtt.dupflag`: 78,866
+  - `mqtt.hdrflags`: 76,075
+  - `mqtt.kalive`: 80,612
+  - `mqtt.len`: 76,075
+  - `mqtt.msg`: 78,872
+  - `mqtt.msgid`: 80,842
+  - `mqtt.msgtype`: 76,075
+  - `mqtt.passwd`: 80,893
+  - `mqtt.passwd_len`: 80,893
+  - `mqtt.proto_len`: 80,612
+  - `mqtt.protoname`: 80,612
+  - `mqtt.qos`: 78,866
+  - `mqtt.retain`: 78,872
+  - `mqtt.sub.qos`: 80,867
+  - `mqtt.suback.qos`: 80,868
+  - `mqtt.topic`: 78,846
+  - `mqtt.topic_len`: 78,846
+  - `mqtt.username`: 80,893
+  - `mqtt.username_len`: 80,893
+  - `mqtt.ver`: 80,612
+  - `mqtt.willmsg`: 80,893
+  - `mqtt.willmsg_len`: 80,893
+  - `mqtt.willtopic`: 80,893
+  - `mqtt.willtopic_len`: 80,893
+  - `type`: 0
+- Duplicate rows within individual chunks: 30
+- Duplicate limitation: duplicates spanning different chunks were not checked.
+- Candidate label distributions:
+  - Column `frame.encap_type`:
+    - 1: 80,893
+  - Column `mqtt.msgtype`:
+    - <MISSING>: 76,075
+    - 3.0: 2,021
+    - 13.0: 1,006
+    - 12.0: 976
+    - 2.0: 282
+    - 1.0: 281
+    - 14.0: 201
+    - 8.0: 26
+    - 9.0: 25
+  - Column `type`:
+    - normal: 78,995
+    - intrusion: 1,898
+- First five data rows:
+```text
+ frame.time_delta  frame.time_delta_displayed  frame.time_epoch  frame.time_invalid  frame.time_relative        ip.src        ip.dst  tcp.srcport  tcp.dstport           eth.src           eth.dst  frame.cap_len  frame.coloring_rule.name  frame.coloring_rule.string  frame.comment  frame.comment.expert  frame.encap_type  frame.file_off  frame.ignored  frame.incomplete  frame.interface_id  frame.interface_name  frame.len  frame.link_nr  frame.marked  frame.md5_hash  frame.number  frame.offset_shift mqtt.clientid  mqtt.clientid_len mqtt.conack.flags  mqtt.conack.flags.reserved  mqtt.conack.flags.sp  mqtt.conack.val  mqtt.conflag.cleansess  mqtt.conflag.passwd  mqtt.conflag.qos  mqtt.conflag.reserved  mqtt.conflag.retain  mqtt.conflag.uname  mqtt.conflag.willflag mqtt.conflags  mqtt.dupflag mqtt.hdrflags  mqtt.kalive  mqtt.len  mqtt.msg  mqtt.msgid  mqtt.msgtype  mqtt.passwd  mqtt.passwd_len  mqtt.proto_len mqtt.protoname  mqtt.qos  mqtt.retain  mqtt.sub.qos  mqtt.suback.qos mqtt.topic  mqtt.topic_len  mqtt.username  mqtt.username_len  mqtt.ver  mqtt.willmsg  mqtt.willmsg_len  mqtt.willtopic  mqtt.willtopic_len   type
+         0.000000                    0.000000      1.535972e+09                 NaN             0.000000 192.168.1.227  31.13.83.170      57188.0        443.0 48:5a:3f:93:39:9c 18:a6:f7:eb:77:26             74                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN         74            NaN             0             NaN             1                 0.0           NaN                NaN               NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN           NaN           NaN           NaN          NaN       NaN       NaN         NaN           NaN          NaN              NaN             NaN            NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.005887                    0.005887      1.535972e+09                 NaN             0.005887  31.13.83.170 192.168.1.227        443.0      57188.0 18:a6:f7:eb:77:26 48:5a:3f:93:39:9c             74                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN         74            NaN             0             NaN             2                 0.0           NaN                NaN               NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN           NaN           NaN           NaN          NaN       NaN       NaN         NaN           NaN          NaN              NaN             NaN            NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.001288                    0.001288      1.535972e+09                 NaN             0.007175 192.168.1.227  31.13.83.170      57188.0        443.0 48:5a:3f:93:39:9c 18:a6:f7:eb:77:26             66                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN         66            NaN             0             NaN             3                 0.0           NaN                NaN               NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN           NaN           NaN           NaN          NaN       NaN       NaN         NaN           NaN          NaN              NaN             NaN            NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.010402                    0.010402      1.535972e+09                 NaN             0.017577 192.168.1.227  31.13.83.170      57188.0        443.0 48:5a:3f:93:39:9c 18:a6:f7:eb:77:26            441                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN        441            NaN             0             NaN             4                 0.0           NaN                NaN               NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN           NaN           NaN           NaN          NaN       NaN       NaN         NaN           NaN          NaN              NaN             NaN            NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+         0.004078                    0.004078      1.535972e+09                 NaN             0.021655 192.168.1.227  31.13.83.170      57188.0        443.0 48:5a:3f:93:39:9c 18:a6:f7:eb:77:26            715                       NaN                         NaN            NaN                   NaN                 1             NaN              0               NaN                 NaN                   NaN        715            NaN             0             NaN             5                 0.0           NaN                NaN               NaN                         NaN                   NaN              NaN                     NaN                  NaN               NaN                    NaN                  NaN                 NaN                    NaN           NaN           NaN           NaN          NaN       NaN       NaN         NaN           NaN          NaN              NaN             NaN            NaN       NaN          NaN           NaN              NaN        NaN             NaN            NaN                NaN       NaN           NaN               NaN             NaN                 NaN normal
+```

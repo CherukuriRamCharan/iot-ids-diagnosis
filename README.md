@@ -1,379 +1,316 @@
-<div align="center">
+# Attack Diagnosis and Localization in IoT Intrusion Detection Using Formal Modeling and Deep Learning
 
-# 🛡️ Attack Diagnosis and Localization in IoT Intrusion Detection
-### Using Formal Modeling and Deep Learning
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Tests](https://img.shields.io/badge/Tests-144%2F144%20Passing-brightgreen.svg)]()
+[![Mutants Killed](https://img.shields.io/badge/Formal%20Mutants-59%2F59%20Killed%20(100%25)-brightgreen.svg)]()
+[![Architecture](https://img.shields.io/badge/Architecture-BiLSTM%20%2B%20Timed%20FSM-orange.svg)]()
 
-*Detect it. Classify it. Explain it. Locate it.*
-
-![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-Random%20Forest-F7931E?logo=scikitlearn&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-LSTM%20%7C%20Transformer-EE4C2C?logo=pytorch&logoColor=white)
-![MQTT](https://img.shields.io/badge/Protocol-MQTT-660066)
-![Tests](https://img.shields.io/badge/tests-42%20passed-brightgreen)
-![Status](https://img.shields.io/badge/status-research%20prototype-yellow)
-
-**B.Tech Final Year Project · Dept. of CSE · Prasad V. Potluri Siddhartha Institute of Technology, Vijayawada**
-
-</div>
+> **Final-Year Project:** *Attack Diagnosis and Localization in IoT Intrusion Detection Using Formal Modeling and Deep Learning*  
+> **Repository:** `iot-ids-diagnosis`  
+> **Branch:** `simulation-setup`  
+> **Core Result:** Complete two-tier intrusion detection and root-cause fault localization framework integrating deep sequence modeling with deterministic Timed Finite State Machines across four software-simulated IoT sensors.
 
 ---
 
-## 📖 Table of Contents
+## 1. Project Objective & Problem Statement
 
-- [Overview](#-overview)
-- [Highlights](#-highlights)
-- [System Architecture](#-system-architecture)
-- [Two Experimental Paths](#-two-experimental-paths)
-- [Results](#-results)
-- [Diagnosis and Localization](#-diagnosis-and-localization)
-- [Repository Structure](#-repository-structure)
-- [Getting Started](#-getting-started)
-- [Usage](#-usage)
-- [Testing](#-testing)
-- [Limitations](#-limitations-read-before-citing-results)
-- [Future Work](#-future-work)
-- [Team](#-team)
-- [References](#-references)
+Conventional deep learning intrusion detection systems (IDS) in IoT classify network traffic statistically but function as opaque black boxes: they fail to explain the operational root cause, cannot pinpoint the specific sensor or protocol transition affected, and are vulnerable to empirical classification errors on minority attack classes.
 
----
+This project designs and implements an integrated, explainable **two-tier IoT Intrusion Detection and Fault Localization framework**:
+1. **Tier 1 (Statistical Sequence Modeling):** Employs Bidirectional Long Short-Term Memory (`BiLSTM`) networks over sliding packet windows ($L=16$) to detect temporal and multi-packet attack signatures.
+2. **Tier 2 (Deterministic Conformance Verification):** Enforces mathematically rigorous Timed Mealy Finite State Machines (`TFSM`) per sensor to detect protocol deviations, clock timing violations, sequence tampering, and physical domain bounds violations.
+3. **Hybrid Adjudication & Fault Localization:** Resolves statistical probabilities and deterministic formal proofs into transparent verdicts (`CONSENSUS`, `FORMAL_VIOLATION_DL_NORMAL`, `STATISTICAL_ANOMALY`, `NOMINAL`) while mapping protocol violations to candidate mutant fault hypotheses.
 
-## 🔎 Overview
+This work directly extends the foundational formal-modeling-assisted IDS research of:
+> Y. Kaddoura, K. El-Fakih, I. Zualkernan, A. Bhanpurawala,  
+> *Deep learning-based intrusion detection for IoT – an approach assisted by formal modeling and mutation testing*,  
+> **Internet of Things**, Vol. 38 (2026), 101958. https://doi.org/10.1016/j.iot.2026.101958  
+> *(See also Bhanpurawala et al., arXiv:2210.05623, for attacks-as-mutants modeling)*.
 
-Most IoT Intrusion Detection Systems answer one question: *"Is this traffic malicious?"*
-Security teams also need to know **what mechanism is involved** and **where it is happening**.
-
-This project builds a software-based research prototype that extends a formal-modeling-assisted, deep-learning IDS with a transparent **diagnosis and localization layer**. It combines:
-
-- **Formal behaviour models** (EFSMs for temperature and motion sensors)
-- **MQTT traffic simulation** with four controlled attack-like scenarios
-- **Packet feature extraction** from PCAP captures (including inter-arrival time)
-- **Classifiers:** binary and five-class Random Forest, plus LSTM and Transformer sequence models
-- **A rule-assisted diagnosis engine** that outputs structured evidence and context-based localization
-
-> The project follows the broad direction of *Kaddoura et al. (2026)*, who use formal modeling and mutation testing to generate IoT attack data. Results published in that paper are **not** reused here. All numbers below were measured in this implementation.
+### Key Contributions Beyond the Base Paper
+- **Multi-Sensor Ecosystem:** Extends the single motion sensor model to four heterogeneous IoT sensors (`motion`, `temperature`, `ultrasonic`, `rfid`).
+- **59 Mutants Verified:** Implements and mathematically proves 59 distinct fault mutants (100% killed).
+- **Zero-Leakage 14-Feature Sequence Pipeline:** Formulates a rigorous observable feature extractor strictly quarantining ground-truth labels and simulator metadata.
+- **Root-Cause Fault Localization:** Maps formal anomalies directly to candidate transition and state mutants (`candidate_faults`).
+- **Resilient Hybrid Adjudication:** Guarantees that deep learning failures never suppress formal safety proofs (`MODEL_UNAVAILABLE` fallback preserves 100% formal detection).
 
 ---
 
-## ✨ Highlights
+## 2. System Architecture
 
-| | |
-|---|---|
-| 📦 **Dataset** | 42 PCAP captures → **2,985,994** packet rows (IAT-enriched) |
-| 🏆 **Best model** | Five-class Random Forest: **93.41% accuracy, 0.8959 macro-F1** |
-| 🧪 **Tests** | **42 passed** in 8.93 s |
-| 🩺 **Diagnosis records** | 47 unified records (42 external captures + 5 local MQTT captures) |
-| 🧩 **Formal models** | Temperature and motion EFSMs with guards, counters and anomaly states |
-| 🔍 **Honest reporting** | Limitations and non-comparable metrics are explicitly documented |
-
----
-
-## 🏗️ System Architecture
-
-```mermaid
-flowchart LR
-    A[IoT Sensor Simulator<br/>EFSM-driven] --> B[Mosquitto MQTT Broker]
-    B --> C[Wireshark / TShark<br/>PCAP Capture]
-    C --> D[PCAP Parser]
-    D --> E[Packet & Flow Features<br/>+ Context Metadata]
-    E --> F[Cleaning & Label Prep]
-    F --> G{Classifier}
-    G --> G1[Binary RF]
-    G --> G2[5-class RF]
-    G --> G3[LSTM]
-    G --> G4[Transformer]
-    G1 & G2 & G3 & G4 --> H[Diagnosis Engine<br/>rules + evidence]
-    H --> I[Localization<br/>topic / endpoint / capture]
-    I --> J[Structured Alert<br/>CSV / JSON]
+```
+                             Four Software-Simulated Sensors
+                         (Motion, Temperature, Ultrasonic, RFID)
+                                           |
+                                           v
+                           Unified Discrete-Event Simulator
+                          (Monotonic Clock, Session Jitter)
+                                           |
+                                           v
+                           Sensor-Aware Attack Injector
+                 (DoS, Replay, MITM, DataFalsification, Delay, Spoof)
+                                           |
+                                           v
+                              Observable MQTT Packet Stream
+                                           |
+                 +-------------------------+-------------------------+
+                 |                                                   |
+                 v                                                   v
+       [ Feature Extractor ]                               [ Sensor Monitors ]
+       14 Observable Features                              Per-Sensor State & Clock
+       Zero-Leakage Guarantee                              Conformance Checking
+                 |                                                   |
+                 v                                                   v
+       [ Sequence Builder ]                                [ Formal TFSM Engine ]
+       Sliding Windows (L=16)                              Timing & Bounds Invariants
+       Session-Isolated Splits                             Candidate Mutant Mapping
+                 |                                                   |
+                 v                                                   v
+       [ Tier 1: BiLSTM ]                                  [ Tier 2: Formal Proof ]
+       Statistical Attack Category                         PASS / FAIL Conformance
+       Softmax Confidence Score                            Physical Deviation Types
+                 |                                                   |
+                 +-------------------------+-------------------------+
+                                           |
+                                           v
+                           [ Hybrid Adjudication Arbiter ]
+                           - Reconciles empirical & formal proofs
+                           - Preserves independent evidence fields
+                                           |
+                                           v
+                             Unified Hybrid Diagnosis Report
 ```
 
 ---
 
-## 🔀 Two Experimental Paths
+## 3. Four Simulated Sensor Models
 
-The project has two related but **separate** paths. They answer complementary questions and should not be treated as one dataset.
+Each sensor is formalized as a deterministic Timed Finite State Machine $\mathcal{M} = (S, s_0, I, O, C, T)$ with explicit clock bounds, state invariants, and output alphabets:
 
-### Path 1: External dataset (ML evaluation)
+| Sensor | Physical Domain | States & Behavior | Keepalive Timeout | Mutants Defined | Mutants Killed |
+| :--- | :--- | :--- | :---: | :---: | :---: |
+| **Motion Sensor** (`PIR`) | Binary occupancy (`0.0` / `1.0`) | Idle $\leftrightarrow$ Motion Detected $\rightarrow$ Alert | $1.5\text{ s}$ | 14 | **14 / 14 (100%)** |
+| **Temperature Sensor** | Ambient telemetry ($15.0^\circ\text{C} - 35.0^\circ\text{C}$) | Periodic Sense $\rightarrow$ Delta Publish | $2.0\text{ s}$ | 15 | **15 / 15 (100%)** |
+| **Ultrasonic Sensor** | Obstacle distance ($2.0\text{ cm} - 400.0\text{ cm}$) | Ranging $\rightarrow$ Proximity Alert | $2.0\text{ s}$ | 15 | **15 / 15 (100%)** |
+| **RFID Access Reader** | Contactless card UID credentials | Card Tap $\rightarrow$ Authenticate $\rightarrow$ Grant/Deny | $3.0\text{ s}$ | 15 | **15 / 15 (100%)** |
+| **TOTAL** | | | | **59** | **59 / 59 (100%)** |
 
-42 public PCAP captures with filename-derived classes.
-
-| Class | Packets |
-|---|---:|
-| benign | 137,396 |
-| dos | 141,709 |
-| mirai | 2,202,225 |
-| mitm | 194,184 |
-| scan | 310,480 |
-| **Total** | **2,985,994** |
-
-**Features:** packet length, inter-arrival time (IAT), rolling 10-second packet rate, TCP SYN / ACK / RST flags, UDP length.
-
-### Path 2: Local MQTT simulation (diagnosis demo)
-
-Normal traffic plus four controlled scenarios generated through Mosquitto:
-
-| Scenario | What the script does | Caveat |
-|---|---|---|
-| **Replay-like** | Repeats the same payload multiple times | Legitimate sensors can repeat values |
-| **Data falsification** | Publishes extreme values (85, −20, 95, 0, 90) | Uses illustrative bounds of −10 °C to 60 °C |
-| **MITM-like** | Publishes original and altered (+15 °C) values on original/forwarded topics | Topic-level simulation, not a real network-path MITM |
-| **Battery-draining-like** | Publishes 100 QoS-1 messages at 0.05 s intervals | Measures publish rate, not physical battery drain |
+All 59 mutants are verified via formal mutation test suites in [`models_fsm/verify.py`](models_fsm/verify.py).
 
 ---
 
-## 📊 Results
+## 4. Unified Simulator & Six Attack Scenarios
 
-### Model comparison
+The unified simulator ([`simulation/unified_simulator.py`](simulation/unified_simulator.py)) maintains a discrete-event monotonic clock running multi-session network traces with variable inter-arrival jitter, QoS levels, and message payload structures.
 
-| Model | Task level | Accuracy | Macro-F1 | Weighted F1 |
-|---|---|---:|---:|---:|
-| Binary Random Forest | Packet · benign vs attack | 96.08% | n/a | n/a |
-| **Five-class Random Forest** | Packet · 5 classes | **93.41%** | **0.8959** | **0.9345** |
-| LSTM | Sequence (20 packets) | 65.62% | 0.4131 | 0.6854 |
-| Transformer | Sequence (20 packets) | 64.43% | 0.3697 | 0.6384 |
+The attack injector ([`simulation/attack_injector.py`](simulation/attack_injector.py)) introduces six sensor-aware attack scenarios:
 
-> ⚠️ **These rows are not directly comparable.** The binary model solves a different task, and the sequence models use a different split whose test set contains **no benign or MITM sequences**.
-
-### Per-class metrics
-
-<details>
-<summary><b>Click to expand the full per-class table</b></summary>
-
-| Model | Class | Precision | Recall | F1 | Support |
-|---|---|---:|---:|---:|---:|
-| RF binary | benign | 0.409 | 0.980 | 0.577 | 3,600 |
-| RF binary | attack | 0.999 | 0.960 | 0.979 | 128,332 |
-| RF 5-class | benign | 0.592 | 0.951 | 0.730 | 3,000 |
-| RF 5-class | dos | 0.932 | 0.972 | 0.951 | 10,000 |
-| RF 5-class | mirai | 0.988 | 0.990 | 0.989 | 40,000 |
-| RF 5-class | mitm | 0.896 | 0.970 | 0.932 | 30,000 |
-| RF 5-class | scan | 0.965 | 0.805 | 0.878 | 28,966 |
-| LSTM | dos | 0.900 | 0.780 | 0.836 | 11,962 |
-| LSTM | mirai | 0.655 | 0.494 | 0.564 | 11,962 |
-| LSTM | scan | 0.652 | 0.681 | 0.666 | 17,943 |
-| Transformer | dos | 0.654 | 0.243 | 0.354 | 11,962 |
-| Transformer | mirai | 0.569 | 0.916 | 0.723 | 11,962 |
-| Transformer | scan | 0.891 | 0.680 | 0.772 | 17,943 |
-
-*Benign and MITM have zero support in the LSTM/Transformer test sets.*
-
-</details>
-
-### Capture-level evaluation
-
-A capture is labelled **attack** if at least **50%** of its packets are predicted as attack.
-
-| Metric | Value |
-|---|---|
-| Captures evaluated | 42 (1 benign, 41 attack) |
-| Capture-level accuracy | 100% (confusion matrix `[[1, 0], [0, 41]]`) |
-| Benign capture false-positive rate | 1.8% of packets (`benign-dec.pcap`) |
-| Weakest attack capture | `mitm-arpspoofing-4`, 69.02% of packets flagged |
-| Next weakest | `scan-portos-6`, 91.37% flagged |
-| All other attack captures | above 98% of packets flagged |
-
-> ⚠️ This evaluation covers **all 42 captures, including captures used for training**, so it shows pipeline behaviour, not generalization to unseen networks.
-
-### Model and data details
-
-| Item | Value |
-|---|---|
-| 5-class RF sample | 401,401 rows → 289,435 train / 111,966 test |
-| RF capture split | 30 attack captures train / 11 attack captures test |
-| LSTM sequences | 247,008 total → 169,255 train / 35,886 val / 41,867 test |
-| LSTM input | 20-packet sequences × 7 features |
-| Transformer parameters | 67,781 |
-| Saved RF model size | 75.18 MB (`models/rf_5class.joblib`) |
-| Training hardware | CPU only |
-
-### Key takeaways
-
-- 🥇 The **Random Forest is the strongest current model**, and it beats both sequence models on the reported metrics.
-- 📉 **Scan** is the hardest RF class (recall 0.805).
-- 🎯 **Benign** has high recall but low precision, because the dataset has only **one benign capture**.
-- 🔧 The sequence models need a class-complete, capture-grouped evaluation before any conclusion about deep learning can be drawn.
+1. **Denial-of-Service (`DoS`):** High-frequency packet flood surges intended to exhaust sensor queues and broker buffers.
+2. **Replay Attack (`Replay`):** Captures historical sensor telemetry and re-injects stale sequence numbers with transmission delays.
+3. **Man-in-the-Middle (`MITM`):** Intercepts and tampers with payload data in transit, creating semantic contradictions between telemetry and reported status.
+4. **Data Falsification (`DataFalsification`):** Corrupts raw readings to violate physical sensor domain bounds (e.g., negative ultrasonic distance or impossible temperatures).
+5. **Message Delay (`Delay`):** Artificially stalls legitimate telemetry beyond protocol keepalive timeout thresholds.
+6. **Identity Spoofing (`IdentitySpoofing`):** Transmits forged RFID card UID credentials attempting unauthorized access state transitions.
 
 ---
 
-## 🩺 Diagnosis and Localization
+## 5. Dataset Generation & 14 Observable Features
 
-| Stage | Question answered |
-|---|---|
-| **Detection** | Is the traffic suspicious? |
-| **Classification** | What category is it? |
-| **Diagnosis** | What evidence explains the mechanism? |
-| **Localization** | Which device, topic or flow is involved? |
+The 24-session unified dataset ([`datasets/generated/four_sensors/four_sensors_dataset.csv`](datasets/generated/four_sensors/four_sensors_dataset.csv)) contains **3,090 chronological packet rows** partitioned strictly by session to prevent cross-session leakage:
 
-### Diagnosis signals
+- **Train Split (Sessions 0–13):** 1,782 rows $\rightarrow$ 1,572 sequence windows ($L=16$).
+- **Validation Split (Sessions 14–18):** 626 rows $\rightarrow$ 551 sequence windows ($L=16$).
+- **Test Split (Sessions 19–23):** 682 rows $\rightarrow$ 607 sequence windows ($L=16$).
 
-| Signal | Interpretation | Caution |
-|---|---|---|
-| Out-of-range sensor value | Data-falsification evidence | Thresholds are configuration-specific |
-| High rolling publish rate | Excessive communication / battery-draining-like | Rate does not prove battery depletion |
-| Repeated payload | Replay-like evidence | Stationary sensors may repeat legitimately |
-| Original vs forwarded mismatch | Message-manipulation evidence | Topic-level simulation is not a full MITM |
-| Topic / endpoint / capture mapping | Localization context | May be missing or spoofable |
+### Strict Zero-Leakage Observable Feature Set
+All artificial injector watermarks (`has_tamper_flag`, `is_event_flood`) and internal simulator state variables (`observed_state`, `output_symbol`) are strictly quarantined. Exactly **14 observable features** available from raw network traffic are used:
 
-### Design principles
+| Feature Name | Description | Provenance / Type |
+| :--- | :--- | :--- |
+| `inter_arrival` | Time delta between consecutive packets ($\Delta t$) | Network timing |
+| `payload_size` | Length of MQTT payload in bytes | Packet header |
+| `qos` | MQTT Quality of Service flag ($0, 1, 2$) | MQTT header |
+| `seq_delta` | Monotonic sequence number difference ($\Delta\text{seq}$) | Network protocol |
+| `is_sensor_motion` | One-hot indicator: Motion Sensor topic | Network routing |
+| `is_sensor_temp` | One-hot indicator: Temperature Sensor topic | Network routing |
+| `is_sensor_ultrasonic` | One-hot indicator: Ultrasonic Sensor topic | Network routing |
+| `is_sensor_rfid` | One-hot indicator: RFID Sensor topic | Network routing |
+| `is_event_publish` | One-hot indicator: MQTT `PUBLISH` frame | MQTT frame type |
+| `is_event_alert` | One-hot indicator: MQTT alert topic suffix | MQTT topic syntax |
+| `is_event_heartbeat` | One-hot indicator: MQTT ping/heartbeat frame | MQTT frame type |
+| `is_event_connect` | One-hot indicator: MQTT `CONNECT`/handshake frame | MQTT frame type |
+| `numeric_reading` | Parsed physical floating-point payload value | Packet body |
+| `has_alert_flag` | Binary indicator parsed from payload message text | Packet body |
 
-- Repeated normal readings alone are **never** enough to declare an attack.
-- Malformed or missing payloads are handled safely.
-- IAT and payload size alone **cannot** identify a physical device.
-- When context is missing, the system reports **unknown / ambiguous** rather than inventing a location.
+Normalizers (`MaskedStandardScaler`) are fitted **strictly on the training split** and applied to validation and test splits without lookahead.
 
 ---
 
-## 📁 Repository Structure
+## 6. Deep Sequence Models: LSTM & BiLSTM
+
+Deep learning sequence architectures in [`ids/models_sequence.py`](ids/models_sequence.py) process sequence windows of shape `(batch, 16, 14)`:
+
+- **Optimizer:** `AdamW` (learning rate: $10^{-3}$, weight decay: $10^{-4}$).
+- **Early Stopping:** Monitored on **Validation Macro-F1** with patience of 5 epochs (maximum 50 epochs).
+- **Class Imbalance Handling:** Inverse-frequency class weighting applied during cross-entropy loss computation.
+- **Production Architecture:** `BiLSTMClassifier` achieved the highest validation Macro-F1 (**$0.9782$**), outperforming unidirectional LSTM ($0.9412 \pm 0.0210$).
+
+---
+
+## 7. Formal Diagnosis & Hybrid Adjudication
+
+The hybrid diagnosis engine ([`diagnosis_loc/hybrid_diagnosis.py`](diagnosis_loc/hybrid_diagnosis.py)) executes both tiers and adjudicates their findings into six formal outcomes:
+
+| Operational Outcome | Formal TFSM Tier | Deep Learning Tier | Diagnostic Action & System Verdict |
+| :--- | :---: | :---: | :--- |
+| `CONSENSUS` | Violation Detected | Attack Detected | Mutual concurrence. Full alert with DL classification and formal mutant localization. |
+| `FORMAL_VIOLATION_DL_NORMAL` | Violation Detected | Normal | **Safety-critical override.** Formal invariant proof takes precedence over statistical DL. |
+| `STATISTICAL_ANOMALY` | Conforming | Attack Detected | Early warning advisory. Flagged for review; formal protocol bounds still hold. |
+| `NOMINAL` | Conforming | Normal | Legitimate benign network operation confirmed by both tiers. |
+| `INSUFFICIENT_SEQUENCE` | Conforming / Evaluated | Insufficient Data ($N < 16$) | Sequence window too short; formal diagnosis runs autonomously. |
+| `MODEL_UNAVAILABLE` | Conforming / Evaluated | Checkpoint Disabled | Neural weights absent; formal TFSM operates with **zero degradation**. |
+
+---
+
+## 8. Testing & Verification Summary
+
+The complete codebase is validated by **144 automated unit tests across 14 test suites** and formal mutation testing:
 
 ```
-iot-ids-diagnosis/
-├── captures/          # PCAP captures and traffic mapping
-├── diagnosis_loc/     # Diagnosis and localization logic
-├── docs/              # Documentation, architecture, demonstration_plan.md
-├── features/          # Feature extraction and datasets
-├── ids/               # Baseline RF and LSTM / Transformer models and evaluation scripts
-├── models_fsm/        # Temperature and motion EFSM definitions and scenario mapping
-├── results/           # Metrics (JSON/CSV), confusion matrices, diagnosis records
-├── simulation/        # Simulated IoT devices, MQTT traffic and attack scenarios
-├── .gitignore
-└── README.md
+======================================================================
+1.  tests/test_fsm_sensors.py           21/21 PASS  [Four-sensor TFSM specifications]
+2.  tests/test_unified_simulator.py       8/8 PASS  [Discrete-event clock & MQTT stream]
+3.  tests/test_attack_injector.py         8/8 PASS  [Six attack injection scenarios]
+4.  tests/test_phase3_data.py           10/10 PASS  [MQTT dataset schema validation]
+5.  tests/test_stage3_dataset.py          9/9 PASS  [Four-sensor dataset generation]
+6.  tests/test_stage3b_baselines.py       3/3 PASS  [Tabular machine learning baselines]
+7.  tests/test_stage3b6_improvements.py   3/3 PASS  [Feature engineering & data metrics]
+8.  tests/test_stage3b6_runtime.py        5/5 PASS  [Execution latency & memory limits]
+9.  tests/test_stage3c_sequences.py       8/8 PASS  [Sequence windowing & batch loaders]
+10. tests/test_unified_diagnosis.py     16/16 PASS  [Formal conformance & fault localization]
+11. tests/test_stage5_dataset.py        14/14 PASS  [14-feature zero-leakage pipeline]
+12. tests/test_stage5_training.py         8/8 PASS  [Multi-seed sequence model training]
+13. tests/test_stage5_hybrid.py         15/15 PASS  [Two-tier adjudication & fallback]
+14. tests/test_stage6_integration.py    16/16 PASS  [End-to-end integration & scenario audit]
+----------------------------------------------------------------------
+TOTAL AUTOMATED TESTS:                 144/144 PASS (100% Pass Rate)
+FORMAL MUTANTS KILLED:                   59/59 KILLED (100% Kill Rate)
+======================================================================
 ```
-
-Selected scripts in `ids/`:
-
-| Script | Purpose |
-|---|---|
-| `predict_capture_attacks.py` | Run predictions on captures |
-| `evaluate_rules_on_captures.py` | Evaluate diagnosis rules on captures |
-| `final_evaluation.py` | Produce capture-level final evaluation |
-| `fix_capture_summary.py` | Repair or regenerate capture summaries |
-
-Key outputs in `results/`: `model_comparison.csv`, `final_capture_evaluation.json`, `final_capture_evaluation.csv`.
-
-> 📌 The raw dataset ZIP, PCAPs and large generated CSVs are **intentionally excluded from Git** because of their size.
 
 ---
 
-## 🚀 Getting Started
+## 9. Quickstart & Execution Guide
 
-### Prerequisites
+### Environment Setup
+Use Python 3.10 or newer in Windows Command Prompt (`cmd.exe`):
 
-| Component | Version used |
-|---|---|
-| Python | 3.11.9 |
-| Mosquitto (MQTT broker) | 2.1.2 (port 1883) |
-| Wireshark / TShark | 4.6.9 |
-| Libraries | pandas, NumPy, scikit-learn, PyTorch |
+```cmd
+:: 1. Navigate to project repository root
+cd /d c:\Users\cheru\Downloads\iot-ids-diagnosis\iot-ids-diagnosis
 
-### Installation (Windows / PowerShell)
+:: 2. Activate virtual environment
+call .venv_stage3c\Scripts\activate
 
-```powershell
-# 1. Clone the repository (use the simulation-setup branch for the latest work)
-git clone https://github.com/CherukuriRamCharan/iot-ids-diagnosis.git
-cd iot-ids-diagnosis
-git checkout simulation-setup
-
-# 2. Create and activate a virtual environment
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-
-# 3. Install dependencies
+:: 3. Install dependencies
 pip install -r requirements.txt
 ```
 
-> If `requirements.txt` is missing, install: `pandas numpy scikit-learn torch pytest`.
+### Verification & Demonstration Commands
 
----
+```cmd
+:: Run the full 144-test regression suite
+python -m unittest discover -s tests -v
 
-## ▶️ Usage
+:: Run formal TFSM mutation testing (verifies 59/59 mutants killed)
+python -m models_fsm.verify
 
-> Commands below are illustrative. Check `docs/demonstration_plan.md` for the exact, current steps.
+:: Run Stage 6 end-to-end integration audit
+python -m unittest tests.test_stage6_integration -v
 
-```powershell
-# Quick end-to-end sanity check
-python run_quick_validation.py
-
-# Run the full pipeline (check prerequisites first)
-.\run_pipeline.ps1
-
-# Inspect outputs
-Get-ChildItem .\results
-Import-Csv .\results\model_comparison.csv | Format-Table -AutoSize
-Get-Content .\results\final_capture_evaluation.json
+:: Run the top-level full system demonstration harness
+python run_full_system.py
 ```
 
-**To reproduce the local MQTT demo:** start Mosquitto → start TShark/Wireshark capture on port 1883 → run a simulator in `simulation/` (normal or one of the four attack-like scenarios) → run the diagnosis scripts on the resulting capture.
+---
+
+## 10. Research Scope & Limitations
+
+In the interest of rigorous scientific integrity, the following boundaries govern this project:
+1. **Software Simulation Scope:** All four sensor models (`motion`, `temperature`, `ultrasonic`, `rfid`) are deterministic Python software simulations conforming to Timed FSM definitions. No physical ESP32 microcontrollers or hardware sensor probes are used.
+2. **Simulated MQTT Protocol:** MQTT packet delivery, timestamps, QoS, and topics are simulated within the discrete-event simulator; traffic is not captured from an external physical broker (e.g., Mosquitto or EMQX).
+3. **Generated vs Base Paper Dataset:** The four-sensor dataset (3,090 samples) was synthesized specifically to test multi-sensor fault localization across heterogeneous devices; it is not the single-sensor dataset from the base paper.
+4. **Softmax Output Semantics:** Softmax output scores from Tier 1 neural networks reflect empirical model confidence, **not calibrated Bayesian probabilities**. The hybrid arbiter uses them strictly as empirical evidence and never elevates them to formal mathematical proofs.
+5. **No Production / Real-Time Claims:** The implementation is a research testbed designed for algorithmic validation and formal verification, not a certified production cyber-physical IDS.
 
 ---
 
-## 🧪 Testing
+## 11. Project Structure
 
-```powershell
-python -m pytest -q
-# 42 passed in 8.93s
+```text
+iot-ids-diagnosis/
+│
+├── models_fsm/                 # Formal Timed FSM Models & Mutation Testing
+│   ├── tfsm.py                 # Core Timed FSM Engine & Clock Evaluator
+│   ├── motion_sensor.py        # Motion Sensor Model (14 Mutants)
+│   ├── temperature_sensor.py   # Temperature Sensor Model (15 Mutants)
+│   ├── ultrasonic_sensor.py    # Ultrasonic Sensor Model (15 Mutants)
+│   ├── rfid_sensor.py          # RFID Reader Model (15 Mutants)
+│   └── verify.py               # Mutation Verification Test Harness (59/59)
+│
+├── simulation/                 # Discrete-Event Network Simulation
+│   ├── unified_simulator.py    # Multi-Sensor Simulator with Monotonic Clock
+│   └── attack_injector.py      # Sensor-Aware Injector for 6 Attack Scenarios
+│
+├── features/                   # Dataset Building & Feature Engineering
+│   └── build_unified_dataset.py # 24-Session Dataset Generator (3,090 Rows)
+│
+├── ids/                        # Deep Learning Sequence Models & Training
+│   ├── models_sequence.py      # LSTMClassifier & BiLSTMClassifier Architectures
+│   ├── datasets_four_sensors.py # 14-Feature Zero-Leakage Dataset & Sequence Loader
+│   ├── datasets_real.py        # MaskedStandardScaler & Feature Engineering
+│   └── train_four_sensors_sequences.py # Multi-Seed Training Engine & Early Stopping
+│
+├── diagnosis_loc/              # Formal Conformance & Hybrid Diagnosis
+│   ├── unified_diagnosis.py    # Per-Sensor Monitor & Mutant Fault Localizer
+│   └── hybrid_diagnosis.py     # Two-Tier Hybrid Adjudication Arbiter
+│
+├── datasets/
+│   └── generated/four_sensors/ # Generated Multi-Sensor Dataset & Manifest
+│       ├── four_sensors_dataset.csv
+│       └── dataset_manifest.json
+│
+├── docs/                       # Comprehensive Architecture & Audit Reports
+│   ├── FOUR_SENSOR_INTEGRATED_SYSTEM.md  # Complete System Specification
+│   ├── STAGE6_FINAL_INTEGRATION_REPORT.md # Final Integration & Audit Report
+│   ├── STAGE5_1_DATASET_REPORT.md         # Feature Provenance & Leakage Audit
+│   └── ...
+│
+├── tests/                      # Automated Unit & Integration Regression Suite
+│   ├── test_fsm_sensors.py     # 21 Tests: TFSM models & transitions
+│   ├── test_unified_simulator.py # 8 Tests: discrete-event simulator
+│   ├── test_attack_injector.py # 8 Tests: attack injection mechanics
+│   ├── test_phase3_data.py     # 10 Tests: raw dataset schema validation
+│   ├── test_stage3_dataset.py  # 9 Tests: four-sensor dataset builder
+│   ├── test_stage3b_baselines.py # 3 Tests: tabular ML baselines
+│   ├── test_stage3b6_improvements.py # 3 Tests: feature engineering
+│   ├── test_stage3b6_runtime.py # 5 Tests: runtime latency & limits
+│   ├── test_stage3c_sequences.py # 8 Tests: sequence windows & batching
+│   ├── test_unified_diagnosis.py # 16 Tests: formal diagnosis engine
+│   ├── test_stage5_dataset.py  # 14 Tests: 14 observable features loader
+│   ├── test_stage5_training.py # 8 Tests: multi-seed training & early stopping
+│   ├── test_stage5_hybrid.py   # 15 Tests: two-tier hybrid adjudication
+│   └── test_stage6_integration.py # 16 Tests: end-to-end integration audit
+│
+├── run_full_system.py          # Top-Level Integrated Demonstration CLI
+├── requirements.txt            # Python Dependencies
+└── .gitignore                  # Git Exclusion Rules (Protects Venvs & Secrets)
 ```
 
-Tests cover EFSM lifecycle transitions, boundary values, falsification and rate thresholds, replay-like evidence, message-pair comparison, malformed-payload safety, dataset schemas, label classes, model loading and sequence generation.
-
-> Passing unit tests show the code behaves as specified. They are **not** evidence of real-world attack-detection effectiveness.
-
 ---
 
-## ⚠️ Limitations (read before citing results)
+## 12. Authors & Acknowledgments
 
-1. **Only one benign capture** exists in the external dataset, so benign behaviour cannot be validated across independent captures.
-2. **Severe class imbalance**, especially Mirai (about 74% of all packets).
-3. **Labels come from capture filenames**, so they may not reflect attack mechanism or device identity.
-4. **Rows from the same capture are correlated**, so random packet splits risk leakage.
-5. **Models are not directly comparable:** the binary RF, five-class RF and sequence models use different tasks or splits.
-6. **Sequence-model test sets lack benign and MITM** sequences.
-7. **Local attacks are simulations**, not faithful real-world exploits. The MITM-like scenario works at topic level and the battery scenario measures publish rate only.
-8. **Diagnosis and localization accuracy were not independently quantified.** The 47 diagnosis records are not independent trials.
-9. **Capture-level 100% accuracy includes training captures.**
-
-This is a reproducible **research demonstration**, not a production-ready security product.
-
----
-
-## 🔮 Future Work
-
-- [ ] Collect multiple independent benign captures and more devices/flows
-- [ ] Use capture-grouped, class-complete splits for every model
-- [ ] Include benign and MITM sequences in sequence-model test sets
-- [ ] Report per-class confusion matrices, training time and inference latency
-- [ ] Measure diagnosis and localization accuracy separately against explicit ground truth
-- [ ] Run repeated seeded experiments with confidence intervals
-- [ ] Validate on a real network-path MITM testbed and physical IoT devices
-- [ ] Measure energy consumption before making battery-drain claims
-
----
-
-## 👥 Team
-
-| Name | Role |
-|---|---|
-| **Ch. Ram Charan** | Developer · [@CherukuriRamCharan](https://github.com/CherukuriRamCharan) |
-| **K. Varun** | Developer |
-| **A. Varun Satya** | Developer |
-
-**Project Guide:** Mr. A. Prashant, Assistant Professor, Dept. of CSE, Prasad V. Potluri Siddhartha Institute of Technology, Kanuru, Vijayawada, Andhra Pradesh · Academic Year 2026–2027
-
----
-
-## 📚 References
-
-1. Y. Kaddoura, K. El-Fakih, I. Zualkernan and A. Bhanpurawala, "Deep learning-based intrusion detection for IoT: an approach assisted by formal modeling and mutation testing," *Internet of Things*, vol. 38, art. 101958, 2026. [doi:10.1016/j.iot.2026.101958](https://doi.org/10.1016/j.iot.2026.101958)
-2. [MQTT specifications (OASIS)](https://mqtt.org/)
-3. [Wireshark / TShark documentation](https://www.wireshark.org/docs/)
-4. [Eclipse Mosquitto](https://mosquitto.org/)
-
----
-
-## 📄 License
-
-No license has been specified yet. Add a `LICENSE` file (for example MIT) to clarify reuse terms.
-
-<div align="center">
-
-⭐ If you find this project useful, consider starring the repository.
-
-</div>
+- **Author:** Cherukuri Ram Charan ([@CherukuriRamCharan](https://github.com/CherukuriRamCharan))
+- **Project Title:** *Attack Diagnosis and Localization in IoT Intrusion Detection Using Formal Modeling and Deep Learning*
+- **Academic Foundation:** Extends Kaddoura et al. (*Internet of Things*, Elsevier, 2026).

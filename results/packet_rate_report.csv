@@ -1,0 +1,6 @@
+capture_file,publish_packets,duration_seconds,average_rate_per_second,window_seconds,rate_threshold_publishes_per_window,max_publishes_in_10_seconds,rate_flagged_packets
+captures\normal\normal_temperature_motion_001.pcapng,103,50.738,2.03,10.0,20,20,0
+captures\attack\battery_draining_temperature_001.pcapng,100,5.045,19.822,10.0,20,100,80
+captures\attack\data_falsification_temperature_001.pcapng,5,4.005,1.248,10.0,20,5,0
+captures\attack\mitm_simulation.pcapng,20,4.013,4.984,10.0,20,20,0
+captures\attack\replay_temperature_001.pcapng,6,70.201,0.085,10.0,20,5,0

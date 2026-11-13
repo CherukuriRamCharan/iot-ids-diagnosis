@@ -1,0 +1,176 @@
+{
+  "model": "LSTM",
+  "task": "5-class sequence-level classification",
+  "features": [
+    "packet_length",
+    "iat_seconds",
+    "rolling_10s_pkt_rate",
+    "tcp_syn",
+    "tcp_ack",
+    "tcp_reset",
+    "udp_length"
+  ],
+  "iat_features_used": true,
+  "n_steps": 20,
+  "n_hidden": 64,
+  "n_layers": 2,
+  "dropout": 0.3,
+  "epochs": 30,
+  "batch_size": 256,
+  "lr": 0.001,
+  "train_captures": [
+    "dos-synflooding-4-dec.pcap",
+    "dos-synflooding-5-dec.pcap",
+    "dos-synflooding-6-dec.pcap",
+    "mirai-ackflooding-1-dec.pcap",
+    "mirai-ackflooding-3-dec.pcap",
+    "mirai-ackflooding-4-dec.pcap",
+    "mirai-hostbruteforce-1-dec.pcap",
+    "mirai-hostbruteforce-5-dec.pcap",
+    "mirai-httpflooding-1-dec.pcap",
+    "mirai-httpflooding-2-dec.pcap",
+    "mirai-httpflooding-3-dec.pcap",
+    "mirai-udpflooding-1-dec.pcap",
+    "mirai-udpflooding-2-dec.pcap",
+    "mirai-udpflooding-4-dec.pcap",
+    "mitm-arpspoofing-1-dec.pcap",
+    "mitm-arpspoofing-2-dec.pcap",
+    "mitm-arpspoofing-3-dec.pcap",
+    "mitm-arpspoofing-4-dec.pcap",
+    "mitm-arpspoofing-5-dec.pcap",
+    "mitm-arpspoofing-6-dec.pcap",
+    "scan-hostport-1-dec.pcap",
+    "scan-hostport-2-dec.pcap",
+    "scan-hostport-3-dec.pcap",
+    "scan-hostport-5-dec.pcap",
+    "scan-hostport-6-dec.pcap",
+    "scan-portos-2-dec.pcap",
+    "scan-portos-3-dec.pcap",
+    "scan-portos-4-dec.pcap",
+    "scan-portos-6-dec.pcap"
+  ],
+  "val_captures": [
+    "benign-dec.pcap",
+    "dos-synflooding-3-dec.pcap",
+    "mirai-hostbruteforce-2-dec.pcap",
+    "mirai-hostbruteforce-4-dec.pcap",
+    "mirai-httpflooding-4-dec.pcap",
+    "mirai-udpflooding-3-dec.pcap"
+  ],
+  "test_captures": [
+    "dos-synflooding-1-dec.pcap",
+    "dos-synflooding-2-dec.pcap",
+    "mirai-ackflooding-2-dec.pcap",
+    "mirai-hostbruteforce-3-dec.pcap",
+    "scan-hostport-4-dec.pcap",
+    "scan-portos-1-dec.pcap",
+    "scan-portos-5-dec.pcap"
+  ],
+  "train_sequences": 169255,
+  "val_sequences": 35886,
+  "test_sequences": 41867,
+  "classes": [
+    "benign",
+    "dos",
+    "mirai",
+    "mitm",
+    "scan"
+  ],
+  "classification_report": {
+    "benign": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "dos": {
+      "precision": 0.9003280586646083,
+      "recall": 0.780053502758736,
+      "f1-score": 0.8358864104631372,
+      "support": 11962.0
+    },
+    "mirai": {
+      "precision": 0.6547566371681416,
+      "recall": 0.4948169202474503,
+      "f1-score": 0.5636606037520236,
+      "support": 11962.0
+    },
+    "mitm": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "scan": {
+      "precision": 0.6517542924176176,
+      "recall": 0.6812127291980159,
+      "f1-score": 0.6661579965664768,
+      "support": 17943.0
+    },
+    "accuracy": 0.6561970048009171,
+    "macro avg": {
+      "precision": 0.4413677976500735,
+      "recall": 0.39121663044084043,
+      "f1-score": 0.41314100215632743,
+      "support": 41867.0
+    },
+    "weighted avg": {
+      "precision": 0.7236331812740504,
+      "recall": 0.6561970048009171,
+      "f1-score": 0.6853668597328217,
+      "support": 41867.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "benign",
+    "dos",
+    "mirai",
+    "mitm",
+    "scan"
+  ],
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      9331,
+      527,
+      304,
+      1800
+    ],
+    [
+      0,
+      191,
+      5919,
+      1121,
+      4731
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      842,
+      2594,
+      2284,
+      12223
+    ]
+  ],
+  "training_history": "predict_only",
+  "limitations": [
+    "Only one benign capture; benign class is underrepresented.",
+    "Window label is assigned by majority vote within N_STEPS packets.",
+    "With 42 captures, capture-level generalisation cannot be strongly claimed.",
+    "IAT features included.",
+    "Simulation attacks (replay, falsification) not in this dataset."
+  ]
+}

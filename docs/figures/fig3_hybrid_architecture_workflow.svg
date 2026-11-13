@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="100%" height="100%" style="background:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <!-- Header -->
+  <rect x="0" y="0" width="900" height="60" fill="#0f172a"/>
+  <text x="30" y="38" fill="#f8fafc" font-size="20" font-weight="700">Figure 3: Two-Tier Hybrid Intrusion Detection &amp; Fault Localization Architecture</text>
+
+  <!-- Top: Four Simulated Sensors -->
+  <rect x="50" y="80" width="800" height="50" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="450" y="105" fill="#1e293b" font-size="14" font-weight="700" text-anchor="middle">Four Software-Simulated Sensors (Timed Mealy FSM Models)</text>
+  <text x="450" y="122" fill="#64748b" font-size="11" text-anchor="middle">Motion (14 Mutants) | Temperature (15 Mutants) | Ultrasonic (15 Mutants) | RFID Reader (15 Mutants)</text>
+
+  <!-- Arrow down to Simulator -->
+  <line x1="450" y1="130" x2="450" y2="150" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Simulation Layer -->
+  <rect x="250" y="150" width="400" height="40" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="450" y="175" fill="#0369a1" font-size="13" font-weight="700" text-anchor="middle">Unified Simulator &amp; Sensor-Aware Attack Injector</text>
+
+  <!-- Split into Two Tiers -->
+  <line x1="450" y1="190" x2="450" y2="210" stroke="#64748b" stroke-width="2"/>
+  <line x1="250" y1="210" x2="650" y2="210" stroke="#64748b" stroke-width="2"/>
+  <line x1="250" y1="210" x2="250" y2="230" stroke="#64748b" stroke-width="2"/>
+  <line x1="650" y1="210" x2="650" y2="230" stroke="#64748b" stroke-width="2"/>
+
+  <!-- Tier 1: Statistical Sequence Modeling -->
+  <rect x="70" y="230" width="360" height="150" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="250" y="255" fill="#1d4ed8" font-size="14" font-weight="700" text-anchor="middle">TIER 1: Deep Sequence Classifier (BiLSTM)</text>
+  <line x1="90" y1="265" x2="410" y2="265" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="90" y="285" fill="#334155" font-size="11" font-weight="600">• Feature Extractor: 14 Audited Observable Features</text>
+  <text x="90" y="303" fill="#64748b" font-size="11">  (Strict Zero-Leakage: No injector watermarks, no TFSM states)</text>
+  <text x="90" y="321" fill="#334155" font-size="11" font-weight="600">• Sequence Builder: Sliding Windows (L = 16, Stride = 1)</text>
+  <text x="90" y="339" fill="#334155" font-size="11" font-weight="600">• Neural Output: Predicted Attack Category &amp; Softmax Score</text>
+  <text x="90" y="357" fill="#dc2626" font-size="11" font-style="italic">  [Empirical Pattern Recognition — Vulnerable to Minority Scarcity]</text>
+
+  <!-- Tier 2: Deterministic Formal TFSM -->
+  <rect x="470" y="230" width="360" height="150" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="650" y="255" fill="#15803d" font-size="14" font-weight="700" text-anchor="middle">TIER 2: Deterministic Conformance (TFSM)</text>
+  <line x1="490" y1="265" x2="810" y2="265" stroke="#bbf7d0" stroke-width="1"/>
+  <text x="490" y="285" fill="#334155" font-size="11" font-weight="600">• Sensor Monitors: Isolated Clock &amp; State Tracking</text>
+  <text x="490" y="303" fill="#64748b" font-size="11">  (Independent per-device runtimes; zero cross-talk)</text>
+  <text x="490" y="321" fill="#334155" font-size="11" font-weight="600">• Protocol Invariants: Sequence Monotonicity &amp; Physical Bounds</text>
+  <text x="490" y="339" fill="#334155" font-size="11" font-weight="600">• Formal Output: Conformance Status &amp; Candidate Fault Mutants</text>
+  <text x="490" y="357" fill="#15803d" font-size="11" font-style="italic">  [Mathematical Safety Proof — Invariant to Training Sample Count]</text>
+
+  <!-- Merge into Hybrid Arbiter -->
+  <line x1="250" y1="380" x2="250" y2="405" stroke="#64748b" stroke-width="2"/>
+  <line x1="650" y1="380" x2="650" y2="405" stroke="#64748b" stroke-width="2"/>
+  <line x1="250" y1="405" x2="650" y2="405" stroke="#64748b" stroke-width="2"/>
+  <line x1="450" y1="405" x2="450" y2="425" stroke="#64748b" stroke-width="2"/>
+
+  <!-- Hybrid Arbiter -->
+  <rect x="180" y="425" width="540" height="75" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="450" y="448" fill="#7e22ce" font-size="14" font-weight="700" text-anchor="middle">HYBRID ADJUDICATION ARBITER &amp; DIAGNOSIS ENGINE</text>
+  <text x="450" y="468" fill="#334155" font-size="11" text-anchor="middle">Non-Destructive Evidence Adjudication Across 6 Formal Operational Outcomes:</text>
+  <text x="450" y="486" fill="#6b21a8" font-size="11" font-weight="700" text-anchor="middle">CONSENSUS | FORMAL_VIOLATION_DL_NORMAL | STATISTICAL_ANOMALY | NOMINAL | INSUFFICIENT_SEQUENCE | MODEL_UNAVAILABLE</text>
+</svg>

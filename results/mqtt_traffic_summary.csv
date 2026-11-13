@@ -1,0 +1,6 @@
+capture_file,traffic_label,mqtt_packets,mqtt_publish_packets,unique_publish_topics,capture_duration_seconds,publish_duration_seconds,publish_packets_per_second
+captures\normal\normal_temperature_motion_001.pcapng,normal,103,103,iot/motion;iot/temperature,50.738,50.738,2.03
+captures\attack\battery_draining_temperature_001.pcapng,attack,203,100,iot/temperature,7.07,5.045,19.822
+captures\attack\data_falsification_temperature_001.pcapng,attack,13,5,iot/temperature,6.015,4.005,1.248
+captures\attack\mitm_simulation.pcapng,attack,50,20,iot/test/temperature/forwarded;iot/test/temperature/original,11.063,4.013,4.984
+captures\attack\replay_temperature_001.pcapng,attack,17,6,iot/temperature;iot/test,71.218,70.201,0.085

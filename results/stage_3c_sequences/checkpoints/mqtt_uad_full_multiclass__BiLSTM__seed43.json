@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "task_id": "mqtt_uad_full_multiclass",
+    "model_family": "BiLSTM",
+    "seed": 43,
+    "fast_mode": false,
+    "feature_names": [
+      "frame.time_delta",
+      "frame.time_delta_displayed",
+      "frame.cap_len",
+      "frame.len",
+      "has_ip",
+      "has_tcp",
+      "is_mqtt_port",
+      "has_mqtt",
+      "has_mqtt_topic",
+      "has_mqtt_msg",
+      "mqtt.msgtype",
+      "mqtt.len",
+      "mqtt.qos",
+      "mqtt.dupflag",
+      "mqtt.retain",
+      "mqtt.kalive",
+      "mqtt.ver",
+      "mqtt.proto_len",
+      "mqtt.clientid_len",
+      "mqtt.topic_len",
+      "mqtt.msgid",
+      "mqtt.sub.qos",
+      "mqtt.suback.qos",
+      "mqtt.conack.val",
+      "mqtt.conack.flags.reserved",
+      "mqtt.conack.flags.sp",
+      "mqtt.conflag.cleansess",
+      "mqtt.conflag.passwd",
+      "mqtt.conflag.qos",
+      "mqtt.conflag.reserved",
+      "mqtt.conflag.retain",
+      "mqtt.conflag.uname",
+      "mqtt.conflag.willflag"
+    ],
+    "class_names": [
+      "normal",
+      "DoS",
+      "mitm",
+      "intrusion"
+    ],
+    "split_sizes": [
+      200284,
+      42881,
+      42886
+    ]
+  },
+  "metrics": {
+    "accuracy": 0.9869654432681995,
+    "macro_precision": 0.6772852797894247,
+    "macro_recall": 0.8338066611870313,
+    "macro_f1": 0.7305925337980863,
+    "weighted_precision": 0.991256071255885,
+    "weighted_recall": 0.9869654432681995,
+    "weighted_f1": 0.9887840156195588,
+    "per_class": {
+      "normal": {
+        "precision": 0.9956275935054446,
+        "recall": 0.9892086330935251,
+        "f1": 0.9924077338404097,
+        "support": 36140
+      },
+      "DoS": {
+        "precision": 0.9945609945609946,
+        "recall": 0.9888751545117429,
+        "f1": 0.9917099248469823,
+        "support": 6472
+      },
+      "mitm": {
+        "precision": 0.23410404624277456,
+        "recall": 0.5,
+        "f1": 0.3188976377952756,
+        "support": 162
+      },
+      "intrusion": {
+        "precision": 0.48484848484848486,
+        "recall": 0.8571428571428571,
+        "f1": 0.6193548387096774,
+        "support": 112
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        35750,
+        31,
+        262,
+        97
+      ],
+      [
+        64,
+        6400,
+        3,
+        5
+      ],
+      [
+        80,
+        1,
+        81,
+        0
+      ],
+      [
+        13,
+        3,
+        0,
+        96
+      ]
+    ],
+    "balanced_accuracy": 0.8338066611870313,
+    "train_time_s": 960.4563591000042,
+    "inference_time_s": 3.1318732999789063,
+    "inference_ms_per_1k": 73.02787156598671,
+    "best_val_macro_f1": 0.8258816273901814,
+    "selected_config": {
+      "model_name": "BiLSTM",
+      "hidden_size": 64,
+      "num_layers": 2,
+      "dropout": 0.2,
+      "lr": 0.001
+    },
+    "task_id": "mqtt_uad_full_multiclass",
+    "model": "BiLSTM",
+    "seed": 43
+  },
+  "threshold_info": null
+}

@@ -1,0 +1,201 @@
+# MQTTset Dataset Audit
+
+Generated: 2026-11-12T13:20:14.182452
+
+Chunk size: 50,000
+
+Audit method: pandas chunked CSV inspection.
+
+This report describes observed files, not assumed dataset properties.
+
+## MQTTset.csv
+- File size: 243,912,366 bytes
+- SHA-256: 44d143e322036ab656844db43f5ea6508da891cd68ab9d82d59b875ed81fa918
+- Total data rows: 541,071
+- Columns (85):
+  - `Flow_ID` (object)
+  - `Src_IP` (object)
+  - `Src_Port` (int64)
+  - `Dst_IP` (object)
+  - `Dst_Port` (int64)
+  - `Protocol` (int64)
+  - `Timestamp` (object)
+  - `Flow_Duration` (int64)
+  - `Tot_Fwd_Pkts` (int64)
+  - `Tot_Bwd_Pkts` (int64)
+  - `TotLen_Fwd_Pkts` (float64)
+  - `TotLen_Bwd_Pkts` (float64)
+  - `Fwd_Pkt_Len_Max` (float64)
+  - `Fwd_Pkt_Len_Min` (float64)
+  - `Fwd_Pkt_Len_Mean` (float64)
+  - `Fwd_Pkt_Len_Std` (float64)
+  - `Bwd_Pkt_Len_Max` (float64)
+  - `Bwd_Pkt_Len_Min` (float64)
+  - `Bwd_Pkt_Len_Mean` (float64)
+  - `Bwd_Pkt_Len_Std` (float64)
+  - `Flow_Byts/s` (float64)
+  - `Flow_Pkts/s` (float64)
+  - `Flow_IAT_Mean` (float64)
+  - `Flow_IAT_Std` (float64)
+  - `Flow_IAT_Max` (float64)
+  - `Flow_IAT_Min` (float64)
+  - `Fwd_IAT_Tot` (float64)
+  - `Fwd_IAT_Mean` (float64)
+  - `Fwd_IAT_Std` (float64)
+  - `Fwd_IAT_Max` (float64)
+  - `Fwd_IAT_Min` (float64)
+  - `Bwd_IAT_Tot` (float64)
+  - `Bwd_IAT_Mean` (float64)
+  - `Bwd_IAT_Std` (float64)
+  - `Bwd_IAT_Max` (float64)
+  - `Bwd_IAT_Min` (float64)
+  - `Fwd_PSH_Flags` (int64)
+  - `Bwd_PSH_Flags` (int64)
+  - `Fwd_URG_Flags` (int64)
+  - `Bwd_URG_Flags` (int64)
+  - `Fwd_Header_Len` (int64)
+  - `Bwd_Header_Len` (int64)
+  - `Fwd_Pkts/s` (float64)
+  - `Bwd_Pkts/s` (float64)
+  - `Pkt_Len_Min` (float64)
+  - `Pkt_Len_Max` (float64)
+  - `Pkt_Len_Mean` (float64)
+  - `Pkt_Len_Std` (float64)
+  - `Pkt_Len_Var` (float64)
+  - `FIN_Flag_Cnt` (int64)
+  - `SYN_Flag_Cnt` (int64)
+  - `RST_Flag_Cnt` (int64)
+  - `PSH_Flag_Cnt` (int64)
+  - `ACK_Flag_Cnt` (int64)
+  - `URG_Flag_Cnt` (int64)
+  - `CWE_Flag_Count` (int64)
+  - `ECE_Flag_Cnt` (int64)
+  - `Down/Up_Ratio` (float64)
+  - `Pkt_Size_Avg` (float64)
+  - `Fwd_Seg_Size_Avg` (float64)
+  - `Bwd_Seg_Size_Avg` (float64)
+  - `Fwd_Byts/b_Avg` (int64)
+  - `Fwd_Pkts/b_Avg` (int64)
+  - `Fwd_Blk_Rate_Avg` (int64)
+  - `Bwd_Byts/b_Avg` (int64)
+  - `Bwd_Pkts/b_Avg` (int64)
+  - `Bwd_Blk_Rate_Avg` (int64)
+  - `Subflow_Fwd_Pkts` (int64)
+  - `Subflow_Fwd_Byts` (int64)
+  - `Subflow_Bwd_Pkts` (int64)
+  - `Subflow_Bwd_Byts` (int64)
+  - `Init_Fwd_Win_Byts` (int64)
+  - `Init_Bwd_Win_Byts` (int64)
+  - `Fwd_Act_Data_Pkts` (int64)
+  - `Fwd_Seg_Size_Min` (int64)
+  - `Active_Mean` (int64)
+  - `Active_Std` (int64)
+  - `Active_Max` (int64)
+  - `Active_Min` (int64)
+  - `Idle_Mean` (float64)
+  - `Idle_Std` (float64)
+  - `Idle_Max` (float64)
+  - `Idle_Min` (float64)
+  - `label` (object)
+  - `Cat` (object)
+- Missing values by column:
+  - `Flow_ID`: 0
+  - `Src_IP`: 0
+  - `Src_Port`: 0
+  - `Dst_IP`: 0
+  - `Dst_Port`: 0
+  - `Protocol`: 0
+  - `Timestamp`: 0
+  - `Flow_Duration`: 0
+  - `Tot_Fwd_Pkts`: 0
+  - `Tot_Bwd_Pkts`: 0
+  - `TotLen_Fwd_Pkts`: 0
+  - `TotLen_Bwd_Pkts`: 0
+  - `Fwd_Pkt_Len_Max`: 0
+  - `Fwd_Pkt_Len_Min`: 0
+  - `Fwd_Pkt_Len_Mean`: 0
+  - `Fwd_Pkt_Len_Std`: 0
+  - `Bwd_Pkt_Len_Max`: 0
+  - `Bwd_Pkt_Len_Min`: 0
+  - `Bwd_Pkt_Len_Mean`: 0
+  - `Bwd_Pkt_Len_Std`: 0
+  - `Flow_Byts/s`: 0
+  - `Flow_Pkts/s`: 0
+  - `Flow_IAT_Mean`: 0
+  - `Flow_IAT_Std`: 0
+  - `Flow_IAT_Max`: 0
+  - `Flow_IAT_Min`: 0
+  - `Fwd_IAT_Tot`: 0
+  - `Fwd_IAT_Mean`: 0
+  - `Fwd_IAT_Std`: 0
+  - `Fwd_IAT_Max`: 0
+  - `Fwd_IAT_Min`: 0
+  - `Bwd_IAT_Tot`: 0
+  - `Bwd_IAT_Mean`: 0
+  - `Bwd_IAT_Std`: 0
+  - `Bwd_IAT_Max`: 0
+  - `Bwd_IAT_Min`: 0
+  - `Fwd_PSH_Flags`: 0
+  - `Bwd_PSH_Flags`: 0
+  - `Fwd_URG_Flags`: 0
+  - `Bwd_URG_Flags`: 0
+  - `Fwd_Header_Len`: 0
+  - `Bwd_Header_Len`: 0
+  - `Fwd_Pkts/s`: 0
+  - `Bwd_Pkts/s`: 0
+  - `Pkt_Len_Min`: 0
+  - `Pkt_Len_Max`: 0
+  - `Pkt_Len_Mean`: 0
+  - `Pkt_Len_Std`: 0
+  - `Pkt_Len_Var`: 0
+  - `FIN_Flag_Cnt`: 0
+  - `SYN_Flag_Cnt`: 0
+  - `RST_Flag_Cnt`: 0
+  - `PSH_Flag_Cnt`: 0
+  - `ACK_Flag_Cnt`: 0
+  - `URG_Flag_Cnt`: 0
+  - `CWE_Flag_Count`: 0
+  - `ECE_Flag_Cnt`: 0
+  - `Down/Up_Ratio`: 0
+  - `Pkt_Size_Avg`: 0
+  - `Fwd_Seg_Size_Avg`: 0
+  - `Bwd_Seg_Size_Avg`: 0
+  - `Fwd_Byts/b_Avg`: 0
+  - `Fwd_Pkts/b_Avg`: 0
+  - `Fwd_Blk_Rate_Avg`: 0
+  - `Bwd_Byts/b_Avg`: 0
+  - `Bwd_Pkts/b_Avg`: 0
+  - `Bwd_Blk_Rate_Avg`: 0
+  - `Subflow_Fwd_Pkts`: 0
+  - `Subflow_Fwd_Byts`: 0
+  - `Subflow_Bwd_Pkts`: 0
+  - `Subflow_Bwd_Byts`: 0
+  - `Init_Fwd_Win_Byts`: 0
+  - `Init_Bwd_Win_Byts`: 0
+  - `Fwd_Act_Data_Pkts`: 0
+  - `Fwd_Seg_Size_Min`: 0
+  - `Active_Mean`: 0
+  - `Active_Std`: 0
+  - `Active_Max`: 0
+  - `Active_Min`: 0
+  - `Idle_Mean`: 0
+  - `Idle_Std`: 0
+  - `Idle_Max`: 0
+  - `Idle_Min`: 0
+  - `label`: 0
+  - `Cat`: 0
+- Duplicate rows within individual chunks: 9
+- Duplicate limitation: duplicates spanning different chunks were not checked.
+- Candidate label distributions:
+  - Column `label`:
+    - Normal: 440,699
+    - Anomaly: 100,372
+- First five data rows:
+```text
+                          Flow_ID          Src_IP  Src_Port      Dst_IP  Dst_Port  Protocol              Timestamp  Flow_Duration  Tot_Fwd_Pkts  Tot_Bwd_Pkts  TotLen_Fwd_Pkts  TotLen_Bwd_Pkts  Fwd_Pkt_Len_Max  Fwd_Pkt_Len_Min  Fwd_Pkt_Len_Mean  Fwd_Pkt_Len_Std  Bwd_Pkt_Len_Max  Bwd_Pkt_Len_Min  Bwd_Pkt_Len_Mean  Bwd_Pkt_Len_Std  Flow_Byts/s  Flow_Pkts/s  Flow_IAT_Mean  Flow_IAT_Std  Flow_IAT_Max  Flow_IAT_Min  Fwd_IAT_Tot  Fwd_IAT_Mean  Fwd_IAT_Std  Fwd_IAT_Max  Fwd_IAT_Min  Bwd_IAT_Tot  Bwd_IAT_Mean  Bwd_IAT_Std  Bwd_IAT_Max  Bwd_IAT_Min  Fwd_PSH_Flags  Bwd_PSH_Flags  Fwd_URG_Flags  Bwd_URG_Flags  Fwd_Header_Len  Bwd_Header_Len  Fwd_Pkts/s  Bwd_Pkts/s  Pkt_Len_Min  Pkt_Len_Max  Pkt_Len_Mean  Pkt_Len_Std  Pkt_Len_Var  FIN_Flag_Cnt  SYN_Flag_Cnt  RST_Flag_Cnt  PSH_Flag_Cnt  ACK_Flag_Cnt  URG_Flag_Cnt  CWE_Flag_Count  ECE_Flag_Cnt  Down/Up_Ratio  Pkt_Size_Avg  Fwd_Seg_Size_Avg  Bwd_Seg_Size_Avg  Fwd_Byts/b_Avg  Fwd_Pkts/b_Avg  Fwd_Blk_Rate_Avg  Bwd_Byts/b_Avg  Bwd_Pkts/b_Avg  Bwd_Blk_Rate_Avg  Subflow_Fwd_Pkts  Subflow_Fwd_Byts  Subflow_Bwd_Pkts  Subflow_Bwd_Byts  Init_Fwd_Win_Byts  Init_Bwd_Win_Byts  Fwd_Act_Data_Pkts  Fwd_Seg_Size_Min  Active_Mean  Active_Std  Active_Max  Active_Min  Idle_Mean  Idle_Std  Idle_Max  Idle_Min  label    Cat
+ 193.63.192.168-0.154.10.16-0-0-0  193.63.192.168         0 0.154.10.16         0         0 12/06/2020 03:50:47 PM        3999835             2             0              0.0              0.0              0.0              0.0               0.0              0.0              0.0              0.0               0.0              0.0          0.0     0.500021      3999835.0           0.0     3999835.0     3999835.0    3999835.0     3999835.0          0.0    3999835.0    3999835.0          0.0           0.0          0.0          0.0          0.0              0              0              0              0               0               0    0.500021         0.0          0.0          0.0           0.0          0.0          0.0             0             0             0             0             0             0               0             0            0.0           0.0               0.0               0.0               0               0                 0               0               0                 0                 1                 0                 0                 0                  0                  0                  0                 0            0           0           0           0        0.0       0.0       0.0       0.0 Normal Normal
+174.219.192.168-0.154.10.16-0-0-0 174.219.192.168         0 0.154.10.16         0         0 16/06/2020 04:17:53 AM        4000305             2             0              0.0              0.0              0.0              0.0               0.0              0.0              0.0              0.0               0.0              0.0          0.0     0.499962      4000305.0           0.0     4000305.0     4000305.0    4000305.0     4000305.0          0.0    4000305.0    4000305.0          0.0           0.0          0.0          0.0          0.0              0              0              0              0               0               0    0.499962         0.0          0.0          0.0           0.0          0.0          0.0             0             0             0             0             0             0               0             0            0.0           0.0               0.0               0.0               0               0                 0               0               0                 0                 1                 0                 0                 0                  0                  0                  0                 0            0           0           0           0        0.0       0.0       0.0       0.0 Normal Normal
+ 246.47.192.168-0.154.10.16-0-0-0  246.47.192.168         0 0.154.10.16         0         0 15/06/2020 08:37:17 AM        3999415             2             0              0.0              0.0              0.0              0.0               0.0              0.0              0.0              0.0               0.0              0.0          0.0     0.500073      3999415.0           0.0     3999415.0     3999415.0    3999415.0     3999415.0          0.0    3999415.0    3999415.0          0.0           0.0          0.0          0.0          0.0              0              0              0              0               0               0    0.500073         0.0          0.0          0.0           0.0          0.0          0.0             0             0             0             0             0             0               0             0            0.0           0.0               0.0               0.0               0               0                 0               0               0                 0                 1                 0                 0                 0                  0                  0                  0                 0            0           0           0           0        0.0       0.0       0.0       0.0 Normal Normal
+   58.0.192.168-0.154.10.16-0-0-0    58.0.192.168         0 0.154.10.16         0         0 15/06/2020 07:02:04 PM        4000344             2             0              0.0              0.0              0.0              0.0               0.0              0.0              0.0              0.0               0.0              0.0          0.0     0.499957      4000344.0           0.0     4000344.0     4000344.0    4000344.0     4000344.0          0.0    4000344.0    4000344.0          0.0           0.0          0.0          0.0          0.0              0              0              0              0               0               0    0.499957         0.0          0.0          0.0           0.0          0.0          0.0             0             0             0             0             0             0               0             0            0.0           0.0               0.0               0.0               0               0                 0               0               0                 0                 1                 0                 0                 0                  0                  0                  0                 0            0           0           0           0        0.0       0.0       0.0       0.0 Normal Normal
+ 60.216.192.168-0.174.10.16-0-0-0  60.216.192.168         0 0.174.10.16         0         0 18/06/2020 07:09:36 AM        4000344             2             0              0.0              0.0              0.0              0.0               0.0              0.0              0.0              0.0               0.0              0.0          0.0     0.499957      4000344.0           0.0     4000344.0     4000344.0    4000344.0     4000344.0          0.0    4000344.0    4000344.0          0.0           0.0          0.0          0.0          0.0              0              0              0              0               0               0    0.499957         0.0          0.0          0.0           0.0          0.0          0.0             0             0             0             0             0             0               0             0            0.0           0.0               0.0               0.0               0               0                 0               0               0                 0                 1                 0                 0                 0                  0                  0                  0                 0            0           0           0           0        0.0       0.0       0.0       0.0 Normal Normal
+```

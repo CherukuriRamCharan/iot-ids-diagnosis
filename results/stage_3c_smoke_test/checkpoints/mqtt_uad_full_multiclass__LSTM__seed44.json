@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "task_id": "mqtt_uad_full_multiclass",
+    "model_family": "LSTM",
+    "seed": 44,
+    "fast_mode": true,
+    "feature_names": [
+      "frame.time_delta",
+      "frame.time_delta_displayed",
+      "frame.cap_len",
+      "frame.len",
+      "has_ip",
+      "has_tcp",
+      "is_mqtt_port",
+      "has_mqtt",
+      "has_mqtt_topic",
+      "has_mqtt_msg",
+      "mqtt.msgtype",
+      "mqtt.len",
+      "mqtt.qos",
+      "mqtt.dupflag",
+      "mqtt.retain",
+      "mqtt.kalive",
+      "mqtt.ver",
+      "mqtt.proto_len",
+      "mqtt.clientid_len",
+      "mqtt.topic_len",
+      "mqtt.msgid",
+      "mqtt.sub.qos",
+      "mqtt.suback.qos",
+      "mqtt.conack.val",
+      "mqtt.conack.flags.reserved",
+      "mqtt.conack.flags.sp",
+      "mqtt.conflag.cleansess",
+      "mqtt.conflag.passwd",
+      "mqtt.conflag.qos",
+      "mqtt.conflag.reserved",
+      "mqtt.conflag.retain",
+      "mqtt.conflag.uname",
+      "mqtt.conflag.willflag"
+    ],
+    "class_names": [
+      "normal",
+      "DoS",
+      "mitm",
+      "intrusion"
+    ],
+    "split_sizes": [
+      4455,
+      1455,
+      1455
+    ]
+  },
+  "metrics": {
+    "accuracy": 0.8501718213058419,
+    "macro_precision": 0.73400512638616,
+    "macro_recall": 0.7833624925550924,
+    "macro_f1": 0.695400647750525,
+    "weighted_precision": 0.9425801652895192,
+    "weighted_recall": 0.8501718213058419,
+    "weighted_f1": 0.8833641968471211,
+    "per_class": {
+      "normal": {
+        "precision": 0.9609483960948396,
+        "recall": 0.7865296803652968,
+        "f1": 0.8650345260514752,
+        "support": 876
+      },
+      "DoS": {
+        "precision": 0.9958932238193019,
+        "recall": 1.0,
+        "f1": 0.9979423868312757,
+        "support": 485
+      },
+      "mitm": {
+        "precision": 0.8064516129032258,
+        "recall": 0.5208333333333334,
+        "f1": 0.6329113924050633,
+        "support": 48
+      },
+      "intrusion": {
+        "precision": 0.17272727272727273,
+        "recall": 0.8260869565217391,
+        "f1": 0.2857142857142857,
+        "support": 46
+      }
+    },
+    "absent_test_classes": [],
+    "confusion_matrix": [
+      [
+        689,
+        2,
+        6,
+        179
+      ],
+      [
+        0,
+        485,
+        0,
+        0
+      ],
+      [
+        20,
+        0,
+        25,
+        3
+      ],
+      [
+        8,
+        0,
+        0,
+        38
+      ]
+    ],
+    "balanced_accuracy": 0.7833624925550924,
+    "train_time_s": 0.9211728999798652,
+    "inference_time_s": 0.03491440002107993,
+    "inference_ms_per_1k": 23.996151217237067,
+    "best_val_macro_f1": 0.7598269510653298,
+    "selected_config": {
+      "model_name": "LSTM",
+      "hidden_size": 64,
+      "num_layers": 2,
+      "dropout": 0.2,
+      "lr": 0.001
+    },
+    "task_id": "mqtt_uad_full_multiclass",
+    "model": "LSTM",
+    "seed": 44
+  },
+  "threshold_info": null
+}
